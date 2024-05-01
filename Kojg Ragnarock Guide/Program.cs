@@ -1,10 +1,24 @@
+﻿using Kojg_Ragnarock_Guide.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.DependencyInjection;
 namespace Kojg_Ragnarock_Guide
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            //Add SQL DB
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<ExhibitionDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("RagnarockDbSql") ?? throw new InvalidOperationException("Connection string 'ExhibitionContext' not found.")));
+           
+            // add blob service 
+            var storageConnection = builder.Configuration["RagnarockDbStorage"];
+            builder.Services.AddAzureClients(azureBuilder =>
+            {
+                azureBuilder.AddBlobServiceClient(storageConnection);
+            });
 
             // Add services to the container.
             builder.Services.AddRazorPages();

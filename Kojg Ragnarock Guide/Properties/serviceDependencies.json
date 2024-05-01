@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "RagnarockDbStorage"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "RagnarockDbSql"
+    },
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:RagnarockDbSql",
+      "dynamicId": null
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ExhibitionContext",
+      "dynamicId": null
+    }
+  }
+}
