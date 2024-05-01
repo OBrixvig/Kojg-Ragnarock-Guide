@@ -12,7 +12,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         private readonly ExhibitionDbContext context;
 
         [BindProperty]
-        public ExhibitionDto exhibitionDto { get; set; } = new ExhibitionDto();
+        public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
 
         public CreateExhibitionModel(IWebHostEnvironment environment, ExhibitionDbContext context)
         {
@@ -29,9 +29,9 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
         public void OnPost() 
         {
-            if (exhibitionDto.PhotoFile == null)
+            if (ExhibitionDto.PhotoFile == null)
             {
-                ModelState.AddModelError("exhibitionDto.PhotoUrl", "Du er nød til at linke et billed");
+                ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nød til at uploade et billed");
             }
             if (!ModelState.IsValid)
             {
@@ -39,42 +39,36 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 return;
             }
 
-            //save Audio file
-            string newAudioFileName = Path.GetExtension(exhibitionDto.AudioFile!.FileName);
+            // save Image as a file
+            string newPhotoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            newPhotoFileName += Path.GetExtension(ExhibitionDto.PhotoFile!.FileName);
 
-            string AudioFullPath = environment.WebRootPath + "/exhibitions/" + newAudioFileName;
-            using (System.IO.FileStream stream = System.IO.File.Create(AudioFullPath))
+            string photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newPhotoFileName;
+            using (var stream = System.IO.File.Create(photoFullPath)) 
             {
-                exhibitionDto.AudioFile.CopyTo(stream);
-            }
-
-            //save Image as a file
-            string newPhotoFileName = Path.GetExtension(exhibitionDto.PhotoFile!.FileName);
-
-            string PhotoFullPath = environment.WebRootPath + "/exhibitions/" + newPhotoFileName;
-            using (System.IO.FileStream stream = System.IO.File.Create(PhotoFullPath)) 
-            {
-                exhibitionDto.PhotoFile.CopyTo(stream);
+                ExhibitionDto.PhotoFile.CopyTo(stream);
             }
 
             //save the new product in the datebase
             Exhibition exhibition = new Exhibition()
             {
-                Title = exhibitionDto.Title,
-                Description = exhibitionDto.Description ?? "",
-                PhotoFile =newPhotoFileName,
-                AudioFile =newAudioFileName,
+                Title = ExhibitionDto.Title,
+                Description = ExhibitionDto.Description ?? "",
+                Floor = ExhibitionDto.Floor,
+                PhotoFileName =newPhotoFileName,
+                
             };
 
             context.Exhibitions.Add(exhibition);
             context.SaveChanges();
 
             //Clear the form
-            exhibitionDto.Title = "";
-            exhibitionDto.Description = "";
-            exhibitionDto.AudioFile = null;
-            exhibitionDto.PhotoFile = null;
+            ExhibitionDto.Title = "";
+            ExhibitionDto.Description = "";
+            ExhibitionDto.Floor = "";
+            ExhibitionDto.PhotoFile = null;
             
+
             ModelState.Clear();
 
             _successMassage = "Udstilling er oprettet";

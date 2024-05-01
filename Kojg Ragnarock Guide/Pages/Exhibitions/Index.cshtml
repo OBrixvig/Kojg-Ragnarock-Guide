@@ -3,29 +3,39 @@
 @{
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
 
+<h2 class="text-center mb-5">Listen med alle udstillinger</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class='btn btn-primary' href="/Admin/CreateExhibition">Opret nyt</a>
+    </div>
+    <div class="col">
+    </div>
 </div>
+
 
 <table Class="table">
     <tr>
-        <th>Exhibidition ID</th>
+        <th>Udstilling nr</th>
         <th>Title</th>
-        <th>Description</th>
-        <th>Floor</th>
-        <th>Photo</th>
-        <th>Audio</th>
+        <th>Etage</th>
+        <th>Beskrivelse</th>
+        <th>Billed</th>
+        
     </tr>
-    @foreach (Models.Exhibition exhibitions in Model.Exhibitions)
+    @foreach (var exhibition in Model.Exhibitions)
     {
-       <tr>
-            <td>@exhibitions.ExhibitionId</td>
-            <td>@exhibitions.Title</td>
-            <td>@exhibitions.Floor</td>
-            <td>@exhibitions.Description</td>
-            <td><img scr="/exhibitions/@exhibitions.PhotoFile" width="200" /></td>
-            
-       </tr> 
+        <tr>
+            <td>@exhibition.Id</td>
+            <td>@exhibition.Title</td>
+            <td>@exhibition.Floor</td>
+            <td>@exhibition.Description</td>
+            <td><img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="100" alt="Du har ikke tilføjet et billed" /></td>
+            <td style="white-space:nowrap">
+                <a class="btn btn-primary btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                <a class="btn btn-primary btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
+            </td>
+        </tr>
     }
 </table>

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     [DbContext(typeof(ExhibitionDbContext))]
-    [Migration("20240430203151_ExhibitionDbMigration")]
-    partial class ExhibitionDbMigration
+    [Migration("20240501124433_Exhibition-Migration")]
+    partial class ExhibitionMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,25 +32,23 @@ namespace Kojg_Ragnarock_Guide.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AudioUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExhibitionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PhotoUrl")
+                    b.Property<string>("Floor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhotoFileName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(14)
-                        .HasColumnType("nvarchar(14)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 

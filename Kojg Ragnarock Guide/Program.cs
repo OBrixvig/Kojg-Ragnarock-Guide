@@ -13,12 +13,8 @@ namespace Kojg_Ragnarock_Guide
             builder.Services.AddDbContext<ExhibitionDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("RagnarockDbSql") ?? throw new InvalidOperationException("Connection string 'ExhibitionContext' not found.")));
            
-            // add blob service 
-            var storageConnection = builder.Configuration["RagnarockDbStorage"];
-            builder.Services.AddAzureClients(azureBuilder =>
-            {
-                azureBuilder.AddBlobServiceClient(storageConnection);
-            });
+            // add blob service Dont think we need it, was ment for audio
+         
 
             // Add services to the container.
             builder.Services.AddRazorPages();
