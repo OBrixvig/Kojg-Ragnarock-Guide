@@ -32,7 +32,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 return;
             }
 
-            Exhibition? exhibition = context.Exhibitions.Find(id);
+            var exhibition = context.Exhibitions.Find(id);
             if (exhibition == null)
             {
                 Response.Redirect("/Exhibitions/Index");
@@ -46,7 +46,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             Exhibition = exhibition;
         }
 
-        public void onPost(int? id)
+        public void OnPost(int? id)
         {
             if (id == null)
             {
@@ -87,13 +87,13 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             exhibition.Title = ExhibitionDto.Title;
             exhibition.Description = ExhibitionDto.Description ?? "";
             exhibition.Floor = ExhibitionDto.Floor;
-            exhibition.PhotoFileName = newPhotoFileName;
-
-            context.SaveChanges();
+            exhibition.PhotoFileName = newPhotoFileName;           
 
             Exhibition = exhibition;
 
             _successMessage = "Udstilling blev opdateret";
+
+            context.SaveChanges();
 
             Response.Redirect("/Exhibitions/Index");
             
