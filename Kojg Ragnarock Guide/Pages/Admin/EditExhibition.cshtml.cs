@@ -79,7 +79,6 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 {
                     ExhibitionDto.PhotoFile.CopyTo(stream);
                 }
-                
                 // delete old photo
                 string oldPhotoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibition.PhotoFileName;
                 System.IO.File.Delete(oldPhotoFullPath);
@@ -90,11 +89,10 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             exhibition.Floor = ExhibitionDto.Floor;
             exhibition.PhotoFileName = newPhotoFileName;
 
-            Exhibition = exhibition;
-
             context.SaveChanges();
 
-            
+            Exhibition = exhibition;
+
             _successMessage = "Udstilling blev opdateret";
 
             Response.Redirect("/Exhibitions/Index");
