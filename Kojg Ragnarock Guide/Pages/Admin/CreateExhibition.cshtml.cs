@@ -23,12 +23,12 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         public void OnGet()
         {
         }
-
+        // making some empty string massages i use in html razer pages lower i define them
         public string _errorMassage = "";
         public string _successMassage = "";
-
+        
         public void OnPost() 
-        {
+        {   // Code below calls some errors if photo or alle the reqired information is not fill out in form
             if (ExhibitionDto.PhotoFile == null)
             {
                 ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nød til at uploade et billed");
@@ -44,7 +44,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             newPhotoFileName += Path.GetExtension(ExhibitionDto.PhotoFile!.FileName);
 
             string photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newPhotoFileName;
-            using (var stream = System.IO.File.Create(photoFullPath)) 
+            using (FileStream? stream = System.IO.File.Create(photoFullPath)) 
             {
                 ExhibitionDto.PhotoFile.CopyTo(stream);
             }
@@ -58,7 +58,6 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 PhotoFileName =newPhotoFileName,
                 
             };
-
             context.Exhibitions.Add(exhibition);
             context.SaveChanges();
 

@@ -8,7 +8,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
     public class IndexModel : PageModel
     {
         private readonly ExhibitionDbContext context;
-
+        
         public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
 
         public IndexModel(ExhibitionDbContext context)

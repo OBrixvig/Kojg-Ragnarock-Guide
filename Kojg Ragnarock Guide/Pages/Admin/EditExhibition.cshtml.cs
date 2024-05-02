@@ -15,7 +15,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
 
         public Exhibition Exhibition { get; set; } = new Exhibition();
-
+        
         public string _errorMessage = "";
         public string _successMessage = "";
 
@@ -24,6 +24,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             this.environment = environment;
             this.context = context;
         }
+        // the OnGet() searches for the Id and Exhibition and return with the think i want to update
         public void OnGet(int? id)
         {
             if (id == null)
@@ -32,13 +33,13 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 return;
             }
 
-            var exhibition = context.Exhibitions.Find(id);
+            Exhibition? exhibition = context.Exhibitions.Find(id);
             if (exhibition == null)
             {
                 Response.Redirect("/Exhibitions/Index");
                 return;
             }
-
+            //return what i want to update
             ExhibitionDto.Title = exhibition.Title;
             ExhibitionDto.Description = exhibition.Description;
             ExhibitionDto.Floor = exhibition.Floor;
@@ -53,13 +54,14 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 Response.Redirect("/Exhibitions/Index");
                 return;
             }
+            // If ModelState is not valid, return error massage
             if (!ModelState.IsValid)
             {
                 _errorMessage = "Udfyld alle felter";
                 return;
             }
-
-            var exhibition = context.Exhibitions.Find(id);
+            // finds the the exhibition in the database 
+            Exhibition? exhibition = context.Exhibitions.Find(id);
             if(exhibition == null)
             {
                 Response.Redirect("/Exhibitions/Index");
@@ -70,12 +72,12 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             string newPhotoFileName = exhibition.PhotoFileName;
             if (ExhibitionDto.PhotoFile != null)
             {
-                // Important to get Timestamp or else it wont save the picture proper. dunno why
+                // Important to get Timestamp or else it wont save the picture properly
                 newPhotoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 newPhotoFileName += Path.GetExtension(ExhibitionDto.PhotoFile!.FileName);
-
+                // Saves the new picture chosen
                 string photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newPhotoFileName;
-                using (var stream = System.IO.File.Create(photoFullPath))
+                using (FileStream? stream = System.IO.File.Create(photoFullPath))
                 {
                     ExhibitionDto.PhotoFile.CopyTo(stream);
                 }

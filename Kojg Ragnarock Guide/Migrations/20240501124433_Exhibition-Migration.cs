@@ -33,5 +33,5 @@ namespace Kojg_Ragnarock_Guide.Migrations
             migrationBuilder.DropTable(
                 name: "Exhibitions");
         }
-    }
+    }       // Code above makes it possible to transfor data from program to sql server
 }
