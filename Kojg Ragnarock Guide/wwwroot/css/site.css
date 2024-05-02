@@ -20,3 +20,42 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.c-item {
+    height: 850px
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.testimonial-grid {
+    display: grid;
+    gap: 1.5rem;
+
+    padding-block: 2rem;
+    width: min-content (95%m 70rem);
+    margin-inline: auto;
+}
+
+.testimonial {
+    font-size: var(--fs-400);
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    background-color: blue;
+}
+.testimonial-2 {
+    font-size: var(--fs-400);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: brown;
+}
+.testimonial-3 {
+    font-size: var(--fs-400);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: blueviolet;
+}
