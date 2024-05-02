@@ -1,3 +1,5 @@
+using Kojg_Ragnarock_Guide.Models;
+using Kojg_Ragnarock_Guide.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,16 +7,19 @@ namespace Kojg_Ragnarock_Guide.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        
 
-        public IndexModel(ILogger<IndexModel> logger)
+        private readonly ExhibitionDbContext context;
+
+        public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
+
+        public IndexModel(ExhibitionDbContext context)
         {
-            _logger = logger;
+            this.context = context;
         }
-
         public void OnGet()
         {
-
+            Exhibitions = context.Exhibitions.OrderByDescending(E => E.Id).ToList();
         }
     }
 }
