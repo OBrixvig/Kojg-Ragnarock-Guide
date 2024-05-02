@@ -1,24 +1,37 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.scroll-parent {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-child {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
 }
 
 .c-item {
@@ -34,9 +47,10 @@ body {
 .testimonial-grid {
     display: grid;
     gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr)
 
     padding-block: 2rem;
-    width: min-content (95%m 70rem);
+    width: min(95%m 70rem);
     margin-inline: auto;
 }
 
@@ -44,18 +58,12 @@ body {
     font-size: var(--fs-400);
     padding: 2rem;
     border-radius: 0.5rem;
-
     background-color: blue;
 }
+
 .testimonial-2 {
     font-size: var(--fs-400);
     padding: 2rem;
     border-radius: 0.5rem;
     background-color: brown;
-}
-.testimonial-3 {
-    font-size: var(--fs-400);
-    padding: 2rem;
-    border-radius: 0.5rem;
-    background-color: blueviolet;
 }
