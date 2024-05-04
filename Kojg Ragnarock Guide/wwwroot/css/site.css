@@ -35,7 +35,7 @@ body {
 }
 
 .c-item {
-    height: 850px
+    height: 650px
 }
 
 .c-img {
@@ -47,23 +47,27 @@ body {
 .testimonial-grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr)
-
-    padding-block: 2rem;
-    width: min(95%m 70rem);
-    margin-inline: auto;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: aqua;
 }
 
 .testimonial {
-    font-size: var(--fs-400);
     padding: 2rem;
     border-radius: 0.5rem;
-    background-color: blue;
+    place-self: center;
 }
 
-.testimonial-2 {
-    font-size: var(--fs-400);
+    .testimonial:nth-child(3) {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+.åbningstider:first-child {
+    grid-column: span 4;
+    background-color: deeppink;
+}
+.åbningstider {
     padding: 2rem;
     border-radius: 0.5rem;
-    background-color: brown;
 }
