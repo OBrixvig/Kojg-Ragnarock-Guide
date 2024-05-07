@@ -4,104 +4,108 @@
     ViewData["Title"] = "Udstillinger";
 }
 
-<div id="FrontPageCarousel" class="carousel slide">
-    <div class="carousel-indicators">
-        @for (int i = 0; i < 4; i++)
-        {
-            if (i == 0)
-            {
-                <button type="button" data-bs-target="#FrontPageCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+<div class="scroll-parent">
+    <article class="scroll-child">
+        <div id="FrontPageCarousel" class="carousel slide">
+            <div class="carousel-indicators">
+                @for (int i = 0; i < 4; i++)
+                {
+                    if (i == 0)
+                    {
+                        <button type="button" data-bs-target="#FrontPageCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
 
-            }
-            else
-            {
-                <button type="button" data-bs-target="#FrontPageCarousel" data-bs-slide-to="@i"></button>
-            }
-        }
-    </div>
-    <div class="carousel-inner">
+                    }
+                    else
+                    {
+                        <button type="button" data-bs-target="#FrontPageCarousel" data-bs-slide-to="@i"></button>
+                    }
+                }
+            </div>
+            <div class="carousel-inner">
 
-        @for (int i = 0; i < Model.Exhibitions.Count; i++)
-        {
-            if (i == 0)
-            {
-                <div class="carousel-item active c-item">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 c-img" alt="3">
-                    <div class="carousel-caption">
-                        <h1>@Model.Exhibitions[i].Title</h1>
-                        <p>@Model.Exhibitions[i].Description</p>
-                        <a class="btn btn-primary" role="button" asp-page="/Exhibitions/Index">Se Udstilling</a>
-                    </div>
-                </div>
+                @for (int i = 0; i < 4; i++)
+                {
+                    if (i == 0)
+                    {
+                        <div class="carousel-item active c-item">
+                            <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 c-img" alt="3">
+                            <div class="carousel-caption">
+                                <h1>@Model.Exhibitions[i].Title</h1>
+                                <p>@Model.Exhibitions[i].Description</p>
+                                <a class="btn btn-primary" role="button" asp-page="/Exhibitions/Index">Se Udstilling</a>
+                            </div>
+                        </div>
 
-            }
-            else
-            {
-                <div class="carousel-item c-item">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 c-img" alt="3">
-                    <div class="carousel-caption">
-                        <h1>@Model.Exhibitions[i].Title</h1>
-                        <p>@Model.Exhibitions[i].Description</p>
-                        <a class="btn btn-primary" role="button" asp-page="/Exhibitions/Index">Se Udstilling</a>
-                    </div>
-                </div>
+                    }
+                    else
+                    {
+                        <div class="carousel-item c-item">
+                            <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 c-img" alt="3">
+                            <div class="carousel-caption">
+                                <h1>@Model.Exhibitions[i].Title</h1>
+                                <p>@Model.Exhibitions[i].Description</p>
+                                <a class="btn btn-primary" role="button" asp-page="/Exhibitions/Index">Se Udstilling</a>
+                            </div>
+                        </div>
 
-            }
-        }
-    </div>
+                    }
+                }
+            </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#FrontPageCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#FrontPageCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-<div class="testimonial-grid">
-    <article class="testimonial">
-        <div class="flex">
-            <h2>Adresse</h2>
-            <p>Rabalderstræde 16, Musicon</p>
-            <p>4000 Roskilde</p>
+            <button class="carousel-control-prev" type="button" data-bs-target="#FrontPageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#FrontPageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </article>
-    <article class="testimonial">
-        <div class="flex">
-            <h2>Kontakt os</h2>
-            <p>ragnarock@romu.dk</p>
-            <p>+45 46 31 68 54</p>
-        </div>
-    </article>
-    <div class="testimonial">
-        <div class="testimonial-2">
-            <h2>Åbnings Tider</h2>
-            <article class="testimonial-3">
+
+    <article class="scroll-child">
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="flex">
+                    <h2>Adresse</h2>
+                    <p>Rabalderstræde 16, Musicon</p>
+                    <p>4000 Roskilde</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="flex">
+                    <h2>Kontakt os</h2>
+                    <p>ragnarock@romu.dk</p>
+                    <p>+45 46 31 68 54</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="flex">
+                    <h3>Åbningstider</h3>
+                </div>
+            </div>
+            <div class="testimonial">
                 <div class="flex">
                     <h3>2/1/2024 – 1/6/2024</h3>
                     <p<>Tirsdag – søndag, samt helligdage: 10.00-17.00</p>
                     <p<>Onsdag: 10.00-20.00</p>
                     <p<>Tillige mandage i uge 7, 8 og 13</p>
-
                 </div>
-            </article>
-            <article class="testimonial-3">
+            </div>
+            <div class="testimonial">
                 <div class="flex">
                     <h3>1/7/2024 – 11/8/2024</h3>
                     <p<>Mandag – søndag: 10.00-17.00</p>
                     <p<>Onsdag: 10.00-20.00</p>
                 </div>
-            </article>
-            <article class="testimonial-3">
+            </div>
+            <div class="testimonial">
                 <div class="flex">
                     <h3>12/8/2024 – 22/12/2024</h3>
                     <p<>Tirsdag – søndag, samt helligdage: 10.00-17.00</p>
                     <p<>Onsdag: 10.00-20.00</p>
-                    ´
                 </div>
-            </article>
-
+            </div>
         </div>
-    </div>
+    </article>
 </div>

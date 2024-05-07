@@ -1,39 +1,49 @@
 ﻿@page
+@using System.Runtime.InteropServices
+@using Microsoft.EntityFrameworkCore.Infrastructure.Internal
 @model Kojg_Ragnarock_Guide.Pages.Exhibitions.IndexModel
 @{
 }
 
 @*Må ikke slette denne div*@
 <div class="container">
+
     <h2 class="text-center mb-5">Listen med alle udstillinger</h2>
 
-    <div class="row mb-5">
-        <div class="col">
-            <a class='btn btn-primary' href="/Admin/CreateExhibition">Opret nyt</a>
+    <a class='btn btn-success' href="/Admin/CreateExhibition">Opret nyt</a>
+
+    <div class="udstilling-grid">
+        <div class="udstilling">
+            <div class="list-group">
+                @foreach (var exhibition in Model.Exhibitions)
+                {
+                    <button onclick="play_Audio()" type="button" class="list-group-item list-group-item-action">
+                        @exhibition.Id <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" /> @exhibition.Title
+                        <td style="white-space: nowrap">
+                            <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                            <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
+                        </td>
+                    </button>
+                }
+            </div>
         </div>
-        <div class="col">
+        <div class="udstilling">
+            <td><img src="Plantegninger/TestPlanTegning.jpg" width="280" height="400" alt="Du har ikke tilføjet et billed" /></td>
         </div>
     </div>
+    <audio controls id="idAudio">
+        <source src="/Audio/horse.ogv" type="audio/ogg">
+    </audio>
 
-<table Class="table">
-    <tr>
-        <th>Exhibidition ID</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Floor</th>
-        <th>Photo</th>
-       
-    </tr>
-    @foreach (Models.Exhibition exhibitions in Model.Exhibitions)
-    {
-       <tr>
-            <td>@exhibitions.ExhibitionId</td>
-            <td>@exhibitions.Title</td>
-            <td>@exhibitions.Floor</td>
-            <td>@exhibitions.Description</td>
-            <td><img scr="/exhibitions/@exhibitions.PhotoFile" width="200" /></td>
-                                                                       
-            
-       </tr> 
-    }
-</table>
+    <script>
+        var GFG = document.getElementById("idAudio");
+
+        function play_Audio() {
+            GFG.play();
+        }
+
+        function pause_Audio() {
+            GFG.pause();
+        }
+    </script>
+</div>
