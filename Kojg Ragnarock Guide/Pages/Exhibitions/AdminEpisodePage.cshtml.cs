@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
 {
-    public class IndexModel : PageModel
+    public class AdminEpisodePage : PageModel
     {
         private readonly ExhibitionDbContext context;
         
         public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
 
-        public IndexModel(ExhibitionDbContext context)
+        public AdminEpisodePage(ExhibitionDbContext context)
         {
             this.context = context;
         }
