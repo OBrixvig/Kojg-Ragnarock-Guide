@@ -29,14 +29,14 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         {
             if (id == null)
             {
-                Response.Redirect("/Exhibitions/Index");
+                Response.Redirect("/Exhibitions/AdminEpisodePage");
                 return;
             }
 
             Exhibition? exhibition = context.Exhibitions.Find(id);
             if (exhibition == null)
             {
-                Response.Redirect("/Exhibitions/Index");
+                Response.Redirect("/Exhibitions/AdminEpisodePage");
                 return;
             }
             //return what i want to update
@@ -51,7 +51,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         {
             if (id == null)
             {
-                Response.Redirect("/Exhibitions/Index");
+                Response.Redirect("/Exhibitions/AdminEpisodePage");
                 return;
             }
             // If ModelState is not valid, return error massage
@@ -64,7 +64,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             Exhibition? exhibition = context.Exhibitions.Find(id);
             if(exhibition == null)
             {
-                Response.Redirect("/Exhibitions/Index");
+                Response.Redirect("/Exhibitions/AdminEpisodePage");
                 return;
             }
 
@@ -116,7 +116,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             context.SaveChanges();
 
-            Response.Redirect("/Exhibitions/Index");
+            Response.Redirect("/Exhibitions/AdminEpisodePage");
             
         }
     }

@@ -86,7 +86,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             _successMassage = "Udstilling er oprettet";
 
-            Response.Redirect("/Exhibitions/Index");
+            Response.Redirect("/Exhibitions/AdminEpisodePage");
         }
     }
 }
