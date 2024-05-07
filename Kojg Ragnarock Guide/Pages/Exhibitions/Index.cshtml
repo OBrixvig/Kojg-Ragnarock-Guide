@@ -15,30 +15,15 @@
     <div class="udstilling-grid">
         <div class="udstilling">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action">A second button item</button>
-            </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
                 @foreach (var exhibition in Model.Exhibitions)
                 {
-                    <div class="accordion-item">
-                        <h2 class="accordaion-header">
-                            <button onclick="play_Audio()" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                @exhibition.Id <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed"/> @exhibition.Title
-                                <td style="white-space: nowrap">
-                                    <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
-                                    <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
-                                </td>
-                            </button>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <p>@exhibition.Floor</p>
-                                    <br/>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </h2>
-
-                    </div>
+                    <button onclick="play_Audio()" type="button" class="list-group-item list-group-item-action">
+                        @exhibition.Id <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" /> @exhibition.Title
+                        <td style="white-space: nowrap">
+                            <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                            <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
+                        </td>
+                    </button>
                 }
             </div>
         </div>
