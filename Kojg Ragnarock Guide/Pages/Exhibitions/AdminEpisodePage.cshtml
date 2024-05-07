@@ -15,11 +15,7 @@
             <ul class="list-group list-group-flush">
                 @foreach (var exhibition in Model.Exhibitions)
                 {
-                   
-                        <li class="list-group-item">
-                    @exhibition.Id
-                        <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" />
-                    @exhibition.Title
+                        <li class="list-group-item"> @exhibition.Id <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" /> @exhibition.Title
                         <audio controls>
                             <source src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/ogg">
                         </audio
@@ -27,31 +23,10 @@
                             <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
                             <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
                         </td>
-                    
-                    </li>
-                    
+                    </li> 
                 }
             </ul>
         </div>
-        <div class="udstilling">
-            <td><img src="Plantegninger/TestPlanTegning.jpg" width="280" height="400" alt="Du har ikke tilføjet et billed" /></td>
-        </div>
-    </div>
-    <audio controls id="idAudio">
-        <source src="/Audio/horse.ogv" type="audio/ogg">
-    </audio>
-
-    <script>
-        var GFG = document.getElementById("idAudio");
-
-        function play_Audio() {
-            GFG.play();
-        }
-
-        function pause_Audio() {
-            GFG.pause();
-        }
-    </script>
 </div>
 </div>
 
