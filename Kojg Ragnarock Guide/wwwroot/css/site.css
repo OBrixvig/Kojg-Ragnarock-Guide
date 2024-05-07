@@ -35,7 +35,7 @@ body {
 }
 
 .c-item {
-    height: 650px
+    height: 90vh;
 }
 
 .c-img {
@@ -47,27 +47,54 @@ body {
 .testimonial-grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr);
-    background-color: aqua;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 0.5fr);
 }
 
 .testimonial {
+    grid-column: span 2;
+    grid-row-start: 4;
     padding: 2rem;
     border-radius: 0.5rem;
     place-self: center;
 }
 
-    .testimonial:nth-child(3) {
-        grid-column: span 2;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+    .testimonial:nth-child(1) {
+        grid-row-start: 1;
+        grid-column: span 3;
     }
-.åbningstider:first-child {
-    grid-column: span 4;
-    background-color: deeppink;
+
+    .testimonial:nth-child(2) {
+        grid-row-start: 1;
+        grid-column: span 3;
+    }
+
+    .testimonial:nth-child(3) {
+        grid-row-start: 3;
+        grid-column: span 6;
+    }
+
+    .testimonial:nth-child(4) {
+        grid-column-start: 2;
+    }
+
+    .testimonial:nth-child(6) {
+        grid-column-start: 5;
+    }
+
+.udstilling-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
 }
-.åbningstider {
+
+.udstilling {
     padding: 2rem;
-    border-radius: 0.5rem;
 }
+audio {
+    width: 100%;
+}
+
++ Exhibition index design set + Design needs to be fine tuned
+-currently playing functions needs ro be implemented
+-audio from database missing

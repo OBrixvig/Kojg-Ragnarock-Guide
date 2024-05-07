@@ -13,7 +13,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\FrontPagePhotos\" />
+    <Folder Include="wwwroot\FrontPageImages\" />
   </ItemGroup>
 
   <ItemGroup>
