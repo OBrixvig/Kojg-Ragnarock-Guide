@@ -3,33 +3,35 @@
 @{
 }
 <h1>Etage 2</h1>
-<a class='btn btn-success' href="/Admin/CreateExhibition">Opret nyt</a>
 
 <div class="udstilling-grid">
     <div class="udstilling">
-        <div class="list-group">
-            @foreach (var exhibition in Model.Exhibitions)
+        <ul class="list-group list-group-flush">
+        @foreach (var exhibition in Model.Exhibitions)
+        {
+            if (exhibition.Floor == "2")
             {
-                if (exhibition.Floor == "2")
-                {
-                    <button onclick="play_Audio()" type="button" class="list-group-item list-group-item-action">
-                        @exhibition.Id <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" /> @exhibition.Title
-                        <td style="white-space: nowrap">
-                            <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
-                            <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
-                        </td>
-                    </button>
-                }
+                    <li class="list-group-item">
+                    @exhibition.Id
+                        <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" />
+                    @exhibition.Title
+                        <audio controls>
+                            <source src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/ogg">
+                        </audio
+                    
+                    </li>
             }
-        </div>
+        }
+        </ul>
     </div>
     <div class="udstilling">
         <td><img src="Plantegninger/TestPlanTegning.jpg" width="280" height="400" alt="Du har ikke tilføjet et billed" /></td>
     </div>
 </div>
-<audio controls id="idAudio">
-    <source src="/Audio/horse.ogv" type="audio/ogg">
-</audio>
+
+
+
+
 
 <script>
     var GFG = document.getElementById("idAudio");
