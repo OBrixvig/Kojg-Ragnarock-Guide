@@ -15,29 +15,25 @@
         </div>
     </div>
 
-
-    <table Class="table">
-        <tr>
-            <th>Udstilling nr</th>
-            <th>Title</th>
-            <th>Etage</th>
-            <th>Beskrivelse</th>
-            <th>Billed</th>
-
-        </tr>
-        @foreach (var exhibition in Model.Exhibitions)
-        {
-            <tr>
-                <td>@exhibition.Id</td>
-                <td>@exhibition.Title</td>
-                <td>@exhibition.Floor</td>
-                <td>@exhibition.Description</td>
-                <td><img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="100" alt="Du har ikke tilføjet et billed" /></td>
-                <td style="white-space:nowrap">
-                    <a class="btn btn-primary btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
-                    <a class="btn btn-primary btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
-                </td>
-            </tr>
-        }
-    </table>
-</div>
+<table Class="table">
+    <tr>
+        <th>Exhibidition ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Floor</th>
+        <th>Photo</th>
+       
+    </tr>
+    @foreach (Models.Exhibition exhibitions in Model.Exhibitions)
+    {
+       <tr>
+            <td>@exhibitions.ExhibitionId</td>
+            <td>@exhibitions.Title</td>
+            <td>@exhibitions.Floor</td>
+            <td>@exhibitions.Description</td>
+            <td><img scr="/exhibitions/@exhibitions.PhotoFile" width="200" /></td>
+                                                                       
+            
+       </tr> 
+    }
+</table>
