@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     /// <inheritdoc />
-    public partial class AppMigration : Migration
+    public partial class AppUserMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,9 +30,12 @@ namespace Kojg_Ragnarock_Guide.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -48,6 +51,23 @@ namespace Kojg_Ragnarock_Guide.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Exhibitions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhotoFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AudioFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Floor = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exhibitions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +233,9 @@ namespace Kojg_Ragnarock_Guide.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Exhibitions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
