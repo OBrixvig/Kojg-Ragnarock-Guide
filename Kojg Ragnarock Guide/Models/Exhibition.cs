@@ -10,7 +10,8 @@ namespace Kojg_Ragnarock_Guide.Models
         public string Description { get; set; } = "";
         [MaxLength(100)]
         public string PhotoFileName { get; set; } = "";
- //       public string AudioFileName { get; set; } = "";
+        [MaxLength(100)]
+        public string AudioFileName { get; set; } = "";
 
         public string Floor { get; set; } = "";
     }

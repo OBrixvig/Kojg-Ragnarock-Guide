@@ -1,9 +1,10 @@
 ﻿using Kojg_Ragnarock_Guide.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Kojg_Ragnarock_Guide.Services
 {
-    public class ExhibitionDbContext : DbContext 
+    public class ExhibitionDbContext :  IdentityDbContext
     {
         public ExhibitionDbContext(DbContextOptions options) : base(options)
         {

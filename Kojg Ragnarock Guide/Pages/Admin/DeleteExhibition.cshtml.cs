@@ -30,9 +30,14 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 Response.Redirect("/Exhibitions/Index");
                 return;
             }
+
+            // Deletes Audio
+            string audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibidition.AudioFileName;
+            System.IO.File.Delete(audioFullPath);
+
             // Deletes Photo
-            string imageFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibidition.PhotoFileName;
-            System.IO.File.Delete(imageFullPath);
+            string photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibidition.PhotoFileName;
+            System.IO.File.Delete(photoFullPath);
 
             //Deletes the the rest of the objekt
             context.Exhibitions.Remove(exhibidition);

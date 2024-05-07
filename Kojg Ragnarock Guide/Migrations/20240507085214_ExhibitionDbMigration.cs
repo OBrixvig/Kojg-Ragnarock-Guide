@@ -5,7 +5,7 @@
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     /// <inheritdoc />
-    public partial class ExhibitionMigration : Migration
+    public partial class ExhibitionDbMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,6 +19,7 @@ namespace Kojg_Ragnarock_Guide.Migrations
                     Title = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhotoFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AudioFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Floor = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -33,5 +34,5 @@ namespace Kojg_Ragnarock_Guide.Migrations
             migrationBuilder.DropTable(
                 name: "Exhibitions");
         }
-    }       // Code above makes it possible to transfor data from program to sql server
+    }
 }

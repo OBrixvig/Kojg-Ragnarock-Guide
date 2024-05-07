@@ -9,17 +9,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Interfaces\" />
+    <Compile Remove="Data\**" />
+    <Compile Remove="Helpers\**" />
+    <Compile Remove="Interfaces\**" />
+    <Content Remove="Data\**" />
+    <Content Remove="Helpers\**" />
+    <Content Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <None Remove="Data\**" />
+    <None Remove="Helpers\**" />
+    <None Remove="Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\FrontPagePhotos\" />
+    <Folder Include="wwwroot\exhibitionAudios\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.13.1" />
     <PackageReference Include="Azure.Storage.Files.Shares" Version="12.1.0" />
     <PackageReference Include="Azure.Storage.Queues" Version="12.11.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>

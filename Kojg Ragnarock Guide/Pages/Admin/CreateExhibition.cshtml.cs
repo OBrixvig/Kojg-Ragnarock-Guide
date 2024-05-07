@@ -33,10 +33,24 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             {
                 ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nød til at uploade et billed");
             }
+            if (ExhibitionDto.AudioFile == null)
+            {
+                ModelState.AddModelError("ExhibitionDto.AudioFile", "Du er nød til at uploade mp3 lydfil");
+            }
             if (!ModelState.IsValid)
             {
                 _errorMassage = "Udfyld venligst alle ledige felter";
                 return;
+            }
+
+            // save Audio as a file
+            string newAudioFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            newAudioFileName += Path.GetExtension(ExhibitionDto.AudioFile!.FileName);
+
+            string audioFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newAudioFileName;
+            using (FileStream? stream = System.IO.File.Create(audioFullPath))
+            {
+                ExhibitionDto.AudioFile.CopyTo(stream);
             }
 
             // save Image as a file
@@ -56,7 +70,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 Description = ExhibitionDto.Description ?? "",
                 Floor = ExhibitionDto.Floor,
                 PhotoFileName =newPhotoFileName,
-                
+                AudioFileName =newAudioFileName,
             };
             context.Exhibitions.Add(exhibition);
             context.SaveChanges();
@@ -66,7 +80,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             ExhibitionDto.Description = "";
             ExhibitionDto.Floor = "";
             ExhibitionDto.PhotoFile = null;
-            
+            ExhibitionDto.AudioFile = null;
 
             ModelState.Clear();
 
