@@ -68,6 +68,24 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 return;
             }
 
+            // Update Audio If we have a new one
+            string newAudioFileName = exhibition.AudioFileName;
+            if (ExhibitionDto.AudioFile != null)
+            {
+                // Important to get Timestamp or else it wont save the picture properly
+                newAudioFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+                newAudioFileName += Path.GetExtension(ExhibitionDto.AudioFile!.FileName);
+                // Saves the new audio chosen
+                string audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + newAudioFileName;
+                using (FileStream? stream = System.IO.File.Create(audioFullPath))
+                {
+                    ExhibitionDto.AudioFile.CopyTo(stream);
+                }
+                // delete old audio
+                string oldAudioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibition.AudioFileName;
+                System.IO.File.Delete(oldAudioFullPath);
+            }
+
             // Update Photo If we have a new one
             string newPhotoFileName = exhibition.PhotoFileName;
             if (ExhibitionDto.PhotoFile != null)
@@ -89,7 +107,8 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             exhibition.Title = ExhibitionDto.Title;
             exhibition.Description = ExhibitionDto.Description ?? "";
             exhibition.Floor = ExhibitionDto.Floor;
-            exhibition.PhotoFileName = newPhotoFileName;           
+            exhibition.PhotoFileName = newPhotoFileName;
+            exhibition.AudioFileName = newAudioFileName;
 
             Exhibition = exhibition;
 

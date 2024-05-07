@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     [DbContext(typeof(ExhibitionDbContext))]
-    [Migration("20240501124433_Exhibition-Migration")]
-    partial class ExhibitionMigration
+    [Migration("20240507085214_ExhibitionDbMigration")]
+    partial class ExhibitionDbMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,11 @@ namespace Kojg_Ragnarock_Guide.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AudioFileName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Description")
                         .IsRequired()
