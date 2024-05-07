@@ -47,7 +47,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             string newAudioFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             newAudioFileName += Path.GetExtension(ExhibitionDto.AudioFile!.FileName);
 
-            string audioFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newAudioFileName;
+            string audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + newAudioFileName;
             using (FileStream? stream = System.IO.File.Create(audioFullPath))
             {
                 ExhibitionDto.AudioFile.CopyTo(stream);
