@@ -13,12 +13,16 @@
                     if (exhibition.Floor == "2")
                     {
                         <div class="Episode">
+
                             <article class="EpisodeIdTitle">
                                 <p class="EpisodeId">@exhibition.Id-</p>   <p class="EpisodeTitle">@exhibition.Title></p>
                             </article>
                             <hr class="EpisodeTop-Line">
+
                             <img class="EpisodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
+
                             <p class="EpisodeDescription">@exhibition.Description</p>
+
                             <audio controls class="EpisodeSoundFile">
                                 <source src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/ogg">
                             </audio>
