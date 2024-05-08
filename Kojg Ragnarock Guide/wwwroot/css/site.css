@@ -91,7 +91,34 @@ body {
 .udstilling {
     padding: 2rem;
 }
+
+.Episode {
+    background-color: cadetblue;
+    padding: 20px;
+}
+
+.EpisodeIdTitle {
+    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.EpisodeId {
+    font-size: 1.5em;
+}
+.EpisodeTitle {
+    font-size: 1.5em;
+    place-self: center;
+}
+.EpisodeTop-Line {
+    margin-top: -10px;
+}
+.EpisodePicture {
+    text-align: left;
+    width: 50%;
+}
+.EpisodeDescription {
+    text-align: left;
+}
 audio {
     width: 100%;
 }
-
