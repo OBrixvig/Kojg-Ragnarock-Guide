@@ -16,6 +16,7 @@ namespace Kojg_Ragnarock_Guide
                 options.UseSqlServer(builder.Configuration.GetConnectionString("RagnarockDbSql") ?? throw new InvalidOperationException("Connection string 'ExhibitionContext' not found.")));
 
             builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ExhibitionDbContext>();
                 
 
