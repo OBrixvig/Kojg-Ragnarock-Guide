@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/Kojg_Ragnarock_Guide.styles.css" asp-append-version="true" />
 
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
-    
+
 
 </head>
 <body>
@@ -39,19 +39,15 @@
                                     <li><a class="dropdown-item" href="/Exhibitions/Etage3">Etage 3</a></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/CreateExhibition">Opret Udstilling</a>
-                        </li>                    
                     </ul>
-                             <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial"/>
                 </div>
             </div>
         </nav>
     </header>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">

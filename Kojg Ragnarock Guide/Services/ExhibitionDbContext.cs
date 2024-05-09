@@ -16,6 +16,7 @@ namespace Kojg_Ragnarock_Guide.Services
         //After that Update the datebase by writing Update-Database in PMC
         public DbSet<Exhibition> Exhibitions { get; set; }
 
+        //Creating diffrent roles that we can use with auth.
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
