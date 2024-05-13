@@ -119,6 +119,13 @@ body {
 .EpisodeDescription {
     text-align: left;
 }
-audio {
-    width: 100%;
+.audioStuff {
+    position: fixed;
+    bottom: 5px;
+    background-color: dimgrey;
+    padding: 10px;
+    display: inline-block;
+}
+.bottom-audio {
+    width: 150vh;
 }
