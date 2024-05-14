@@ -139,7 +139,7 @@ audio {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #282d32;
 }
 
 .NavBar42 a, dropBtn {
@@ -262,9 +262,9 @@ footer {
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 28px;
+    font-size: 15px;
     padding: 20px;
-    width: 200px;
+    width: 150px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
