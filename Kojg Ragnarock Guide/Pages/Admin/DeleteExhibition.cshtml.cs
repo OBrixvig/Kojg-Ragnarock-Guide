@@ -22,14 +22,14 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             //This get the the chosen objekt in Exhibition index and call this code if nothing is found it will return til index page
             if (id == null)
             {
-                Response.Redirect("/Exhibitions/AdminEpisodePage");
+                Response.Redirect("/Admin/AdminEpisodePage");
                 return;
             }
             // looks for exhibition and if nothing comes up return to page.
             Exhibition? exhibidition = context.Exhibitions.Find(id);
             if (exhibidition == null)
             {
-                Response.Redirect("/Exhibitions/AdminEpisodePage");
+                Response.Redirect("/Admin/AdminEpisodePage");
                 return;
             }
 
@@ -45,7 +45,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             context.Exhibitions.Remove(exhibidition);
             context.SaveChanges();
             //redirect to Index page
-            Response.Redirect("/Exhibitions/AdminEpisodePage");
+            Response.Redirect("/Admin/AdminEpisodePage");
         }
     }
 }
