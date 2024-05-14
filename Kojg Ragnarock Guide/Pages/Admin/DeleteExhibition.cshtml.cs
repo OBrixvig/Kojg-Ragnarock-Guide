@@ -1,10 +1,12 @@
 using Kojg_Ragnarock_Guide.Models;
 using Kojg_Ragnarock_Guide.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Kojg_Ragnarock_Guide.Pages.Admin
 {
+    [Authorize(Roles = "admin")]
     public class DeleteExhibitionModel : PageModel
     {
         private readonly IWebHostEnvironment environment;
