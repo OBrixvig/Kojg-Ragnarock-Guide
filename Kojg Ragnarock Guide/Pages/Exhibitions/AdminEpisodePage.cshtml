@@ -1,0 +1,34 @@
+﻿@page
+@using System.Runtime.InteropServices
+@using Microsoft.EntityFrameworkCore.Infrastructure.Internal
+@model Kojg_Ragnarock_Guide.Pages.Exhibitions.AdminEpisodePage
+@{
+}
+
+@*Må ikke slette denne div*@
+<div class="container">
+    <h1>AdminPage</h1>
+    <a class='btn btn-success' href="/Admin/CreateExhibition">Opret nyt</a>
+
+    <div class="udstilling-grid">
+        <div class="udstilling">
+            <ul class="list-group list-group-flush">
+                @foreach (var exhibition in Model.Exhibitions)
+                {
+                        <li class="list-group-item"> @exhibition.Id <img src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billed" /> @exhibition.Title
+                        <audio controls>
+                            <source src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/ogg">
+                        </audio
+                        <td style="white-space: nowrap">
+                            <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                            <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
+                        </td>
+                    </li> 
+                }
+            </ul>
+        </div>
+</div>
+</div>
+
+
+

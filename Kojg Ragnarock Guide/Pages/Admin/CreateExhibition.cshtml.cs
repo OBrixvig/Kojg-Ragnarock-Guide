@@ -31,11 +31,11 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         {   // Code below calls some errors if photo or alle the reqired information is not fill out in form
             if (ExhibitionDto.PhotoFile == null)
             {
-                ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nød til at uploade et billed");
+                ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nødt til at uploade et billed");
             }
             if (ExhibitionDto.AudioFile == null)
             {
-                ModelState.AddModelError("ExhibitionDto.AudioFile", "Du er nød til at uploade mp3 lydfil");
+                ModelState.AddModelError("ExhibitionDto.AudioFile", "Du er nødt til at uploade mp3 lydfil");
             }
             if (!ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             _successMassage = "Udstilling er oprettet";
 
-            Response.Redirect("/Exhibitions/Index");
+            Response.Redirect("/Exhibitions/AdminEpisodePage");
         }
     }
 }

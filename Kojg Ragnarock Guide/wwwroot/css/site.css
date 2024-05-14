@@ -19,6 +19,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    background-image: src="/FrontPageImages/2.jpg";
 }
 
 .scroll-parent {
@@ -44,13 +45,17 @@ body {
     filter: brightness(0.5);
 }
 
+
+
+/*THIS IS FRONTPAGE STYLING*/
+/*FOOTER*/
 .testimonial-grid {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 0.5fr);
 }
-
+/**/
 .testimonial {
     grid-column: span 2;
     grid-row-start: 4;
@@ -82,6 +87,12 @@ body {
         grid-column-start: 5;
     }
 
+
+
+
+
+
+/*UDSTILLING PAGE STYLING. Etage2 & Etage3 & AdminPageEpisode*/
 .udstilling-grid {
     display: grid;
     gap: 1.5rem;
@@ -91,7 +102,38 @@ body {
 .udstilling {
     padding: 2rem;
 }
+
+.Episode {
+    background-color: cadetblue;
+    padding: 20px;
+}
+
+.EpisodeIdTitle {
+    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.EpisodeId {
+    font-size: 1.5em;
+}
+.EpisodeTitle {
+    font-size: 1.5em;
+    place-self: center;
+}
+.EpisodeTop-Line {
+    margin-top: -10px;
+}
+.EpisodePicture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+}
+.EpisodeDescription {
+    text-align: left;
+}
 audio {
     width: 100%;
 }
-
