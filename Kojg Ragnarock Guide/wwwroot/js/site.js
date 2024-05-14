@@ -61,6 +61,10 @@ function playAudio(button, audioId)
     /*This line calls the updateBottomPlayerInfo function, passing the parent element of the clicked exhibition.
     This ensures that the image and title of the currently playing exhibition are updated in the bottom player info section.*/
     updateBottomPlayerInfo(audio.parentElement); // Update image and title for the current exhibition
+
+    // Show the audio controls
+    var audioControls = document.querySelector('.audioStuff');
+    audioControls.classList.remove('hide');
 }
 
 /*This line defines a function named updateBottomPlayerInfo that takes one parameter: exhibition.
