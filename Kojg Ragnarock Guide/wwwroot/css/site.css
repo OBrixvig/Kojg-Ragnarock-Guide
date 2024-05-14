@@ -39,9 +39,6 @@ html {
     gap: 1rem;
 }
 
-.planedTegning {
-    position: sticky;
-}
 .EtageNummer {
     grid-column: span 2;
     place-self: center;
@@ -115,6 +112,9 @@ html {
     width: 100%;
     object-fit: cover;
 }
+.hide {
+    display: none;
+}
 /*Udstilling End*/
 /*NAVBAR FRONT*/
 .NavBar42 ul {
@@ -138,9 +138,9 @@ html {
     cursor: pointer;
 }
 
-.NavBar42 li:hover, .dropDown:hover {
-    background-color: red;
-}
+    .NavBar42 li:hover, .dropDown:hover {
+        background-color: #dc3545;
+    }
 li.dropDown {
     display: inline-block;
 }
@@ -217,7 +217,7 @@ footer {
 }
 
 .cookiePolitik {
-    color: orange;
+    color: #fd7e14;
     font-size: 20px;
 }
 /*FOOTER END*/
@@ -240,7 +240,7 @@ footer {
 
 .frontPageTopButton {
     border-radius: 4px;
-    background-color: #f4511e;
+    background-color: #fd7e14;
     border: none;
     color: #FFFFFF;
     text-align: center;
