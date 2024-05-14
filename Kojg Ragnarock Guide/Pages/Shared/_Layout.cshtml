@@ -14,48 +14,108 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Kojg_Ragnarock_Guide</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Udstillinger
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/Exhibitions/AdminEpisodePage">AdminPage</a></li>
-                                    <li><a class="dropdown-item" href="/Exhibitions/Etage2">Etage 2</a></li>
-                                    <li><a class="dropdown-item" href="/Exhibitions/Etage3">Etage 3</a></li>
-                                </ul>
-                            </div>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
+        <nav class="NavBar42">
+            <ul>
+                <li><a class="active" asp-page="/Index">Kojg Ragnarock Guide Home</a></li>
+                <!--<li><a class="active" asp-page="/Index">Home</a></li>-->
+                <li><a class="active" asp-page="/Privacy">Privacy</a></li>
+                <li class="dropDown">
+                    <a class="dropBtn">Udstillinger</a>
+                    <div class="dropdown-content">
+                        <a class="active" asp-page="/Exhibitions/Etage2">Etage 2</a>
+                        <a class="active" asp-page="/Exhibitions/Etage3">Etage 3</a>
+                    </div>
+                </li>
+                <li><a class="active" asp-page="/Admin/CreateExhibition">Opret Udstilling</a></li>
+            </ul>
+             <partial name="_LoginPartial" />
         </nav>
     </header>
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Kojg_Ragnarock_Guide - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <!--Hvilken funktion har nedenstående?-->
+        <main role="main" class="pb-3">
+            @RenderBody()
+         </main>
+
+    <footer>
+        <section>
+        <div class="footer-grid-container">
+            <div>
+                <p class="boldNStrong">ADRESSE</p>
+                <p>RAGNAROCK</p>
+                <p>Museet for pop, rock og ungdomskultur</p>
+                <p>Rabalderstræde 16, Musicon </p>
+                <p>4000 Roskilde</p>
+                <p>CVR. NR: 15570210</p>
+            </div>
+            <div>
+                <p class="boldNStrong">KONTAKT OS</p>
+                <p>Administration:</p>
+                <p>+45 4631 6854</p>
+                <p>ragnarock@romu.dk</p>
+                <p>Man-fre: 09:00-15:00</p>
+                <p><a></a href="https://museumragnarock.dk/om-ragnarock/"> Find medarbejdere her</p>
+                </div>
+			<div>
+                <p class="boldNStrong">ÅBNINGSTIDER</p>
+                <p class="bold">2/1/2024 – 30/6/2024:</p>
+                <p>Tirsdag – søndag, samt helligdage: 10.00-17.00</p>
+                <p>Onsdag: 10.00-20.00</p>
+                <p>Tillige mandage i uge 7, 8 og 13</p>
+                <p class="bold">1/7/2024 – 11/8/2024</p>
+                <p>Mandag – søndag, samt helligdage: 10.00-17.00</p>
+                <p>Onsdag: 10.00-20.00</p>
+                <p class="bold">12/8/2024 – 22/12/2024</p>
+                <p>Tirsdag – søndag, samt helligdage: 10.00-17.00</p>
+                <p>Onsdag: 10.00-20.00 </p>
+                <p>Tillige mandag i uge 42</p>
+                </div>
+            <div
+                ><p class="boldNStrong">ENTRE</p>
+                <p>Voksne: 120 kr.</p>
+                <p>Grupperabat(min/15 pers.): 105 kr. pr. pers.</p>
+                <p>0-17 år : Gratis</p>
+                <p>Studierabat (studiekort forevises): 105 kr. pr. person</p>
+                <p>Fri entré til foyer, café, patio og butik.</p>
+            </div>
         </div>
-    </footer>
+        </section>
 
+        <section>
+            <a class="hr-footer"></a>
+            <div class="footer-grid-container-2">
+                <div>
+                    <p class="bold">FØLG OS</p>
+                    <p>
+                        <a href="https://www.facebook.com/MuseumRagnarock" target="blank">Facebook</a>
+                        <a href="https://www.instagram.com/museumragnarock/" target="blank">Instagram</a>
+                        <a href="https://www.linkedin.com/company/ragnarock-museet-for-pop-rock-og-ungdomskultur/?originalSubdomain=dk" target="blank">LinkedIn</a>
+                    </p>
+                </div>
+                <div>
+                    <p class="cookiePolitik"><a href="https://museumragnarock.dk/privatlivspolitik/" target="blank">Cookiepolitik</a></p>
+                </div>
+                <div>
+                    <p>RAGNAROCK er en del af museumsorganisationen ROMU</p>
+                    <p><a href="https://romu.dk/" target="blank">Læs mere om ROMU her</a></p>
+                </div>
+                <div>
+                    <a href="https://www.findsmiley.dk/740317" target="blank"><img src="https://museumragnarock.dk/wp-content/uploads/2016/09/Banner_gul_99x32.gif" alt="footer smiley"/></a>
+                </div>
+            </div>
+
+		 </section>
+	</footer>
+
+    <div class="frontPageTopButtonContainer">
+        <div class="center">
+       <button class="frontPageTopButton" href=""><span>Til toppen</span></button>
+       </div>
+    </div>
+
+    
+
+    <!--Hvilken funktion har nedenstående?-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

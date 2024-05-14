@@ -18,8 +18,7 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
-    background-image: src="/FrontPageImages/2.jpg";
+    /*background-image: url(FrontPageImages/2.jpg);*/
 }
 
 .scroll-parent {
@@ -48,7 +47,7 @@ body {
 
 
 /*THIS IS FRONTPAGE STYLING*/
-/*FOOTER*/
+
 .testimonial-grid {
     display: grid;
     gap: 1.5rem;
@@ -102,6 +101,12 @@ body {
 .udstilling {
     padding: 2rem;
 }
+.fixedEtage {
+    width: 50%;
+    height: 80%;
+    position: relative;
+    right: 0;
+}
 
 .Episode {
     background-color: cadetblue;
@@ -137,3 +142,165 @@ body {
 audio {
     width: 100%;
 }
+/*Udstilling End*/
+
+/*NAVBAR FRONT*/
+.NavBar42 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.NavBar42 a, dropBtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.NavBar42 li {
+    float: left;
+    cursor: pointer;
+}
+
+.NavBar42 li:hover, .dropDown:hover {
+    background-color: red;
+}
+li.dropDown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+     color: black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+     text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropDown:hover .dropdown-content {
+    display: block;
+}
+/*NAVBAR FRONT END*/
+
+/*FOOTER BEGIN*/
+footer {
+    background-color: #282d32;
+    color: white;
+    /*top, right, bottom, left*/
+    padding: 35px 80px 35px 15px;
+
+}
+
+.boldNStrong {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.footer-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 25px;
+}
+.footer-grid-container div {
+    line-height: 1;
+}
+
+.hr-footer {
+    height: 2px;
+    background-color: white;
+    border-color: white;
+    display: block;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.footer-grid-container-2 {
+    display:grid;
+    text-align: center;
+    margin: 25px 50px 25px 50px;
+    grid-template-columns: auto auto auto auto;
+    gap: 75px;
+}
+.footer-grid-container-2 div {
+    line-height: 1;
+}
+
+.cookiePolitik {
+    color: orange;
+    font-size: 20px;
+}
+/*FOOTER END*/
+
+/*POST FOOTER BEGIN*/
+.frontPageTopButtonContainer {
+    height: 150px;
+    position: relative;
+    border: none;
+}
+
+.center {
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.frontPageTopButton {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.frontPageTopButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.frontPageTopButton span::after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.frontPageTopButton:hover span {
+    padding-right: 25px;
+}
+
+.frontPageTopButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/*POST FOOTER END*/
