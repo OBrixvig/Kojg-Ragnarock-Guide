@@ -125,6 +125,7 @@ html {
     background-color: #282d32;
 }
 
+
 .NavBar42 a, dropBtn {
     display: inline-block;
     color: white;
@@ -132,6 +133,7 @@ html {
     padding: 15px;
     text-decoration: none;
 }
+
 
 .NavBar42 li {
     float: left;
@@ -141,6 +143,7 @@ html {
     .NavBar42 li:hover, .dropDown:hover {
         background-color: #dc3545;
     }
+}
 li.dropDown {
     display: inline-block;
 }
