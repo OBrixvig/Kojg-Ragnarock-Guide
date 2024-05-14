@@ -17,6 +17,7 @@ html {
     min-height: 100%;
 }
 
+
 body {
     /*background-image: url(FrontPageImages/2.jpg);*/
 }
@@ -243,6 +244,7 @@ footer {
     height: 150px;
     position: relative;
     border: none;
+    background-color: #282d32;
 }
 
 .center {
