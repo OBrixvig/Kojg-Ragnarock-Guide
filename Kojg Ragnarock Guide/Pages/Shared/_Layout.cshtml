@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Kojg_Ragnarock_Guide.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,16 +23,58 @@
             <ul>
                 <li><a class="active" asp-page="/Index">Kojg Ragnarock Guide Home</a></li>
                 <!--<li><a class="active" asp-page="/Index">Home</a></li>-->
-                <li class="dropDown">
-                    <a class="dropBtn">Udstillinger</a>
-                    <div class="dropdown-content">
-                        <a class="active" asp-page="/Exhibitions/Etage2">Etage 2</a>
-                        <a class="active" asp-page="/Exhibitions/Etage3">Etage 3</a>
-                    </div>
-                </li>
+                
                 <li><a class="active" asp-page="/Admin/CreateExhibition">Opret Udstilling</a></li>
+                <ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        if (User.IsInRole("client"))
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    User
+                </a>
+                <Ul class="dropdown-menu">
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Exhibitions/Index">Rundvisning</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/LogOut">Log af</a></li>
+                </Ul>
+            </li>
+        }
+        else if (User.IsInRole("admin"))
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin
+                </a>
+                <Ul class="dropdown-menu">
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Exhibitions/Index">Rundvisning</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Admin/CreateExhibition">Opret ny udstilling</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Admin/EditExhibition">Rediger/slet udstilling</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/LogOut">Log af</a></li>
+                </Ul>
+            </li>
+        }
+    }
+    else
+    {
+
+        <!--Tog dropdown fra tidligere "Udstillinger" - Kig på hvordan han har lavet dropdown og hvordan han har lavet <Li> -->
+        <li class="dropDown">
+                    <a class="dropBtn">Login/Register</a>
+                    <div class="dropdown-content">
+                        <a class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        <a class="nav-link text-white" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    </div>
+         </li>
+    }
+</ul>
             </ul>
-             <partial name="_LoginPartial" />
         </nav>
     </header>
 
