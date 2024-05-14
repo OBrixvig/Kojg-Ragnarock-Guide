@@ -17,6 +17,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
         {
             this.context = context;
         }
+
         public void OnGet()
         {
             Exhibitions = context.Exhibitions.OrderByDescending(E => E.Id).ToList();
