@@ -1,11 +1,13 @@
 using Kojg_Ragnarock_Guide.Models;
 using Kojg_Ragnarock_Guide.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Kojg_Ragnarock_Guide.Pages.Admin
 {
+    [Authorize(Roles = "admin")]
     public class EditExhibitionModel : PageModel
     {
         private readonly IWebHostEnvironment environment;
