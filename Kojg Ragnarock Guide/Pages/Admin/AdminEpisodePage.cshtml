@@ -26,13 +26,11 @@
     <div class="udstilling">
         <ul class="list-group list-group-flush">
             @foreach (var exhibition in Model.Exhibitions)
-            {
-                if (exhibition.Floor == "2")
-                {
+            {    
                     <div class="Episode">
 
                         <article class="EpisodeIdTitle">
-                            <p class="EpisodeId">@exhibition.Id-</p>
+                            <p class="EpisodeId">@exhibition.ExhibitionNumber-</p>
                             <p class="EpisodeTitle">@exhibition.Title</p>
                         </article>
                         <hr class="EpisodeTop-Line">
@@ -65,7 +63,7 @@
                             <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                         </audio>
                     </div>
-                }
+                
             }
         </ul>
     </div>
