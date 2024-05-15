@@ -67,7 +67,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 ExhibitionDto.PhotoFile.CopyTo(stream);
             }
 
-            //save the new product in the datebase
+            //save the new product in the database
             Exhibition exhibition = new Exhibition()
             {
                 Title = ExhibitionDto.Title,
