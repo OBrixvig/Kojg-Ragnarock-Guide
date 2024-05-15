@@ -36,7 +36,7 @@ html {
 .adminSearch {
     position: absolute;
     top: 5rem;
-    right: 1rem;
+    left: 10rem;
 }
 
 .EtageNummer {

@@ -8,10 +8,15 @@
     <a class='btn btn-success' href="/Admin/CreateExhibition">Opret nyt</a>
 </div>
 <form method="get" class="adminSearch">
-    <p>
-        Skriv Etage Nr: <input type="text" asp-for="FilterCriteria" />
-        <input type="submit" value="Søg" />
-    </p>
+    <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="submit">Søg</button>
+        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" input type="text" asp-for="FilterCriteria">
+            <option value="" selected>Vælg Etage...</option>
+            <option value="">Reset</option>
+            <option value="2">Etage 2</option>
+            <option value="3">Etage 3</option>
+        </select>
+    </div>
 </form>
 <div class="udstilling-grid">
     <div class="EtageNummer">
