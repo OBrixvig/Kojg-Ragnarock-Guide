@@ -3,6 +3,8 @@ using Kojg_Ragnarock_Guide.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace Kojg_Ragnarock_Guide.Pages.Admin
 {
@@ -13,6 +15,9 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
         public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
 
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
+
         public AdminEpisodePage(ExhibitionDbContext context)
         {
             this.context = context;
@@ -20,6 +25,24 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         public void OnGet()
         {
             Exhibitions = context.Exhibitions.OrderByDescending(E => E.Id).ToList();
+            if (!string.IsNullOrEmpty(FilterCriteria))
+            {
+                Exhibitions = FilterExhibitions(FilterCriteria);
+            }
+        }
+
+        public List<Exhibition> FilterExhibitions(string etageNr)
+        {
+            List<Exhibition> filteredList = new List<Exhibition>();
+
+            foreach (Exhibition ex in Exhibitions)
+            {
+                if (ex.Floor.Contains(etageNr))
+                {
+                    filteredList.Add(ex);
+                }
+            }
+            return filteredList;
         }
     }
 }
