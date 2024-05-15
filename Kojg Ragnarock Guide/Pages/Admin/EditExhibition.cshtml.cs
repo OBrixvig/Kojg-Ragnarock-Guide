@@ -107,6 +107,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             }
             // update exhibition in database
             exhibition.Title = ExhibitionDto.Title;
+            exhibition.ExhibitionNumber = ExhibitionDto.ExhibitionNumber;
             exhibition.Description = ExhibitionDto.Description ?? "";
             exhibition.Floor = ExhibitionDto.Floor;
             exhibition.PhotoFileName = newPhotoFileName;

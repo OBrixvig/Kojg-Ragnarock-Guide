@@ -71,6 +71,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             Exhibition exhibition = new Exhibition()
             {
                 Title = ExhibitionDto.Title,
+                ExhibitionNumber = ExhibitionDto.ExhibitionNumber,
                 Description = ExhibitionDto.Description ?? "",
                 Floor = ExhibitionDto.Floor,
                 PhotoFileName =newPhotoFileName,
@@ -81,6 +82,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             //Clear the form
             ExhibitionDto.Title = "";
+            ExhibitionDto.ExhibitionNumber = 0;
             ExhibitionDto.Description = "";
             ExhibitionDto.Floor = "";
             ExhibitionDto.PhotoFile = null;
