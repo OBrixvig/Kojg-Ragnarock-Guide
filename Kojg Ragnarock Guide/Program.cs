@@ -13,11 +13,11 @@ namespace Kojg_Ragnarock_Guide
             //Add SQL DB
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<ExhibitionDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("RagnarockDbSql") ?? throw new InvalidOperationException("Connection string 'ExhibitionContext' not found.")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("SQL-Ragnarock-Database") ?? throw new InvalidOperationException("Connection string 'ExhibitionContext' not found.")));
 
-            builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ExhibitionDbContext>();
+           builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
+               .AddRoles<IdentityRole>()
+               .AddEntityFrameworkStores<ExhibitionDbContext>();
                 
 
             // add blob service Dont think we need it, was ment for audio

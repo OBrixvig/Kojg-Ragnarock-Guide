@@ -116,6 +116,9 @@ namespace Kojg_Ragnarock_Guide.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ExhibitionNumber")
+                        .HasColumnType("int");
+
                     b.Property<string>("Floor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -164,13 +167,13 @@ namespace Kojg_Ragnarock_Guide.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "441d3af0-bd44-43e8-8f30-439e34b8aa8f",
+                            Id = "d8275667-e23b-4768-9e0e-cfdfce9b8b9e",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "fbb49fce-670e-4e42-a463-c796fa51ae36",
+                            Id = "6d4a9b9b-9392-4129-a732-bf81fc6bcda9",
                             Name = "client",
                             NormalizedName = "client"
                         });

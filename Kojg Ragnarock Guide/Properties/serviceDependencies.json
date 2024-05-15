@@ -1,25 +1,17 @@
 {
   "dependencies": {
-    "secrets1": {
-      "type": "secrets"
-    },
-    "storage1": {
-      "type": "storage",
-      "connectionId": "RagnarockDbStorage"
-    },
     "mssql1": {
+      "ignored": "true",
       "type": "mssql",
-      "connectionId": "RagnarockDbSql"
+      "connectionId": "ConnectionStrings:RagnarockDbSql"
     },
-    "mssql3": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:RagnarockDbSql",
-      "dynamicId": null
+    "sqlite1": {
+      "ignored": "true",
+      "type": "sqlite"
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:ExhibitionContext",
-      "dynamicId": null
+      "connectionId": "SQL-Ragnarock-Database"
     }
   }
 }

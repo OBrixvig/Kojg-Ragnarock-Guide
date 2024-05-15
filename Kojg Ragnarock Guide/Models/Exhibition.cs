@@ -6,6 +6,8 @@ namespace Kojg_Ragnarock_Guide.Models
     {
         public int Id { get; set; }
 
+        public int ExhibitionNumber { get; set; }
+
         [MaxLength(20)]
         public string Title { get; set; } = "";   
 

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     [DbContext(typeof(ExhibitionDbContext))]
-    [Migration("20240507085214_ExhibitionDbMigration")]
-    partial class ExhibitionDbMigration
+    [Migration("20240515094222_Exhibition")]
+    partial class Exhibition
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace Kojg_Ragnarock_Guide.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExhibitionNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Floor")
                         .IsRequired()

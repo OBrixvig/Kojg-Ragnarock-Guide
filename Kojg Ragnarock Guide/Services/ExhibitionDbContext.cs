@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Kojg_Ragnarock_Guide.Services
 {
-    public class ExhibitionDbContext :  IdentityDbContext<AppUser>
+    public class ExhibitionDbContext : IdentityDbContext<AppUser>
     {
         public ExhibitionDbContext(DbContextOptions options) : base(options)
         {

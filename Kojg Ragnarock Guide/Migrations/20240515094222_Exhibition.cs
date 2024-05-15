@@ -5,7 +5,7 @@
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     /// <inheritdoc />
-    public partial class ExhibitionDbMigration : Migration
+    public partial class Exhibition : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,6 +16,7 @@ namespace Kojg_Ragnarock_Guide.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ExhibitionNumber = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhotoFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),

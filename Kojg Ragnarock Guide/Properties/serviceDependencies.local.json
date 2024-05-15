@@ -1,37 +1,11 @@
 {
   "dependencies": {
-    "secrets1": {
-      "type": "secrets.user"
-    },
-    "storage1": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/northeurope/connectors/RagnarockDbStorage_50F08B4639",
-      "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/ragnarocktourguide",
-      "type": "storage.azure",
-      "connectionId": "RagnarockDbStorage"
-    },
-    "mssql1": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/northeurope/connectors/RagnarockDbSql_CAD115682E",
-      "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/kojg/databases/KojgRagnarockStorage",
-      "type": "mssql.azure",
-      "connectionId": "RagnarockDbSql"
-    },
-    "mssql3": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/northeurope/connectors/ConnectionStringsRagnarockDbSql_F2B5DED87D",
-      "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/kojg/databases/KojgRagnarockStorage",
-      "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:RagnarockDbSql",
-      "dynamicId": null
-    },
     "mssql2": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/northeurope/connectors/ConnectionStringsExhibitionContext_E68EBF2639",
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/northeurope/connectors/SQLRagnarockDatabase_75B5D97193",
       "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/kojg/databases/KojgRagnarockStorage",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/ragnarock/databases/Ragnarock",
       "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:ExhibitionContext",
-      "dynamicId": null
+      "connectionId": "SQL-Ragnarock-Database"
     }
   }
 }

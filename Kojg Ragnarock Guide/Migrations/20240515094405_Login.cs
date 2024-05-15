@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Kojg_Ragnarock_Guide.Migrations
 {
     /// <inheritdoc />
-    public partial class AppUserMigration : Migration
+    public partial class Login : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,23 +53,6 @@ namespace Kojg_Ragnarock_Guide.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Exhibitions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhotoFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    AudioFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Floor = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exhibitions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,8 +101,8 @@ namespace Kojg_Ragnarock_Guide.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -161,8 +146,8 @@ namespace Kojg_Ragnarock_Guide.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -174,6 +159,15 @@ namespace Kojg_Ragnarock_Guide.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "6d4a9b9b-9392-4129-a732-bf81fc6bcda9", null, "client", "client" },
+                    { "d8275667-e23b-4768-9e0e-cfdfce9b8b9e", null, "admin", "admin" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -233,9 +227,6 @@ namespace Kojg_Ragnarock_Guide.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Exhibitions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
