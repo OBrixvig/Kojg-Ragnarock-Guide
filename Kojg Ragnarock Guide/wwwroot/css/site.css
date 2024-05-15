@@ -28,6 +28,17 @@ html {
 }
 
 /*UDSTILLING PAGE STYLING. Etage2 & Etage3 & AdminPageEpisode*/
+.OpretExhibition{
+    position: absolute;
+    top: 5rem;
+    left: 1rem;
+}
+.adminSearch {
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+}
+
 .EtageNummer {
     font-family: fantasy;
 }
@@ -55,6 +66,8 @@ html {
 
 .PlayButton {
     width: 100%;
+    position: relative;
+    top: 0.2rem;
 }
 .EpisodeIdTitle {
     display: grid;
