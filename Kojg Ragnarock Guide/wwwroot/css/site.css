@@ -129,6 +129,7 @@ html {
     display: none;
 }
 /*Udstilling End*/
+
 /*NAVBAR FRONT*/
 .NavBar42 ul {
     list-style-type: none;
@@ -182,6 +183,27 @@ li.dropDown {
     display: block;
 }
 /*NAVBAR FRONT END*/
+
+/*FRONT PAGE BRUGERGUIDE BEGIN*/
+.brugerGuide {
+    background-color: #282d32;
+    text-align: center;
+    padding: 50px 150px 50px 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+    color: white;
+}
+.brugerGuide ul {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+
+
+/*FRONT PAGE BRUGERGUIDE END*/
+
+
 
 /*FOOTER BEGIN*/
 footer {
