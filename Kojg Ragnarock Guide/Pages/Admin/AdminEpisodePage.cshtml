@@ -52,8 +52,18 @@
                     </article>
                     <hr class="EpisodeTop-Line">
                     <img class="EpisodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
-                    <p class="EpisodeDescription">@exhibition.Description</p>
-                    <td style="white-space: nowrap">
+                    <div class="accordion accordion-flush adminAccordion" id="accordion_@exhibition.Id">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@exhibition.Id" aria-expanded="true" aria-controls="collapse_@exhibition.Id">
+                                    Beskrivelse af udstilling
+                                </button>
+                            </h2>
+                            <div id="collapse_@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordion_@exhibition.Id">
+                                <div class="accordion-body" style="color: black"><p class="EpisodeDescription">@exhibition.Description</p></div>
+                            </div>
+                        </div>
+                    </div>                    <td style="white-space: nowrap">
                         <a class="btn btn-info btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
 
                         <!-- Button trigger modal -->

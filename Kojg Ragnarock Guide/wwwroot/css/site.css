@@ -72,6 +72,10 @@ html {
     position: relative;
     top: 0.2rem;
 }
+.adminAccordion {
+    position: relative;
+    top: -0.2rem;
+}
 .EpisodeIdTitle {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
