@@ -45,8 +45,9 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             ExhibitionDto.Title = exhibition.Title;
             ExhibitionDto.Description = exhibition.Description;
             ExhibitionDto.Floor = exhibition.Floor;
-
+            ExhibitionDto.ExhibitionNumber = exhibition.ExhibitionNumber;
             Exhibition = exhibition;
+            
         }
 
         public void OnPost(int? id)
