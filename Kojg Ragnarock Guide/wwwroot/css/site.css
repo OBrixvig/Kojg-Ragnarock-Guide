@@ -26,9 +26,11 @@ html {
     object-fit: cover;
     filter: brightness(0.5);
 }
-
+.brugerGuideSide{
+    padding: 1rem;
+}
 /*UDSTILLING PAGE STYLING. Etage2 & Etage3 & AdminPageEpisode*/
-.OpretExhibition{
+.OpretExhibition {
     position: absolute;
     top: 5rem;
     left: 1rem;
