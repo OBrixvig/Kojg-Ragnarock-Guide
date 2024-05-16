@@ -24,7 +24,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         }
         public void OnGet()
         {
-            Exhibitions = context.Exhibitions.OrderByDescending(E => E.Id).ToList();
+            Exhibitions = context.Exhibitions.OrderByDescending(E => E.ExhibitionNumber).Reverse().ToList();
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
                 Exhibitions = FilterExhibitions(FilterCriteria);

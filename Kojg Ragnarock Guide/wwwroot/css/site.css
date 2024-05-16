@@ -35,6 +35,10 @@ html {
     top: 5rem;
     left: 1rem;
 }
+
+.planedTegning {
+    place-self: center;
+}
 .adminSearch {
     position: absolute;
     top: 5rem;
