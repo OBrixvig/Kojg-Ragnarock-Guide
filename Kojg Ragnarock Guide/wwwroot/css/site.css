@@ -29,6 +29,15 @@ html {
 .brugerGuideSide{
     padding: 1rem;
 }
+
+.LogRegContainer {
+    padding: 1rem;
+}
+.OpretBruger {
+    position: relative;
+    top: 1rem;
+    width: 50px;
+}
 /*UDSTILLING PAGE STYLING. Etage2 & Etage3 & AdminPageEpisode*/
 .OpretExhibition {
     position: absolute;
