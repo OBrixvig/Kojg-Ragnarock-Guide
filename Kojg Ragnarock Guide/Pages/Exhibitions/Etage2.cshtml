@@ -10,9 +10,9 @@
         <ul class="list-group list-group-flush">
             @foreach (var exhibition in Model.Exhibitions)
             {
-                if (exhibition.Floor == "2")
+                @if (exhibition.Floor == "2")
                 {
-                    <div class="Episode">
+                    <div class="Episode" id="EpisodeID-@exhibition.ExhibitionNumber">
 
                         <article class="EpisodeIdTitle">
                             <p class="EpisodeId">@exhibition.ExhibitionNumber-</p>
@@ -28,15 +28,19 @@
                                     </button>
                                 </h2>
                                 <div id="flush-collapse-@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlush_@exhibition.Id">
-                                    <div class="accordion-body" style="color: black"><p class="EpisodeDescription">@exhibition.Description</p></div>
+                                    <div class="accordion-body" style="color: black">
+                                        <p class="EpisodeDescription">@exhibition.Description</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <button type="button" class="btn btn-danger btn-sm PlayButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
                         <audio id="@exhibition.Id" style="display: none;">
                             <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
+                            <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                         </audio>
                     </div>
+
                 }
             }
         </ul>
@@ -44,6 +48,13 @@
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
             <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+            @foreach (var exhibition in Model.Exhibitions)
+            {
+                @if (exhibition.Floor == "2")
+                {
+                    <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+                }
+            }
         </div>
     </div>
     <div class="audioStuff hide">

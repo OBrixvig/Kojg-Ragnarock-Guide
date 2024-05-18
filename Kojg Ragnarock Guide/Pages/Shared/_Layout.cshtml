@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav class="NavBar42">
+        <nav class="NavBar42" id="TilToppenID">
             <ul>
                 <li><a class="active" asp-page="/Index">Kojg Ragnarock Guide Home</a></li>
                 <!--<li><a class="active" asp-page="/Index">Home</a></li>-->
@@ -36,7 +36,9 @@
 
     <!--Hvilken funktion har nedenstående?-->
     <main role="main" class="pb-3">
+        <hr>
         @RenderBody()
+        <hr>
     </main>
 
     <footer>
@@ -112,7 +114,7 @@
         <section>
             <div class="frontPageTopButtonContainer">
                 <div class="center">
-                    <button class="frontPageTopButton" href=""><span>Til toppen</span></button>
+                    <a class="frontPageTopButton" href="#TilToppenID"><span>Til toppen</span></a>
                 </div>
             </div>
         </section>

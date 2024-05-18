@@ -13,8 +13,7 @@
             {
                 if (exhibition.Floor == "3")
                 {
-                    <div class="Episode">
-
+                    <div class="Episode" id="EpisodeID-@exhibition.ExhibitionNumber">
                         <article class="EpisodeIdTitle">
                             <p class="EpisodeId">@exhibition.ExhibitionNumber-</p>
                             <p class="EpisodeTitle">@exhibition.Title</p>
@@ -45,6 +44,13 @@
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
             <td><img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+            @foreach (var exhibition in Model.Exhibitions)
+            {
+                @if (exhibition.Floor == "3")
+                {
+                    <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+                }
+            }
         </div>
     </div>
     <div class="audioStuff hide">
