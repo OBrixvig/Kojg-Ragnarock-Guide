@@ -9,7 +9,7 @@
 </div>
 <form method="get" class="adminSearch">
     <div class="input-group mb-3">
-        <button class="btn btn-outline-secondary" type="submit">Søg</button>
+        <button class="btn btn-outline-secondary" type="submit">Filter</button>
         <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" input type="text" asp-for="FilterCriteria">
             <option value="" selected>Vælg Etage...</option>
             <option value="">Reset</option>
@@ -27,8 +27,7 @@
         <ul class="list-group list-group-flush">
             @foreach (var exhibition in Model.Exhibitions)
             {
-                <div class="Episode">
-
+                <div class="Episode" id="EpisodeID-@exhibition.ExhibitionNumber">
                     <article class="EpisodeIdTitle">
                         @if (@exhibition.ExhibitionNumber <= 0)
                         {
@@ -98,9 +97,12 @@
         <div class="plantegning">
             <td>
                 <img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
-            </td>
-            <td>
                 <img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
+                @foreach (var exhibition in Model.Exhibitions)
+                {
+                    <a href="#EpisodeID-@exhibition.ExhibitionNumber" class="btn btn-info" style="margin: 0.1rem;" tabindex="-1" role="button" aria-disabled="true">Udstilling nr: @exhibition.ExhibitionNumber</a>
+
+                }
             </td>
         </div>
     </div>

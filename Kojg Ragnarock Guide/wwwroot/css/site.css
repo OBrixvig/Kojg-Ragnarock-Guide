@@ -43,14 +43,14 @@ html {
 /*UDSTILLING PAGE STYLING. Etage2 & Etage3 & AdminPageEpisode*/
 .OpretExhibition {
     position: absolute;
-    top: 5rem;
-    left: 1rem;
+    top: 0.5rem;
+    right: 14rem;
 }
 
 .adminSearch {
     position: absolute;
-    top: 5rem;
-    left: 10rem;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 .EtageNummer {
@@ -83,8 +83,93 @@ html {
     top: 0;
     width: 100%;
     z-index: 100;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
-
+.buttonForPlantegning-1 {
+    position: absolute;
+    top: 1.5rem;
+    left: 12.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+AdminButtonForPlantegning-1 {
+    position: absolute;
+    top: 1.5rem;
+    left: 12.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-2 {
+    position: absolute;
+    top: 8.4rem;
+    left: 19.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-3 {
+    position: absolute;
+    top: 15.5rem;
+    left: 14.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-4 {
+    position: absolute;
+    top: 30.2rem;
+    left: 19.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-5 {
+    position: absolute;
+    top: 31.5rem;
+    left: 5.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-6 {
+    position: absolute;
+    top: 22rem;
+    left: 7rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-7 {
+    position: absolute;
+    top: 1.5rem;
+    left: 12.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-8 {
+    position: absolute;
+    top: 9rem;
+    left: 5.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-9 {
+    position: absolute;
+    top: 16.2rem;
+    left: 15.2rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-10 {
+    position: absolute;
+    top: 30.4rem;
+    left: 19.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.buttonForPlantegning-11 {
+    position: absolute;
+    top: 25.7rem;
+    left: 5.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
 .Episode {
     background-color: #282d32;
     color: white;
@@ -131,6 +216,8 @@ html {
     width: 100%;
     max-width: 350px;
     height: 350px;
+    position: relative;
+    top: -5px;
 }
 
 .EpisodeDescription {
