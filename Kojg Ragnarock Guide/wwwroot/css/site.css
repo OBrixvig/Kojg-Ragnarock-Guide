@@ -59,26 +59,57 @@ html {
 
 .udstilling-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 50px 1fr;
     padding: 1rem;
     gap: 1rem;
 }
 
 .EtageNummer {
-    grid-column: span 2;
+    grid-column: span 3;
     place-self: center;
 }
-
+.PlayingEpisodeTest1 {
+    grid-column: span 2;
+}
 .udstilling {
     grid-row: span 2;
 }
+.sticky-container2 {
+    position: relative;
+}
+.currentlyPlayingEpisodeBigger {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.PlayingEpisodeTest2 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+.sticky-container {
+    position: relative;
+}
+
+.plantegning {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
 
 .Episode {
     background-color: #282d32;
     color: white;
     padding: 20px;
 }
+
+    .Episode:hover {
+        background-color: #282d39;
+    }
 
 .PlayButton {
     width: 100%;
@@ -89,6 +120,11 @@ html {
 .adminAccordion {
     position: relative;
     top: -0.2rem;
+}
+
+.accordion {
+    --bs-accordion-btn-bg: #282d32;
+    --bs-accordion-btn-color: white;
 }
 
 .EpisodeIdTitle {
@@ -137,7 +173,7 @@ html {
     width: 100%;
 }
 
-.bottom-player-texty {
+.bottom-player-title {
     grid-column-start: 2;
 }
 
