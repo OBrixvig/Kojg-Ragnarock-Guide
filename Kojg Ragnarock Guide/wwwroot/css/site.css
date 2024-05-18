@@ -59,37 +59,22 @@ html {
 
 .udstilling-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 50px 1fr;
     padding: 1rem;
     gap: 1rem;
 }
 
 .EtageNummer {
-    grid-column: span 3;
+    grid-column: span 2;
     place-self: center;
 }
-.PlayingEpisodeTest1 {
-    grid-column: span 2;
-}
+
 .udstilling {
     grid-row: span 2;
 }
-.sticky-container2 {
-    position: relative;
-}
-.currentlyPlayingEpisodeBigger {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-}
 
-.PlayingEpisodeTest2 {
-    grid-column-start: 3;
-    grid-row-start: 2;
-}
-.sticky-container {
+.sticky-container-for-plantegning {
     position: relative;
 }
 
@@ -99,7 +84,6 @@ html {
     width: 100%;
     z-index: 100;
 }
-
 
 .Episode {
     background-color: #282d32;
@@ -120,11 +104,6 @@ html {
 .adminAccordion {
     position: relative;
     top: -0.2rem;
-}
-
-.accordion {
-    --bs-accordion-btn-bg: #282d32;
-    --bs-accordion-btn-color: white;
 }
 
 .EpisodeIdTitle {

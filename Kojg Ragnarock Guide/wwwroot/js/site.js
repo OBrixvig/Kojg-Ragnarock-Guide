@@ -65,9 +65,6 @@ function playAudio(button, audioId)
     // Show the audio controls
     var audioControls = document.querySelector('.audioStuff');
     audioControls.classList.remove('hide');
-
-    var udstillingControls = document.querySelector('.udstilling');
-    udstillingControls.classList.remove('PlayingEpisodeTest1');
 }
 
 /*This line defines a function named updateBottomPlayerInfo that takes one parameter: exhibition.
@@ -76,27 +73,12 @@ function updateBottomPlayerInfo(exhibition)
 {
     var exhibitionImage = exhibition.querySelector('.EpisodePicture').getAttribute('src');
     var exhibitionTitle = exhibition.querySelector('.EpisodeTitle').innerText;
-    var exhibitionDescription = exhibition.querySelector('.EpisodeDescription').innerText;
-
 
 
     /*bottomPlayer stuff*/
-    var currentlyPlayingImage = document.getElementById('currently-playing-image');
-    currentlyPlayingImage.src = exhibitionImage;
+    var bottomPlayerImage = document.getElementById('bottom-player-image');
+    bottomPlayerImage.src = exhibitionImage;
 
     var bottomPlayerTitle = document.getElementById('bottom-player-title');
     bottomPlayerTitle.innerText = exhibitionTitle;
-
-
-    /*currently playing stuff*/
-    var bottomPlayerImage = document.getElementById('bottom-player-image');
-    bottomPlayerImage.src = exhibitionImage
-
-    var currentlyPlayingTitle = document.getElementById('currently-playing-title');
-    currentlyPlayingTitle.innerText = exhibitionTitle;
-
-    var currentlyPlayingDescription = document.getElementById('currently-playing-description');
-    currentlyPlayingDescription.innerText = exhibitionDescription;
-
-
 }

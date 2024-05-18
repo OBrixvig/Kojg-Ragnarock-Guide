@@ -6,7 +6,7 @@
     <div class="EtageNummer">
         <h1>Etage 2</h1>
     </div>
-    <div class="udstilling PlayingEpisodeTest1">
+    <div class="udstilling">
         <ul class="list-group list-group-flush">
             @foreach (var exhibition in Model.Exhibitions)
             {
@@ -41,34 +41,20 @@
             }
         </ul>
     </div>
-    <div class="sticky-container2">
-        <div class="currentlyPlayingEpisodeBigger">
-            <div class="currently-playing-image">
-                <img class="currentlyPlayingImage" width="57" height="73" id="currently-playing-image" src="" alt="">
-            </div>
-            <div class="currently-playing-title">
-                <p id="currently-playing-title"></p>
-            </div>
-            <div class="currently-playing-description">
-                <p id="currently-playing-description"></p>
-            </div>
-        </div>
-    </div>
-    <div class="sticky-container PlayingEpisodeTest2">
-
+    <div class="sticky-container-for-plantegning">
         <div class="plantegning">
-            <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Du har ikke tilføjet et billed" /></td>
+            <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
         </div>
     </div>
-</div>
-<div class="audioStuff hide">
-    <div class="bottom-player-pic">
-        <img class="BottomPlayerImage" id="bottom-player-image" width="57" height="73" src="" alt="">
+    <div class="audioStuff hide">
+        <div class="bottom-player-pic">
+            <img id="bottom-player-image" width="57" height="73" src="" alt="">
+        </div>
+        <div class="bottom-player-title">
+            <p id="bottom-player-title"></p>
+        </div>
+        <audio controls class="bottom-audio">
+            <source id="bottom-audio-source" src="" type="audio/mpeg">
+        </audio>
     </div>
-    <div class="bottom-player-title">
-        <p id="bottom-player-title"></p>
-    </div>
-    <audio controls class="bottom-audio">
-        <source id="bottom-audio-source" src="" type="audio/mpeg">
-    </audio>
 </div>
