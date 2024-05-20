@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
 {
     [Authorize(Roles = "admin,client")]
-    public class Etage3Model : PageModel
+    public class Floor3 : PageModel
     {
         private readonly ExhibitionDbContext context;
 
         public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
 
-        public Etage3Model(ExhibitionDbContext context)
+        public Floor3(ExhibitionDbContext context)
         {
             this.context = context;
         }

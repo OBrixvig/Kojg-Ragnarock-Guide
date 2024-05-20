@@ -23,83 +23,83 @@
         <h1>AdminPage</h1>
     </div>
     <div class="episode">
-            @foreach (var exhibition in Model.Exhibitions)
-            {
-                <div id="EpisodeID-@exhibition.ExhibitionNumber">
+        @foreach (var exhibition in Model.Exhibitions)
+        {
+            <div id="EpisodeID-@exhibition.ExhibitionNumber">
                 <article class="episodeIdAndTitle">
-                        @if (@exhibition.ExhibitionNumber <= 0)
-                        {
-                            <div class="alert alert-danger" role="alert">
-                                <p>@exhibition.ExhibitionNumber - MANGLER Exhibition Nummer</p>
-                            </div>
-                        }
-                        else
-                        {
-                            <p>@exhibition.ExhibitionNumber-</p>
-                        }
-                        <p class="episodeTitle">@exhibition.Title</p>
-                        @if (@exhibition.Floor == "2")
-                        {
-                            <p class="adminEpisodeFloorNr2">Etage nummer: @exhibition.Floor</p>
-                        }
-                        else
-                        {
-                        <p class="adminEpisodeFloorNr3">Etage nummer: @exhibition.Floor</p>
-                        }
-                    </article>
-                    <hr class="episodeTop-Line">
-                    <img class="episodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
-                    <div class="accordion accordion-flush adminAccordion" id="accordion_@exhibition.Id">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@exhibition.Id" aria-expanded="true" aria-controls="collapse_@exhibition.Id">
-                                    Beskrivelse af udstilling
-                                </button>
-                            </h2>
-                            <div id="collapse_@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordion_@exhibition.Id">
-                                <div class="accordion-body" style="color: black"><p class="episodeDescription">@exhibition.Description</p></div>
-                            </div>
+                    @if (@exhibition.ExhibitionNumber <= 0)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            <p>@exhibition.ExhibitionNumber - MANGLER Exhibition Nummer</p>
                         </div>
-                    </div>                    <td style="white-space: nowrap">
-                        <a class="btn btn-info btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                    }
+                    else
+                    {
+                        <p>@exhibition.ExhibitionNumber-</p>
+                    }
+                    <p class="episodeTitle">@exhibition.Title</p>
+                    @if (@exhibition.Floor == "2")
+                    {
+                        <p class="adminEpisodeFloorNr2">Etage nummer: @exhibition.Floor</p>
+                    }
+                    else
+                    {
+                        <p class="adminEpisodeFloorNr3">Etage nummer: @exhibition.Floor</p>
+                    }
+                </article>
+                <hr class="episodeTop-Line">
+                <img class="episodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
+                <div class="accordion accordion-flush adminAccordion" id="accordion_@exhibition.Id">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@exhibition.Id" aria-expanded="true" aria-controls="collapse_@exhibition.Id">
+                                Beskrivelse af udstilling
+                            </button>
+                        </h2>
+                        <div id="collapse_@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordion_@exhibition.Id">
+                            <div class="accordion-body" style="color: black"><p class="episodeDescription">@exhibition.Description</p></div>
+                        </div>
+                    </div>
+                </div>                    <td style="white-space: nowrap">
+                    <a class="btn btn-info btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
 
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#sletModal_@exhibition.Id">Slet</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#sletModal_@exhibition.Id">Slet</button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="sletModal_@exhibition.Id" tabindex="-1" aria-labelledby="sletModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="sletModalLabel" style="color:black;">Er du sikker på du vil slette denne Exhibition?</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Fortryd</button>
-                                        <a class="btn btn-warning btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
-                                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="sletModal_@exhibition.Id" tabindex="-1" aria-labelledby="sletModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="sletModalLabel" style="color:black;">Er du sikker på du vil slette denne Exhibition?</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Fortryd</button>
+                                    <a class="btn btn-warning btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
                                 </div>
                             </div>
                         </div>
-                    </td>
-                    <button type="button" class="btn btn-danger btn-sm playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
-                    <audio id="@exhibition.Id" style="display: none;">
-                        <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
-                    </audio>
-                </div>
+                    </div>
+                </td>
+                <button type="button" class="btn btn-danger btn-sm playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
+                <audio id="@exhibition.Id" style="display: none;">
+                    <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
+                </audio>
+            </div>
 
-            }
+        }
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
             <td>
                 <img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
                 <img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
-                @foreach (var exhibition in Model.Exhibitions)
-                {
-                    <a href="#EpisodeID-@exhibition.ExhibitionNumber" class="btn btn-info" style="margin: 0.1rem;" tabindex="-1" role="button" aria-disabled="true">Udstilling nr: @exhibition.ExhibitionNumber</a>
-                }
             </td>
+            @foreach (var exhibition in Model.Exhibitions)
+            {
+                <a class="adminButtonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+            }
         </div>
     </div>
     <div class="audioStuff hideAudioStuff">
