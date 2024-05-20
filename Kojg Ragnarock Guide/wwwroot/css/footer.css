@@ -26,6 +26,17 @@ footer {
     line-height: 1;
 }
 
+.hr-footer {
+    height: 2px;
+    background-color: white;
+    border-color: white;
+    display: block;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
 .footer-grid-container-2 {
     display: grid;
     text-align: center;
@@ -45,24 +56,19 @@ footer {
 
 /*Back To Top Button start*/
 .backToTopContainer {
-    position: absolute;
+    position: fixed;
     right: 1rem;
-    height: 150px;
-    border: none;
+    bottom: 1.5rem;
 }
 
 .backToTopButton {
-    border-radius: 4px;
     background-color: #fd7e14;
-    border: none;
-    color: #FFFFFF;
+    color: white;
     text-align: center;
     font-size: 15px;
-    padding: 20px;
-    width: 150px;
+    padding: 10px 20px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
 }
 
 .backToTopButton span {
