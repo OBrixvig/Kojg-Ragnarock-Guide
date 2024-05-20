@@ -45,18 +45,10 @@ footer {
 
 /*Back To Top Button start*/
 .backToTopContainer {
-    height: 150px;
-    position: relative;
-    border: none;
-}
-
-.backToTopCenter {
-    margin: 0px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    right: 1rem;
+    height: 150px;
+    border: none;
 }
 
 .backToTopButton {
