@@ -1,5 +1,5 @@
 ﻿/*Overordnet udstilling page start*/
-.udstilling-grid {
+.exhibition-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 50px 1fr;
@@ -11,7 +11,7 @@
 
 
 /*Etage Titel start*/
-.EtageNummer {
+.floorNumber {
     font-family: fantasy;
     grid-column: span 2;
     place-self: center;
@@ -20,33 +20,33 @@
 
 
 
-/*Episode start*/
-.Episode {
+/*episode start*/
+.episode {
     grid-row: span 2;
     background-color: #282d32;
     color: white;
     padding: 20px;
 }
 
-    .Episode:hover {
+    .episode:hover {
         background-color: #282d39;
     }
 
-.EpisodeIdAndTitle {
+.episodeIdAndTitle {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     font-size: 1.5em;
 }
 
-.EpisodeTitle {
+.episodeTitle {
     place-self: center;
 }
 
-.EpisodeTop-Line {
+.episodeTop-Line {
     margin-top: -10px;
 }
 
-.EpisodePicture {
+.episodePicture {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -57,16 +57,16 @@
     top: -5px;
 }
 
-.EpisodeDescription {
+.episodeDescription {
     text-align: left;
 }
 
-.PlayButton {
+.playButton {
     width: 100%;
     position: relative;
     top: 0.2rem;
 }
-/*Episode end*/
+/*episode end*/
 
 
 

@@ -1,4 +1,4 @@
-﻿.NavBar42 ul {
+﻿.navBar42 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     background-color: #282d32;
 }
 
-.NavBar42 a {
+.navBar42 a {
     display: inline-block;
     color: white;
     text-align: center;
@@ -14,12 +14,12 @@
     text-decoration: none;
 }
 
-.NavBar42 li {
+.navBar42 li {
     float: left;
     cursor: pointer;
 }
 
-    .NavBar42 li:hover, .dropDown:hover {
+    .navBar42 li:hover, .dropDown:hover {
         background-color: #dc3545;
     }
 

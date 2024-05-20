@@ -71,8 +71,8 @@ function playAudio(button, audioId)
 This function updates the image and title of the currently playing exhibition in the bottom player info section.*/
 function updateBottomPlayerInfo(exhibition)
 {
-    var exhibitionImage = exhibition.querySelector('.EpisodePicture').getAttribute('src');
-    var exhibitionTitle = exhibition.querySelector('.EpisodeTitle').innerText;
+    var exhibitionImage = exhibition.querySelector('.episodePicture').getAttribute('src');
+    var exhibitionTitle = exhibition.querySelector('.episodeTitle').innerText;
 
 
     /*bottomPlayer stuff*/

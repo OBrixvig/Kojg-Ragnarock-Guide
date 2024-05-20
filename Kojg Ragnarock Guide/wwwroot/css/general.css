@@ -20,14 +20,33 @@ html {
 
 
 /*Login and Register start*/
-.LoginAndRegisterContainer {
+.loginAndRegisterContainer {
     padding: 1rem;
 }
 
-.register-OpretBruger {
+.register-CreateAnAccount {
     position: relative;
     top: 1rem;
     width: 50px;
 
 }
 /*Login and Register end*/
+
+/*Cookie politik start*/
+.cookiepolitikContainer {
+    background-color: #282d32;
+}
+
+.cookiepolitikSection {
+    text-align: left;
+    color: white;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.cookiepolitikSection h1 {
+        text-align: center;
+    }
+
+/*Cookie politik end*/
