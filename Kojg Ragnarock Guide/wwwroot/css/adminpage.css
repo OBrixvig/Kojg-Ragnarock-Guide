@@ -1,13 +1,13 @@
 ﻿.adminOpretExhibition {
     position: absolute;
     top: 0.5rem;
-    right: 14rem;
+    right: 15rem;
 }
 
 .adminFilterByFloor {
     position: absolute;
     top: 0.5rem;
-    right: 0.5rem;
+    right: 1rem;
 }
 
 .adminEpisodeFloorNr2 {
