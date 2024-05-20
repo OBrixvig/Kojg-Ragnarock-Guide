@@ -1,7 +1,8 @@
 ﻿
 /*Footer start*/
-.footer {
-    background-color: red;
+footer {
+    background-color: #282d32;
+    color: white;
     /*top, right, bottom, left*/
     padding: 35px 80px 35px 15px;
 }
