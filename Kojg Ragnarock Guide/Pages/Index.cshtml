@@ -20,22 +20,21 @@
     </div>
     <div class="carousel-inner">
 
-        @for (int i = 0; i < Model.Exhibitions.Count; i++)
+        @for (int i = 0; i < 4; i++)
         {
             if (i == 0)
             {
-                <div class="carousel-item active c-item">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 c-img" alt="3">
+                <div class="carousel-item active frontPageCarouselItem">
+                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 FrontPageCarouselImage" alt="3">
                     <div class="carousel-caption">
                         <h1>@Model.Exhibitions[i].Title</h1>
                     </div>
                 </div>
-
             }
             else
             {
-                <div class="carousel-item c-item">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 c-img" alt="3">
+                <div class="carousel-item frontPageCarouselItem">
+                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 FrontPageCarouselImage" alt="3">
                     <div class="carousel-caption">
                         <h1>@Model.Exhibitions[i].Title</h1>
                     </div>

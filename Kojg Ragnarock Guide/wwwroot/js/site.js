@@ -64,7 +64,7 @@ function playAudio(button, audioId)
 
     // Show the audio controls
     var audioControls = document.querySelector('.audioStuff');
-    audioControls.classList.remove('hide');
+    audioControls.classList.remove('hideAudioStuff');
 }
 
 /*This line defines a function named updateBottomPlayerInfo that takes one parameter: exhibition.

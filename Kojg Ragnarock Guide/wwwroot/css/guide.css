@@ -1,0 +1,17 @@
+﻿.userGuideContainer {
+    padding: 1rem;
+}
+
+.userGuideSection {
+    background-color: #282d32;
+    text-align: center;
+    padding: 50px 150px 50px 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+    color: white;
+}
+
+.userGuideSection ul {
+    padding-left: 50px;
+    padding-right: 50px;
+}

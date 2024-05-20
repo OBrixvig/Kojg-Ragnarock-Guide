@@ -6,16 +6,15 @@
     <div class="EtageNummer">
         <h1>Etage 2</h1>
     </div>
-    <div class="udstilling">
-        <ul class="list-group list-group-flush">
+    <div class="Episode">
             @foreach (var exhibition in Model.Exhibitions)
             {
                 @if (exhibition.Floor == "2")
                 {
-                    <div class="Episode" id="EpisodeID-@exhibition.ExhibitionNumber">
+                    <div id="EpisodeID-@exhibition.ExhibitionNumber">
 
-                        <article class="EpisodeIdTitle">
-                            <p class="EpisodeId">@exhibition.ExhibitionNumber-</p>
+                        <article class="EpisodeIdAndTitle">
+                            <p>@exhibition.ExhibitionNumber-</p>
                             <p class="EpisodeTitle">@exhibition.Title</p>
                         </article>
                         <hr class="EpisodeTop-Line">
@@ -43,7 +42,6 @@
 
                 }
             }
-        </ul>
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
@@ -57,7 +55,7 @@
             }
         </div>
     </div>
-    <div class="audioStuff hide">
+    <div class="audioStuff hideAudioStuff">
         <div class="bottom-player-pic">
             <img id="bottom-player-image" width="57" height="73" src="" alt="">
         </div>

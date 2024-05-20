@@ -1,0 +1,26 @@
+﻿.adminOpretExhibition {
+    position: absolute;
+    top: 0.5rem;
+    right: 14rem;
+}
+
+.adminFilterByFloor {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.adminEpisodeFloorNr2 {
+    place-self: center;
+    color: paleturquoise;
+}
+
+.adminEpisodeFloorNr3 {
+    place-self: center;
+    color: orchid;
+}
+
+.adminAccordion {
+    position: relative;
+    top: -0.2rem;
+}

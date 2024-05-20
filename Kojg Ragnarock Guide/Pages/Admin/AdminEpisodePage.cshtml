@@ -4,10 +4,10 @@
 @model AdminEpisodePage
 @{
 }
-<div class="OpretExhibition">
+<div class="adminOpretExhibition">
     <a class='btn btn-success' href="/Admin/CreateExhibition">Opret nyt</a>
 </div>
-<form method="get" class="adminSearch">
+<form method="get" class="adminFilterByFloor">
     <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" type="submit">Filter</button>
         <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" input type="text" asp-for="FilterCriteria">
@@ -20,33 +20,31 @@
 </form>
 <div class="udstilling-grid">
     <div class="EtageNummer">
-        <h1>Admin Page</h1>
+        <h1>AdminPage</h1>
     </div>
-
-    <div class="udstilling">
-        <ul class="list-group list-group-flush">
+    <div class="Episode">
             @foreach (var exhibition in Model.Exhibitions)
             {
-                <div class="Episode" id="EpisodeID-@exhibition.ExhibitionNumber">
-                    <article class="EpisodeIdTitle">
+                <div id="EpisodeID-@exhibition.ExhibitionNumber">
+                <article class="EpisodeIdAndTitle">
                         @if (@exhibition.ExhibitionNumber <= 0)
                         {
                             <div class="alert alert-danger" role="alert">
-                                <p class="EpisodeId">@exhibition.ExhibitionNumber - MANGLER Exhibition Nummer</p>
+                                <p>@exhibition.ExhibitionNumber - MANGLER Exhibition Nummer</p>
                             </div>
                         }
                         else
                         {
-                            <p class="EpisodeId">@exhibition.ExhibitionNumber-</p>
+                            <p>@exhibition.ExhibitionNumber-</p>
                         }
                         <p class="EpisodeTitle">@exhibition.Title</p>
                         @if (@exhibition.Floor == "2")
                         {
-                            <p class="EpisodeTitle" style="color: paleturquoise">Etage nummer: @exhibition.Floor</p>
+                            <p class="adminEpisodeFloorNr2">Etage nummer: @exhibition.Floor</p>
                         }
                         else
                         {
-                            <p class="EpisodeTitle" style="color: orchid">Etage nummer: @exhibition.Floor</p>
+                        <p class="adminEpisodeFloorNr3">Etage nummer: @exhibition.Floor</p>
                         }
                     </article>
                     <hr class="EpisodeTop-Line">
@@ -91,7 +89,6 @@
                 </div>
 
             }
-        </ul>
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
@@ -101,26 +98,21 @@
                 @foreach (var exhibition in Model.Exhibitions)
                 {
                     <a href="#EpisodeID-@exhibition.ExhibitionNumber" class="btn btn-info" style="margin: 0.1rem;" tabindex="-1" role="button" aria-disabled="true">Udstilling nr: @exhibition.ExhibitionNumber</a>
-
                 }
             </td>
         </div>
     </div>
-
-</div>
-<div class="audioStuff hide">
-    <div class="bottom-player-pic">
-        <img class="BottomPlayerImage" id="bottom-player-image" width="57" height="73" src="" alt="">
+    <div class="audioStuff hideAudioStuff">
+        <div class="bottom-player-pic">
+            <img id="bottom-player-image" width="57" height="73" src="" alt="">
+        </div>
+        <div class="bottom-player-title">
+            <p id="bottom-player-title"></p>
+        </div>
+        <audio controls class="bottom-audio">
+            <source id="bottom-audio-source" src="" type="audio/mpeg">
+        </audio>
     </div>
-    <div class="bottom-player-texty">
-
-        <p class="BottomPlayerText" id="bottom-player-title">
-
-        </p>
-    </div>
-    <audio controls class="bottom-audio">
-        <source id="bottom-audio-source" src="" type="audio/mpeg">
-    </audio>
 </div>
 
 
