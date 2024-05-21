@@ -1,0 +1,9 @@
+﻿.frontPageCarouselItem {
+    height: 90vh;
+}
+
+.frontPageCarouselImage {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}

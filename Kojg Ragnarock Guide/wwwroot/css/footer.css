@@ -1,0 +1,100 @@
+﻿
+/*Footer start*/
+footer {
+    background-color: #282d32;
+    color: white;
+    /*top, right, bottom, left*/
+    padding: 35px 80px 35px 15px;
+}
+
+.boldAndStrong {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.footer-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 25px;
+}
+
+.footer-grid-container div {
+    line-height: 1;
+}
+
+.hr-footer {
+    height: 2px;
+    background-color: white;
+    border-color: white;
+    display: block;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.footer-grid-container-2 {
+    display: grid;
+    text-align: center;
+    margin: 25px 50px 25px 50px;
+    grid-template-columns: auto auto auto auto;
+    gap: 75px;
+}
+
+.footer-grid-container-2 div {
+    line-height: 1;
+}
+
+.cookiePolitik {
+    font-size: 20px;
+}
+/*Footer end*/
+
+/*Back To Top Button start*/
+.backToTopContainer {
+    z-index: 101;
+    position: fixed;
+    right: 1rem;
+    bottom: 3.3rem;
+}
+
+.backToTopButton {
+    background-color: #fd7e14;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 8px 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.backToTopButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.backToTopButton span::after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.backToTopButton:hover span {
+    padding-right: 25px;
+}
+
+.backToTopButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/*Back To Top Button end*/
+

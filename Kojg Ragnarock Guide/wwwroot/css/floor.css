@@ -1,0 +1,217 @@
+﻿/*Overordnet udstilling page start*/
+.exhibition-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 50px 1fr;
+    padding: 1rem;
+    gap: 1rem;
+}
+/*Overordnet udstilling page end*/
+
+
+
+/*Etage Titel start*/
+.floorNumber {
+    font-family: fantasy;
+    grid-column: span 2;
+    place-self: center;
+}
+/*Etage Titel end*/
+
+
+
+/*episode start*/
+.episode {
+    grid-row: span 2;
+    background-color: #282d32;
+    color: white;
+    padding: 20px;
+}
+
+    .episode:hover {
+        background-color: #282d39;
+    }
+
+.episodeIdAndTitle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 1.5em;
+}
+
+.episodeTitle {
+    place-self: center;
+}
+
+.episodeTop-Line {
+    margin-top: -10px;
+}
+
+.episodePicture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    position: relative;
+    top: -5px;
+}
+
+.episodeDescription {
+    text-align: left;
+}
+
+.playButton {
+    width: 100%;
+    position: relative;
+    top: 0.2rem;
+}
+/*episode end*/
+
+
+
+/*Plantegning start*/
+.sticky-container-for-plantegning {
+    position: relative;
+}
+
+.plantegning {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.buttonForPlantegning-1 {
+    position: absolute;
+    top: 1.5rem;
+    left: 12.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-2 {
+    position: absolute;
+    top: 8.4rem;
+    left: 19.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-3 {
+    position: absolute;
+    top: 15.5rem;
+    left: 14.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-4 {
+    position: absolute;
+    top: 30.2rem;
+    left: 19.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-5 {
+    position: absolute;
+    top: 31.5rem;
+    left: 5.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-6 {
+    position: absolute;
+    top: 22rem;
+    left: 7rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-7 {
+    position: absolute;
+    top: 1.5rem;
+    left: 12.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-8 {
+    position: absolute;
+    top: 9rem;
+    left: 5.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-9 {
+    position: absolute;
+    top: 16.2rem;
+    left: 15.2rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-10 {
+    position: absolute;
+    top: 30.4rem;
+    left: 19.9rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.buttonForPlantegning-11 {
+    position: absolute;
+    top: 25.7rem;
+    left: 5.3rem;
+    width: 4.8rem;
+    height: 4.8rem;
+}
+/*Plantegning end*/
+
+
+
+/*Audio stuff start*/
+.audioStuff {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr;
+    grid-template-rows: 20px 53px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: #282d32;
+    color: white;
+    padding: 5px;
+    width: 100%;
+}
+
+.hideAudioStuff {
+    display: none;
+}
+
+.bottom-player-pic {
+    grid-row-start: 2;
+    place-self: center;
+    position: relative;
+    top: -10px;
+    left: -2px;
+}
+
+.bottom-player-title {
+    grid-column-start: 2;
+}
+
+.bottom-audio {
+    grid-row-start: 2;
+    grid-column: span 2;
+    width: 100%;
+    object-fit: cover;
+}
+/*Audio stuff end*/

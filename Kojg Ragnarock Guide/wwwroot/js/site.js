@@ -64,15 +64,15 @@ function playAudio(button, audioId)
 
     // Show the audio controls
     var audioControls = document.querySelector('.audioStuff');
-    audioControls.classList.remove('hide');
+    audioControls.classList.remove('hideAudioStuff');
 }
 
 /*This line defines a function named updateBottomPlayerInfo that takes one parameter: exhibition.
 This function updates the image and title of the currently playing exhibition in the bottom player info section.*/
 function updateBottomPlayerInfo(exhibition)
 {
-    var exhibitionImage = exhibition.querySelector('.EpisodePicture').getAttribute('src');
-    var exhibitionTitle = exhibition.querySelector('.EpisodeTitle').innerText;
+    var exhibitionImage = exhibition.querySelector('.episodePicture').getAttribute('src');
+    var exhibitionTitle = exhibition.querySelector('.episodeTitle').innerText;
 
 
     /*bottomPlayer stuff*/

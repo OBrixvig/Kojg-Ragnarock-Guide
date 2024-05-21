@@ -8,27 +8,27 @@
 {
     if (User.IsInRole("client"))
     {
-            <a class="dropBtn">User</a>
-            <div class="dropdown-content">
-                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Opdater profil</a>
-                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/LogOut">Log af</a>
-            </div>
+        <a class="dropBtn">User</a>
+        <div class="dropdown-content">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index">Opdater profil</a>
+            <a asp-area="Identity" asp-page="/Account/LogOut">Log af</a>
+        </div>
     }
     else if (User.IsInRole("admin"))
     {
-            <a class="dropBtn">Admin</a>
-            <div class="dropdown-content">
-                <a class="dropdown-item" asp-area="" asp-page="/Admin/CreateExhibition">Opret ny udstilling</a>
-                <a class="dropdown-item" asp-area="" asp-page="/Admin/EditExhibition">Rediger/slet udstilling</a>
-                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/LogOut">Log af</a>
-            </div>
+        <a class="dropBtn">Admin</a>
+        <div class="dropdown-content">
+            <a asp-area="" asp-page="/Admin/CreateExhibition">Opret ny udstilling</a>
+            <a asp-area="" asp-page="/Admin/EditExhibition">Rediger/slet udstilling</a>
+            <a asp-area="Identity" asp-page="/Account/LogOut">Log af</a>
+        </div>
     }
 }
 else
 {
-        <a class="dropBtn">Login/Register</a>
-        <div class="dropdown-content">
-            <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-            <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </div>
+    <a class="dropBtn">Login/Register</a>
+    <div class="dropdown-content">
+        <a id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </div>
 }

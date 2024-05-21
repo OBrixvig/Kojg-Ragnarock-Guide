@@ -7,19 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
 {
     [Authorize(Roles = "admin,client")]
-    public class Etage3Model : PageModel
+    public class Floor2 : PageModel
     {
         private readonly ExhibitionDbContext context;
 
         public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
 
-        public Etage3Model(ExhibitionDbContext context)
+        public Floor2(ExhibitionDbContext context)
         {
             this.context = context;
         }
+
         public void OnGet()
         {
-            Exhibitions = context.Exhibitions.OrderByDescending(E => E.Id).ToList();
+            Exhibitions = context.Exhibitions.OrderByDescending(E => E.ExhibitionNumber).Reverse().ToList();
         }
+
     }
 }
