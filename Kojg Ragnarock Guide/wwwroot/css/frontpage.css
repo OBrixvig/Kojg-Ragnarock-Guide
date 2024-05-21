@@ -7,3 +7,9 @@
     object-fit: cover;
     filter: brightness(0.5);
 }
+
+.ragnarockIcon {
+    width: 15rem;
+    height: 10rem;
+
+}
