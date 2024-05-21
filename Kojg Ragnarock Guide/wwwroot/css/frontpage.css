@@ -9,7 +9,5 @@
 }
 
 .ragnarockIcon {
-    width: 15rem;
-    height: 10rem;
-
+    object-fit: cover;
 }

@@ -1,17 +1,20 @@
 ﻿.navBar42 ul {
     list-style-type: none;
-    margin: 0;
+    margin: 0.5rem;
+    border: white;
     padding: 0;
     overflow: hidden;
-    background-color: #001035;
+    background-color: white;
+    height: 7rem;
 }
 
 .navBar42 a {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 15px;
     text-decoration: none;
+    font-size: xx-large;
 }
 
 .navBar42 li {
@@ -19,9 +22,9 @@
     cursor: pointer;
 }
 
-    .navBar42 li:hover, .dropDown:hover {
-        background-color: #b0790b;
-    }
+.navBar42 a:hover {
+    color: #b0790b;
+}
 
 .dropdown-content {
     display: none;
@@ -40,9 +43,6 @@
         text-align: left;
     }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
 
 .dropDown:hover .dropdown-content {
     display: block;

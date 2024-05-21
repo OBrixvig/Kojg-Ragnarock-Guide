@@ -3,7 +3,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 50px 1fr;
-    padding: 1rem;
+    padding-bottom: 10rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     gap: 1rem;
 }
 /*Overordnet udstilling page end*/
@@ -23,14 +26,11 @@
 /*episode start*/
 .episode {
     grid-row: span 2;
-    background-color: #282d32;
+    background-color: #001035;
     color: white;
     padding: 20px;
 }
 
-    .episode:hover {
-        background-color: #282d39;
-    }
 
 .episodeIdAndTitle {
     display: grid;
@@ -65,11 +65,10 @@
     width: 100%;
     position: relative;
     top: 0.2rem;
+    
 }
+
 /*episode end*/
-
-
-
 /*Plantegning start*/
 .sticky-container-for-plantegning {
     position: relative;
