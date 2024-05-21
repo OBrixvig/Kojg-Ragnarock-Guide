@@ -56,9 +56,10 @@ footer {
 
 /*Back To Top Button start*/
 .backToTopContainer {
+    z-index: 101;
     position: fixed;
     right: 1rem;
-    bottom: 1.5rem;
+    bottom: 3.3rem;
 }
 
 .backToTopButton {
@@ -66,7 +67,7 @@ footer {
     color: white;
     text-align: center;
     font-size: 15px;
-    padding: 10px 20px;
+    padding: 8px 20px;
     transition: all 0.5s;
     cursor: pointer;
 }

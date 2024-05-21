@@ -177,6 +177,7 @@
 
 /*Audio stuff start*/
 .audioStuff {
+    z-index: 100;
     position: fixed;
     bottom: 0;
     display: grid;

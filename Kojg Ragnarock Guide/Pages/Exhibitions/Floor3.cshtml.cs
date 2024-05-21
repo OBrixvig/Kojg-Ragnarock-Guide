@@ -19,7 +19,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
         }
         public void OnGet()
         {
-            Exhibitions = context.Exhibitions.OrderByDescending(E => E.Id).ToList();
+            Exhibitions = context.Exhibitions.OrderByDescending(E => E.ExhibitionNumber).Reverse().ToList();
         }
     }
 }
