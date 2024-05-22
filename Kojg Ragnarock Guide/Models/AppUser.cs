@@ -8,6 +8,6 @@ namespace Kojg_Ragnarock_Guide.Models
         public string LastName { get; set; } = "";
         public string Email { get; set; } = "";
 
-        public DateTime CreateAt { get; private set; }
+        public DateTime CreateAt { get; set; }
     }
 }
