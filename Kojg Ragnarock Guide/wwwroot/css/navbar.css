@@ -5,7 +5,7 @@
     padding: 0;
     overflow: hidden;
     background-color: white;
-    height: 7rem;
+    height: 9rem;
 }
 
 .navBar42 a {
@@ -14,7 +14,7 @@
     text-align: center;
     padding: 15px;
     text-decoration: none;
-    font-size: xx-large;
+    font-size: 1.5rem;
 }
 
 .navBar42 li {
@@ -50,4 +50,8 @@
 
 li.dropDown {
     display: inline-block;
+}
+
+.navbarIcon {
+
 }

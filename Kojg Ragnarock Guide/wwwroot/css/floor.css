@@ -29,6 +29,8 @@
     background-color: #001035;
     color: white;
     padding: 20px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 
@@ -61,14 +63,39 @@
     text-align: left;
 }
 
+.collapsible {
+    background-color: #03045e;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1rem;
+
+}
+.collapsibleContent {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+
+
 .playButton {
     width: 100%;
     position: relative;
     top: 0.2rem;
-    
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    border-radius: 0;
+    border-style: double;
 }
-
 /*episode end*/
+
+
 /*Plantegning start*/
 .sticky-container-for-plantegning {
     position: relative;
