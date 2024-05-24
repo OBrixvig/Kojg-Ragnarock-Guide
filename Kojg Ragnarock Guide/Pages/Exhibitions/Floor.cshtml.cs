@@ -8,7 +8,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
 {
     [Authorize(Roles = "admin,client")]
-    public class Floor2 : PageModel
+    public class Floor : PageModel
     {
         private readonly ExhibitionDbContext context;
 
@@ -18,7 +18,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
 
         public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
 
-        public Floor2(ExhibitionDbContext context)
+        public Floor(ExhibitionDbContext context)
         {
             this.context = context;
         }
