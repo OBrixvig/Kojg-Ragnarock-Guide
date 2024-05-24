@@ -9,8 +9,8 @@
     <div class="episode">
             @foreach (var exhibition in Model.Exhibitions)
             {
-                @if (exhibition.Floor == "2")
-                {
+                
+                
                     <div id="EpisodeID-@exhibition.ExhibitionNumber">
 
                         <article class="episodeIdAndTitle">
@@ -39,19 +39,20 @@
                             <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                         </audio>
                     </div>
-
-                }
+                
+           
             }
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
+
             <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+
             @foreach (var exhibition in Model.Exhibitions)
             {
-                @if (exhibition.Floor == "2")
-                {
+               
                     <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
-                }
+                
             }
         </div>
     </div>
