@@ -26,7 +26,7 @@
         @foreach (var exhibition in Model.Exhibitions)
         {
             <div id="EpisodeID-@exhibition.ExhibitionNumber">
-                <article class="episodeIdAndTitle">
+                <article class="adminEpisodeIdAndTitle">
                     @if (@exhibition.ExhibitionNumber <= 0)
                     {
                         <div class="alert alert-danger" role="alert">

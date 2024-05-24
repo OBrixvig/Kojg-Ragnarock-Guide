@@ -1,23 +1,9 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Udstillinger";
+    ViewData["Title"] = "Forside";
 }
-<div id="FrontPageCarousel" class="carousel slide">
-    <div class="carousel-indicators">
-        @for (int i = 0; i < 4; i++)
-        {
-            if (i == 0)
-            {
-                <button type="button" data-bs-target="#FrontPageCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-
-            }
-            else
-            {
-                <button type="button" data-bs-target="#FrontPageCarousel" data-bs-slide-to="@i"></button>
-            }
-        }
-    </div>
+<div id="FrontPageCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 
         @for (int i = 0; i < 4; i++)
@@ -25,31 +11,16 @@
             if (i == 0)
             {
                 <div class="carousel-item active frontPageCarouselItem">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 frontPageCarouselImage" alt="3">
-                    <div class="carousel-caption">
-                        <h1>@Model.Exhibitions[i].Title</h1>
-                    </div>
+                    <img src="/FrontPageImages/RagnarockEntrance1.jpg" class="d-block w-100 frontPageCarouselImage" alt="Ragnarock>
                 </div>
             }
             else
             {
                 <div class="carousel-item frontPageCarouselItem">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 frontPageCarouselImage" alt="3">
-                    <div class="carousel-caption">
-                        <h1>@Model.Exhibitions[i].Title</h1>
-                    </div>
+                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 frontPageCarouselImage" alt="@Model.Exhibitions[i].Title">
                 </div>
 
             }
         }
     </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#FrontPageCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#FrontPageCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
 </div>

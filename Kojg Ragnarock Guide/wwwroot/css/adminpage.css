@@ -1,12 +1,12 @@
 ﻿.adminCreateExhibition {
     position: absolute;
-    top: 0.5rem;
+    top: 1.5rem;
     right: 15rem;
 }
 
 .adminFilterByFloor {
     position: absolute;
-    top: 0.5rem;
+    top: 1.5rem;
     right: 1rem;
 }
 
@@ -18,6 +18,12 @@
 .adminEpisodeFloorNr3 {
     place-self: center;
     color: orchid;
+}
+.adminEpisodeIdAndTitle {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 1rem;
 }
 
 .adminAccordion {

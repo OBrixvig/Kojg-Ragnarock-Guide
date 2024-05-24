@@ -28,11 +28,12 @@
     grid-row: span 2;
     background-color: #001035;
     color: white;
-    padding: 20px;
+    padding: 1rem;
 }
 
 
 .episodeIdAndTitle {
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     font-size: 1.5em;
@@ -48,13 +49,14 @@
 
 .episodePicture {
     display: block;
+    position: relative;
+    top: -5px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 350px;
-    height: 350px;
-    position: relative;
-    top: -5px;
+    max-width: 40rem;
+    max-height: 30rem;
+    object-fit: cover;
 }
 
 .episodeDescription {
@@ -185,7 +187,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: black;
-    background-color: #282d32;
+    background-color: #001035;
     color: white;
     padding: 5px;
     width: 100%;
