@@ -29,7 +29,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         // the OnGet() searches for the Id and Exhibition and return with the think i want to update
         public void OnGet(int? id)
         {
-            if (id == null)
+            if (id == null) 
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
                 return;

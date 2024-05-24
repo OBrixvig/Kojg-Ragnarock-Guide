@@ -4,13 +4,25 @@
 }
 <div class="exhibition-grid">
     <div class="floorNumber">
-        <h1>Etage 2</h1>
+        @foreach (var ex in Model.Exhibitions)
+        {
+            if (ex.Floor == "2")
+            {
+                <h1>Etage 2</h1>
+                break;
+            }
+            if (ex.Floor == "3")
+            {
+                <h1>Etage 3</h1>
+                break;
+            }
+        }
     </div>
     <div class="episode">
             @foreach (var exhibition in Model.Exhibitions)
             {
-                @if (exhibition.Floor == "2")
-                {
+                
+                
                     <div id="EpisodeID-@exhibition.ExhibitionNumber">
 
                         <article class="episodeIdAndTitle">
@@ -39,19 +51,30 @@
                             <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                         </audio>
                     </div>
-
-                }
+                
+           
             }
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
-            <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+            @foreach (var ex in Model.Exhibitions)
+            {
+                if (ex.Floor == "2")
+                {
+                    <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+                    break;
+                }
+                if (ex.Floor == "3")
+                {
+                    <td><img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+                    break;
+                }
+            }
             @foreach (var exhibition in Model.Exhibitions)
             {
-                @if (exhibition.Floor == "2")
-                {
+               
                     <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
-                }
+                
             }
         </div>
     </div>
