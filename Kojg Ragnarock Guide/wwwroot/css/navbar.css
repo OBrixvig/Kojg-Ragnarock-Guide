@@ -1,36 +1,49 @@
-﻿.navBar42 ul {
-    list-style-type: none;
-    margin: 0.5rem;
-    border: white;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-    height: 7rem;
+﻿
+.navBar42 {
+    background-color: #f9f9f9;
+    border: 1px solid;
+    border-bottom: 0.1rem solid;
 }
 
-.navBar42 a {
-    display: inline-block;
+.navParentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem;
+}
+
+.navChildGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.navChildContent a {
     color: black;
-    text-align: center;
-    padding: 15px;
+    padding: 0.5rem;
     text-decoration: none;
-    font-size: xx-large;
-}
-
-.navBar42 li {
-    float: left;
+    font-size: 1.3rem;
     cursor: pointer;
 }
 
-.navBar42 a:hover {
+.navChildContent a:hover {
     color: #b0790b;
+}
+
+.navbarText {
+    position: relative;
+    top: 0.4rem;
+}
+
+.ragnarockIcon {
+    object-fit: cover;
+    max-width: 8rem;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    width: 8rem;
+    min-width: max-content;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -41,6 +54,7 @@
         text-decoration: none;
         display: block;
         text-align: left;
+        font-size: 1.2rem;
     }
 
 

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="~/css/floor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cookiePage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/adminpage.css" asp-append-version="true" />
-    
+
 
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
@@ -24,33 +24,38 @@
 <body>
     <header>
         <nav class="navBar42" id="NavBar42ID">
-            <ul>
-                <li>
-                    <a class="active" asp-page="/Index"> <img class="ragnarockIcon" src="\FrontPageImages\Ragnarock.webp" alt="Ragnarock Icon" /></a>
-                    
-                </li>
-                <!--<li><a class="active" asp-page="/Index">Home</a></li>-->
-                <li><a class="active" asp-page="/Guide">Brugerguide</a></li>
-                <li class="dropDown">
-                    <a class="dropBtn">Udstillinger</a>
-                    <div class="dropdown-content">
-                        
-                        <a class="active" href="/Exhibitions/Floor?FilterCriteria=2">Etage 2</a>
-                        <a class="active" href="/Exhibitions/Floor?FilterCriteria=3">Etage 3</a>
+            <div class="navParentGrid">
+                <div class="navChildGrid">
+                    <div class="navChildContent">
+                        <a class="active" asp-page="/Index">
+                            <img class="ragnarockIcon" src="\FrontPageImages\Ragnarock.webp" alt="Ragnarock Icon" />
+                        </a>
                     </div>
-                </li>
-                <li class="dropDown">
-                    <partial name="_LoginPartial" />
-                </li>
-            </ul>
+                    <div class="navChildContent">
+                        <a class="active navbarText" asp-page="/Guide">Brugerguide</a>
+                    </div>
+                    <div class="navChildContent">
+                        <li class="dropDown navbarText">
+                            <a class="dropBtn">Udstillinger</a>
+                            <div class="dropdown-content">
+                                <a class="active" href="/Exhibitions/Floor?FilterCriteria=2">Etage 2</a>
+                                <a class="active" href="/Exhibitions/Floor?FilterCriteria=3">Etage 3</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="navChildContent">
+                        <li class="dropDown navbarText">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!--Hvilken funktion har nedenstående?-->
     <main role="main" class="pb-3">
-        <hr>
         @RenderBody()
-        <hr>
     </main>
 
     <footer>
@@ -74,7 +79,7 @@
                     <p>ragnarock@romu.dk</p>
                     <p>Man-fre: 09:00-15:00</p>
                     <p>
-                        <a style="color: #b0790b" href="https://museumragnarock.dk/om-ragnarock/">Find medarbejdere her</a>
+                        <a style="color: #b0790b" href="https://museumragnarock.dk/om-ragnarock/" target="blank">Find medarbejdere her</a>
                     </p>
                 </div>
                 <div>
@@ -117,7 +122,7 @@
                     <h6><a href="/Cookies" style="color: #b0790b">Cookiepolitik</a></h6>
                 </div>
                 <div>
-                    <h6>RAGNAROCK er en del af museumsorganisationen ROMU</h6>
+                    <h6 class="bold">RAGNAROCK er en del af museumsorganisationen ROMU</h6>
                     <p><a href="https://romu.dk/" style="color: #b0790b" target="blank">Læs mere om ROMU her</a></p>
                 </div>
                 <div>

@@ -1,13 +1,9 @@
 ﻿.frontPageCarouselItem {
-    height: 34rem;
+    height: 80vh;
 }
 
 .frontPageCarouselImage {
     height: 100%;
     object-fit: cover;
     filter: brightness(0.3);
-}
-
-.ragnarockIcon {
-    object-fit: cover;
 }

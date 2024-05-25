@@ -5,6 +5,7 @@ footer {
     color: white;
     /*top, right, bottom, left*/
     padding: 35px 80px 35px 15px;
+    border-top: 0.1rem solid black;
 }
 
 .boldAndStrong {
@@ -24,6 +25,13 @@ footer {
 
 .footer-grid-container div {
     line-height: 1;
+}
+
+.hr-main {
+    height: 0.1111rem;
+    background-color: #b0790b;
+    border-color: #b0790b;
+    display: block;
 }
 
 .hr-footer {
@@ -60,16 +68,6 @@ footer {
     position: fixed;
     right: 1rem;
     bottom: 3.3rem;
-}
-
-.backToTopButton {
-    background-color: #fd7e14;
-    color: white;
-    text-align: center;
-    font-size: 15px;
-    padding: 8px 20px;
-    transition: all 0.5s;
-    cursor: pointer;
 }
 
 .backToTopButton span {
