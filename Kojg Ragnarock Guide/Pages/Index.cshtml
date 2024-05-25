@@ -3,24 +3,19 @@
 @{
     ViewData["Title"] = "Forside";
 }
-<div id="FrontPageCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-        @for (int i = 0; i < 4; i++)
-        {
-            if (i == 0)
-            {
-                <div class="carousel-item active frontPageCarouselItem">
-                    <img src="/FrontPageImages/RagnarockEntrance1.jpg" class="d-block w-100 frontPageCarouselImage" alt="Ragnarock>
-                </div>
-            }
-            else
-            {
-                <div class="carousel-item frontPageCarouselItem">
-                    <img src="/exhibitionPhotos/@Model.Exhibitions[i].PhotoFileName" class="d-block w-100 frontPageCarouselImage" alt="@Model.Exhibitions[i].Title">
-                </div>
-
-            }
-        }
-    </div>
+<div class="frontPageCarouselItem">
+    <img src="/FrontPageImages/RagnarockEntrance1.jpg" class="d-block w-100 frontPageCarouselImage" alt="Ragnarock">
 </div>
+
+<article class="frontPageArticle">
+    <div class="frontPageMainHeading">
+        <h1 class="frontPageLytMedH1"><strong>Ragnarocks Audio Guide</strong></h1>
+        <h2 class="frontPageLytMedH2">Få en guide til Ragnarock museet, som du kan lytte til i dit eget tempo.</h2>
+        <a class="hr-frontPage"></a>
+        <a class=" frontPageLytMedp" asp-page="/Guide">
+            <h3 class="frontPageLytMedp">
+                Se hvordan
+            </h3>
+        </a>
+    </div>
+</article>

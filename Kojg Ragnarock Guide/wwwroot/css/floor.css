@@ -3,10 +3,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 4rem 1fr;
-    padding-bottom: 10rem;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding: 1rem;
+    margin-bottom: 10rem;
     gap: 1rem;
 }
 /*Overordnet udstilling page end*/
@@ -25,13 +23,14 @@
 
 /*episode start*/
 .episode {
-    border-radius: 1rem;
     grid-row: span 2;
-    background-color: #000B25;
+    background-color: #101624;
     color: white;
     padding: 1rem;
+    border-style: solid;
+    border-color: #c99e67;
+    border-width: 0.2rem;
 }
-
 
 .episodeIdAndTitle {
     margin-top: 1rem;
@@ -49,7 +48,6 @@
 }
 
 .episodePicture {
-    border-radius: 1rem;
     display: block;
     position: relative;
     top: -0.3rem;

@@ -8,6 +8,46 @@
     filter: brightness(0.3);
 }
 
-#FrontPageCarousel {
+.frontPageArticle {
     margin-bottom: -0.9rem;
+}
+
+.frontPageMainHeading {
+    position: absolute;
+    top: 22rem;
+    left: 7rem;
+    color: white;
+    font-family: Verdana;
+}
+
+.frontPageLytMedH1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.hr-frontPage {
+    height: 0.1rem;
+    width: 80%;
+    background-color: #c99e67;
+    display: block;
+    position: relative;
+    right: -0.1rem;
+}
+
+.frontPageLytMedH2 {
+    font-size: 1.2rem;
+    position: relative;
+    right: -0.1rem;
+}
+.frontPageLytMedp {
+    color: white;
+    position: relative;
+    top: 0.1rem;
+    right: -0.1rem;
+    font-size: 0.8rem;
+    text-decoration: none;
+
+}
+.frontPageLytMedp:hover {
+    color: #c99e67;
 }

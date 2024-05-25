@@ -5,6 +5,7 @@
     border-bottom: 0.1rem solid;
     margin-bottom: 0.2rem;
 
+
 }
 
 .navParentGrid {
@@ -27,7 +28,7 @@
 }
 
 .navChildContent a:hover {
-    color: #b0790b;
+    color: #c99e67;
 }
 
 .navbarText {
