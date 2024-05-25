@@ -2,7 +2,7 @@
 .exhibition-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 4rem 1fr;
     padding-bottom: 10rem;
     padding-top: 1rem;
     padding-right: 1rem;
@@ -44,13 +44,13 @@
 }
 
 .episodeTop-Line {
-    margin-top: -10px;
+    margin-top: -0.8rem;
 }
 
 .episodePicture {
     display: block;
     position: relative;
-    top: -5px;
+    top: -0.3rem;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -180,16 +180,17 @@
 .audioStuff {
     z-index: 100;
     position: fixed;
+    left: 0;
     bottom: 0;
     display: grid;
-    grid-template-columns: 60px 1fr 1fr;
-    grid-template-rows: 20px 53px;
+    grid-template-columns: 4rem 1fr 1fr;
+    grid-template-rows: 1.4rem 3rem;
     border-width: 1px;
     border-style: solid;
     border-color: black;
     background-color: #001035;
     color: white;
-    padding: 5px;
+    padding: 0.3rem;
     width: 100%;
 }
 
@@ -201,8 +202,8 @@
     grid-row-start: 2;
     place-self: center;
     position: relative;
-    top: -10px;
-    left: -2px;
+    top: -0.7rem;
+    left: -0.2rem;
 }
 
 .bottom-player-title {

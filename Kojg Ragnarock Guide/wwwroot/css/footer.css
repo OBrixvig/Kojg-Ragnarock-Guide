@@ -4,13 +4,13 @@ footer {
     background-color: #001035;
     color: white;
     /*top, right, bottom, left*/
-    padding: 35px 80px 35px 15px;
+    padding: 2rem 1rem 2rem 1rem;
     border-top: 0.1rem solid black;
 }
 
 .boldAndStrong {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .bold {
@@ -19,38 +19,30 @@ footer {
 
 .footer-grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }
 
 .footer-grid-container div {
     line-height: 1;
 }
 
-.hr-main {
-    height: 0.1111rem;
-    background-color: #b0790b;
-    border-color: #b0790b;
-    display: block;
-}
-
 .hr-footer {
-    height: 2px;
+    height: 0.16rem;
     background-color: white;
     border-color: white;
     display: block;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-grid-container-2 {
     display: grid;
     text-align: center;
-    margin: 25px 50px 25px 50px;
-    grid-template-columns: auto auto auto auto;
-    gap: 75px;
+    margin: 1.5rem 3rem 1.5rem 3rem;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .footer-grid-container-2 div {
@@ -58,7 +50,7 @@ footer {
 }
 
 .cookiePolitik {
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 /*Footer end*/
 
@@ -82,12 +74,12 @@ footer {
     position: absolute;
     opacity: 0;
     top: 0;
-    right: -20px;
+    right: -1.5px;
     transition: 0.5s;
 }
 
 .backToTopButton:hover span {
-    padding-right: 25px;
+    padding-right: 2rem;
 }
 
 .backToTopButton:hover span:after {
