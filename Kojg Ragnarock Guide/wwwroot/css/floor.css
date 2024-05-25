@@ -65,11 +65,20 @@
 
 .playButton {
     width: 100%;
+    height: 2rem;
     position: relative;
     top: 0.2rem;
-    
+    background-color: #c99e67;
+    border: #c99e67;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-align: center;
 }
 
+    .playButton:hover {
+        background-color: #9c7b51;
+    }
 /*episode end*/
 /*Plantegning start*/
 .sticky-container-for-plantegning {
@@ -177,6 +186,7 @@
 
 
 /*Audio stuff start*/
+
 .audioStuff {
     z-index: 100;
     position: fixed;

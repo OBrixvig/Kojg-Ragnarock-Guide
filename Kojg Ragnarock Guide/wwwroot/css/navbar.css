@@ -28,7 +28,6 @@
 
     .navChildContent a:hover {
         color: #c99e67;
-        font-size: 1.25rem;
 }
 
 .navbarText {
@@ -36,9 +35,13 @@
     top: 0.4rem;
 }
 
-.ragnarockIcon {
-    width: 8rem;
+    .navbarText:hover {
+        font-size: 1.25rem;
 }
+
+    .ragnarockIcon {
+        width: 8rem;
+    }
     .ragnarockIcon:hover {
         width: 8.3rem;
     }

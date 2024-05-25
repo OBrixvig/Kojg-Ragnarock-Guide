@@ -61,10 +61,10 @@
                         </div>
                     </div>
                 </div>                    <td style="white-space: nowrap">
-                    <a class="btn btn-info btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                    <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#sletModal_@exhibition.Id">Slet</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#sletModal_@exhibition.Id">Slet</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="sletModal_@exhibition.Id" tabindex="-1" aria-labelledby="sletModalLabel" aria-hidden="true">
@@ -76,13 +76,13 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Fortryd</button>
-                                    <a class="btn btn-warning btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
+                                    <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </td>
-                <button type="button" class="btn btn-danger btn-sm playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
+                <button class="playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
                 <audio id="@exhibition.Id" style="display: none;">
                     <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                 </audio>
@@ -92,13 +92,24 @@
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="plantegning">
-            <td>
-                <img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
-                <img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
-            </td>
+            @foreach (var ex in Model.Exhibitions)
+            {
+                if (ex.Floor == "2")
+                {
+                    <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+                    break;
+                }
+                if (ex.Floor == "3")
+                {
+                    <td><img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+                    break;
+                }
+            }
             @foreach (var exhibition in Model.Exhibitions)
             {
-                <a class="adminButtonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+
+                <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+
             }
         </div>
     </div>
