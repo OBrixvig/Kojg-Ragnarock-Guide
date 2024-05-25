@@ -1,46 +1,63 @@
-﻿.navBar42 ul {
-    list-style-type: none;
-    margin: 0.5rem;
-    border: white;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-    height: 7rem;
+﻿
+.navBar42 {
+    background-color: #f9f9f9;
+    border: 1px solid;
+    border-bottom: 0.1rem solid;
+    margin-bottom: 0.2rem;
+
+
 }
 
-.navBar42 a {
-    display: inline-block;
+.navParentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem;
+}
+
+.navChildGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.navChildContent a {
     color: black;
-    text-align: center;
-    padding: 15px;
+    padding: 0.9rem;
     text-decoration: none;
-    font-size: xx-large;
-}
-
-.navBar42 li {
-    float: left;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 
-.navBar42 a:hover {
-    color: #b0790b;
+.navChildContent a:hover {
+    color: #c99e67;
+}
+
+.navbarText {
+    position: relative;
+    top: 0.4rem;
+}
+
+.ragnarockIcon {
+    object-fit: cover;
+    max-width: 8rem;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 8rem;
+    min-width: max-content;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
     z-index: 1;
 }
 
     .dropdown-content a {
         color: black;
-        padding: 12px 16px;
+        padding: 0.8rem 0.8rem;
         text-decoration: none;
         display: block;
         text-align: left;
+        font-size: 1.1rem;
     }
 
 

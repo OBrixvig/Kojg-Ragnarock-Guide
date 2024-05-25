@@ -22,7 +22,7 @@
             @foreach (var exhibition in Model.Exhibitions)
             {
                 
-                
+                <div class="episodeChild">
                     <div id="EpisodeID-@exhibition.ExhibitionNumber">
 
                         <article class="episodeIdAndTitle">
@@ -51,8 +51,7 @@
                             <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                         </audio>
                     </div>
-                
-           
+                </div>
             }
     </div>
     <div class="sticky-container-for-plantegning">
