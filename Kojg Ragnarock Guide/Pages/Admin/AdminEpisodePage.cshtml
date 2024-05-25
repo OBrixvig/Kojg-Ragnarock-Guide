@@ -49,15 +49,17 @@
                 </article>
                 <hr class="episodeTop-Line">
                 <img class="episodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
-                <div class="accordion accordion-flush adminAccordion" id="accordion_@exhibition.Id">
+                <div class="accordion accordion-flush adminAccordion" id="accordionFlush_@exhibition.Id">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@exhibition.Id" aria-expanded="true" aria-controls="collapse_@exhibition.Id">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-@exhibition.Id" aria-expanded="true" aria-controls="flush-collapse-@exhibition.Id">
                                 Beskrivelse af udstilling
                             </button>
                         </h2>
-                        <div id="collapse_@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordion_@exhibition.Id">
-                            <div class="accordion-body" style="color: black"><p class="episodeDescription">@exhibition.Description</p></div>
+                        <div id="flush-collapse-@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlush_@exhibition.Id">
+                            <div class="accordion-body" style="color: black">
+                                <p class="episodeDescription">@exhibition.Description</p>
+                            </div>
                         </div>
                     </div>
                 </div>                    <td style="white-space: nowrap">
