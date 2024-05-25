@@ -185,10 +185,8 @@
     display: grid;
     grid-template-columns: 4rem 1fr 1fr;
     grid-template-rows: 1.4rem 3rem;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    background-color: #000B25;
+    border-top: 0.1rem solid #c99e67;
+    background-color: #101624;
     color: white;
     padding: 0.3rem;
     width: 100%;

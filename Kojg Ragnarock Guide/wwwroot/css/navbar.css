@@ -4,8 +4,7 @@
     border: 1px solid;
     border-bottom: 0.1rem solid;
     margin-bottom: 0.2rem;
-
-
+    max-height: 5rem;
 }
 
 .navParentGrid {
@@ -27,8 +26,9 @@
     cursor: pointer;
 }
 
-.navChildContent a:hover {
-    color: #c99e67;
+    .navChildContent a:hover {
+        color: #c99e67;
+        font-size: 1.25rem;
 }
 
 .navbarText {
@@ -37,9 +37,11 @@
 }
 
 .ragnarockIcon {
-    object-fit: cover;
-    max-width: 8rem;
+    width: 8rem;
 }
+    .ragnarockIcon:hover {
+        width: 8.3rem;
+    }
 
 .dropdown-content {
     display: none;

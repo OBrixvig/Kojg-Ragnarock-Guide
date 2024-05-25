@@ -39,6 +39,7 @@
     position: relative;
     right: -0.1rem;
 }
+
 .frontPageLytMedp {
     color: white;
     position: relative;
@@ -46,8 +47,9 @@
     right: -0.1rem;
     font-size: 0.8rem;
     text-decoration: none;
+}
 
-}
-.frontPageLytMedp:hover {
-    color: #c99e67;
-}
+    .frontPageLytMedp:hover {
+        color: #c99e67;
+        font-size: 0.9rem;
+    }
