@@ -94,23 +94,14 @@
     </div>
     <div class="sticky-container-for-plantegning">
         <div class="floorPlan">
-            @foreach (var ex in Model.Exhibitions)
-            {
-                if (ex.Floor == "2")
-                {
-                    <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
-                    break;
-                }
-                if (ex.Floor == "3")
-                {
-                    <td><img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
-                    break;
-                }
-            }
+            <td>
+                <img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
+                <img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
+            </td>
             @foreach (var exhibition in Model.Exhibitions)
             {
 
-                <a class="buttonForFloorPlan-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+                <a class="adminButtonForFloorPlan-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
 
             }
         </div>
