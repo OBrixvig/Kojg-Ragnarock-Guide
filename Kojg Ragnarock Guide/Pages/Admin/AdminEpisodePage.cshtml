@@ -93,7 +93,7 @@
         }
     </div>
     <div class="sticky-container-for-plantegning">
-        <div class="plantegning">
+        <div class="floorPlan">
             @foreach (var ex in Model.Exhibitions)
             {
                 if (ex.Floor == "2")
@@ -110,7 +110,7 @@
             @foreach (var exhibition in Model.Exhibitions)
             {
 
-                <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+                <a class="buttonForFloorPlan-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
 
             }
         </div>

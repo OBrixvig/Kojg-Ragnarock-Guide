@@ -52,8 +52,11 @@ footer {
 .cookiePolitik {
     font-size: 1.5rem;
 }
-/*Footer end*/
 
+.footer-grid-container-child-Romu {
+    min-width: max-content;
+}
+/*Footer end*/
 /*Back To Top Button start*/
 .backToTopContainer {
     z-index: 101;

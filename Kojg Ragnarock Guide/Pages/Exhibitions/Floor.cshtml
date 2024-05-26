@@ -25,7 +25,7 @@
             <div class="episodeChild">
                 <div id="EpisodeID-@exhibition.ExhibitionNumber">
 
-                    <article class="episodeIdAndTitle">
+                    <article class="episodeIdAndTitle-grid">
                         <p>@exhibition.ExhibitionNumber-</p>
                         <p class="episodeTitle">@exhibition.Title</p>
                     </article>
@@ -54,25 +54,25 @@
             </div>
         }
     </div>
-    <div class="sticky-container-for-plantegning">
-        <div class="plantegning">
+    <div class="sticky-container-for-FloorPlan">
+        <div class="floorPlan">
             @foreach (var ex in Model.Exhibitions)
             {
                 if (ex.Floor == "2")
                 {
-                    <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+                    <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Floor Plan for Rockmuseet" /></td>
                     break;
                 }
                 if (ex.Floor == "3")
                 {
-                    <td><img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+                    <td><img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Floor Plan for Rockmuseet" /></td>
                     break;
                 }
             }
             @foreach (var exhibition in Model.Exhibitions)
             {
 
-                <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+                <a class="buttonForFloorPlan-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
 
             }
         </div>

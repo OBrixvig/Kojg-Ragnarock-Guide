@@ -32,7 +32,7 @@
     border-width: 0.2rem;
 }
 
-.episodeIdAndTitle {
+.episodeIdAndTitle-grid {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -80,12 +80,12 @@
         background-color: #9c7b51;
     }
 /*episode end*/
-/*Plantegning start*/
-.sticky-container-for-plantegning {
+/*FloorPlan start*/
+.sticky-container-for-FloorPlan {
     position: relative;
 }
 
-.plantegning {
+.floorPlan {
     position: sticky;
     top: 0;
     width: 100%;
@@ -94,7 +94,7 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.buttonForPlantegning-1 {
+.buttonForFloorPlan-1 {
     position: absolute;
     top: 1.5rem;
     left: 12.4rem;
@@ -102,7 +102,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-2 {
+.buttonForFloorPlan-2 {
     position: absolute;
     top: 8.4rem;
     left: 19.9rem;
@@ -110,7 +110,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-3 {
+.buttonForFloorPlan-3 {
     position: absolute;
     top: 15.5rem;
     left: 14.9rem;
@@ -118,7 +118,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-4 {
+.buttonForFloorPlan-4 {
     position: absolute;
     top: 30.2rem;
     left: 19.9rem;
@@ -126,7 +126,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-5 {
+.buttonForFloorPlan-5 {
     position: absolute;
     top: 31.5rem;
     left: 5.3rem;
@@ -134,7 +134,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-6 {
+.buttonForFloorPlan-6 {
     position: absolute;
     top: 22rem;
     left: 7rem;
@@ -142,7 +142,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-7 {
+.buttonForFloorPlan-7 {
     position: absolute;
     top: 1.5rem;
     left: 12.4rem;
@@ -150,7 +150,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-8 {
+.buttonForFloorPlan-8 {
     position: absolute;
     top: 9rem;
     left: 5.3rem;
@@ -158,7 +158,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-9 {
+.buttonForFloorPlan-9 {
     position: absolute;
     top: 16.2rem;
     left: 15.2rem;
@@ -166,7 +166,7 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-10 {
+.buttonForFloorPlan-10 {
     position: absolute;
     top: 30.4rem;
     left: 19.9rem;
@@ -174,14 +174,14 @@
     height: 4.8rem;
 }
 
-.buttonForPlantegning-11 {
+.buttonForFloorPlan-11 {
     position: absolute;
     top: 25.7rem;
     left: 5.3rem;
     width: 4.8rem;
     height: 4.8rem;
 }
-/*Plantegning end*/
+/*FloorPlan end*/
 
 
 

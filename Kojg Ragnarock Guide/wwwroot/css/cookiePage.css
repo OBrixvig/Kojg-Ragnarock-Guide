@@ -1,8 +1,8 @@
-﻿.cookiepolitikContainer {
+﻿.cookiePolicyContainer {
     background-color: #101624;
 }
 
-.cookiepolitikSection {
+.cookiePolicySection {
     text-align: left;
     color: white;
     margin: auto;
@@ -10,6 +10,6 @@
     padding: 0.8rem;
 }
 
-.cookiepolitikSection h1 {
-    text-align: center;
-}
+    .cookiePolicySection h1 {
+        text-align: center;
+    }

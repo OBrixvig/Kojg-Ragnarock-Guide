@@ -20,7 +20,7 @@
     font-family: Verdana;
 }
 
-.frontPageLytMedH1 {
+.frontPage-H1 {
     font-size: 3.5rem;
     text-transform: uppercase;
 }
@@ -34,13 +34,13 @@
     right: -0.1rem;
 }
 
-.frontPageLytMedH2 {
+.frontPage-H2 {
     font-size: 1.2rem;
     position: relative;
     right: -0.1rem;
 }
 
-.frontPageLytMedp {
+.frontPage-H3 {
     color: white;
     position: relative;
     top: 0.1rem;
@@ -49,7 +49,7 @@
     text-decoration: none;
 }
 
-    .frontPageLytMedp:hover {
-        color: #c99e67;
-        font-size: 0.9rem;
-    }
+.frontPage-H3:hover {
+    color: #c99e67;
+    font-size: 0.9rem;
+}
