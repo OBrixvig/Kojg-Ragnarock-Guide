@@ -12,6 +12,11 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         private readonly IWebHostEnvironment environment;
         private readonly ExhibitionDbContext context;
 
+        private string audioFullPath;
+        private string photoFullPath;
+
+        private Exhibition? exhibition;
+
         public DeleteExhibitionModel(IWebHostEnvironment environment, ExhibitionDbContext context)
         {
             this.environment = environment;
@@ -19,33 +24,60 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         }
         public void OnGet(int? id)
         {
-            //This get the the chosen objekt in Exhibition index and call this code if nothing is found it will return til index page
+            ValidateID(id);
+
+            FindExhibition(id);
+
+            DeleteAudio();
+
+            DeletePhoto();
+
+            DeleteExhibition();
+
+            //redirect to Index page
+            Response.Redirect("/Admin/AdminEpisodePage");
+        }
+
+        private void ValidateID(int? id)
+        {
+            //This will get the chosen object in Exhibition index and call this code if nothing is found it will return til index page
             if (id == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
                 return;
             }
+        }
+
+        private void FindExhibition(int? id)
+        {
             // looks for exhibition and if nothing comes up return to page.
-            Exhibition? exhibidition = context.Exhibitions.Find(id);
-            if (exhibidition == null)
+            exhibition = context.Exhibitions.Find(id);
+            if (exhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
                 return;
             }
+        }
 
+        private void DeleteAudio()
+        {
             // Deletes Audio
-            string audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibidition.AudioFileName;
+            audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibition.AudioFileName;
             System.IO.File.Delete(audioFullPath);
+        }
 
+        private void DeletePhoto()
+        {
             // Deletes Photo
-            string photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibidition.PhotoFileName;
+            photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibition.PhotoFileName;
             System.IO.File.Delete(photoFullPath);
+        }
 
-            //Deletes the the rest of the objekt
-            context.Exhibitions.Remove(exhibidition);
+        private void DeleteExhibition()
+        {
+            //Deletes the the rest of the object
+            context.Exhibitions.Remove(exhibition);
             context.SaveChanges();
-            //redirect to Index page
-            Response.Redirect("/Admin/AdminEpisodePage");
         }
     }
 }
