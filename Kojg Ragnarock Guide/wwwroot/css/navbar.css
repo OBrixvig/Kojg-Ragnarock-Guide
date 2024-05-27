@@ -1,9 +1,10 @@
 ﻿
 .navBar42 {
     background-color: #f9f9f9;
+    border-top: 0.1rem solid;
     border-bottom: 0.1rem solid;
     margin-bottom: 0.2rem;
-    max-height: 4.2rem;
+    max-height: 5.5rem;
 }
 
 .navParentGrid {
