@@ -1,5 +1,4 @@
-﻿
-/*Footer start*/
+﻿/*Footer start*/
 footer {
     background-color: #000B25;
     color: white;
@@ -23,9 +22,9 @@ footer {
     gap: 1.5rem;
 }
 
-.footer-grid-container div {
-    line-height: 1;
-}
+    .footer-grid-container div {
+        line-height: 1;
+    }
 
 .hr-footer {
     height: 0.16rem;
@@ -45,9 +44,9 @@ footer {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.footer-grid-container-2 div {
-    line-height: 1;
-}
+    .footer-grid-container-2 div {
+        line-height: 1;
+    }
 
 .cookiePolitik {
     font-size: 1.5rem;
@@ -55,10 +54,6 @@ footer {
 
 .footer-grid-container-child-Romu {
     min-width: max-content;
-}
-
-.linkAqua {
-    color: aqua;
 }
 /*Footer end*/
 /*Back To Top Button start*/
@@ -87,16 +82,16 @@ footer {
         position: relative;
         transition: 0.5s;
         color: white;
-}
-
-    .backToTopButton span::after {
-        content: '\00bb';
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        right: -1.2rem;
-        transition: 0.5s;
     }
+
+        .backToTopButton span::after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -1.2rem;
+            transition: 0.5s;
+        }
 
     .backToTopButton:hover span {
         padding-right: 1.2rem;
@@ -105,6 +100,5 @@ footer {
         .backToTopButton:hover span:after {
             opacity: 1;
             right: 0;
-}
+        }
 /*Back To Top Button end*/
-

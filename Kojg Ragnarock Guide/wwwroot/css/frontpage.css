@@ -40,16 +40,16 @@
     right: -0.1rem;
 }
 
-.frontPage-H3 {
-    color: white;
-    position: relative;
-    top: 0.1rem;
-    right: -0.1rem;
-    font-size: 0.8rem;
-    text-decoration: none;
-}
-
-.frontPage-H3:hover {
+    .frontPage-H3 h3 {
+        color: white;
+        position: relative;
+        top: 0.1rem;
+        right: -0.1rem;
+        font-size: 50rem;
+        text-decoration: none;
+        font-size: 0.8rem;
+    }
+.frontPage-H3 h3:hover {
     color: #c99e67;
     font-size: 0.9rem;
 }

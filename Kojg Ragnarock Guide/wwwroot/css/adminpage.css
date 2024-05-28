@@ -4,34 +4,6 @@
     right: 15rem;
 }
 
-
-.adminOpdaterButton {
-    border: none;
-    margin: auto;
-    color: white;
-    padding: 0.3rem 1rem;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #2196F3;
-}
-.adminOpdaterButton:hover {
-    background: #0b7dda;
-    color: white;
-}
-
-.adminSletButton {
-    border: none;
-    margin: auto;
-    color: white;
-    padding: 0.3rem 1rem;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #f44336;
-}
-.adminSletButton:hover {
-    background: #da190b;
-}
-
 .adminFilterByFloor {
     position: absolute;
     top: 1.3rem;
@@ -47,6 +19,7 @@
     place-self: center;
     color: orchid;
 }
+
 .adminEpisodeIdAndTitle {
     margin-top: 1rem;
     display: grid;

@@ -1,5 +1,4 @@
-﻿
-.navBar42 {
+﻿.navBar42 {
     background-color: #f9f9f9;
     border-top: 0.1rem solid;
     border-bottom: 0.1rem solid;
@@ -14,7 +13,7 @@
 }
 
 .navChildGrid {
-   min-width: max-content;
+    min-width: max-content;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
@@ -27,8 +26,8 @@
     cursor: pointer;
 }
 
-    .navChildContent a:hover {
-        color: #c99e67;
+.navChildContent a:hover {
+    color: #c99e67;
 }
 
 .navbarText {
@@ -36,16 +35,10 @@
     top: 0.4rem;
 }
 
-    .navbarText:hover {
-        font-size: 1.25rem;
-}
 
-    .ragnarockIcon {
-        width: 8rem;
-    }
-    .ragnarockIcon:hover {
-        width: 8.3rem;
-    }
+.ragnarockIcon {
+    width: 8rem;
+}
 
 .dropdown-content {
     display: none;
@@ -57,14 +50,14 @@
     z-index: 1;
 }
 
-    .dropdown-content a {
-        color: black;
-        padding: 0.8rem 0.8rem;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-        font-size: 1.1rem;
-    }
+.dropdown-content a {
+    color: black;
+    padding: 0.8rem 0.8rem;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 1.1rem;
+}
 
 
 .dropDown:hover .dropdown-content {
@@ -73,8 +66,4 @@
 
 li.dropDown {
     display: inline-block;
-}
-
-.navbarIcon {
-
 }

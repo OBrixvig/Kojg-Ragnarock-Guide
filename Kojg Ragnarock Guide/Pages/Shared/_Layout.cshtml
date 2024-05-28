@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="~/css/floor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cookiePage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/adminpage.css" asp-append-version="true" />
-    
+
 
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
 
@@ -55,14 +55,12 @@
 
     <!--Hvilken funktion har nedenstående?-->
     <main role="main" class="pb-3">
-        
         @RenderBody()
-       
     </main>
 
     <footer>
         <div class="backToTopContainer">
-            <a class="backToTopButton" href="#NavBar42ID"><span>Til toppen</span></a>
+            <a class="backToTopButton" href="#NavBar42ID"><span><strong>Til toppen</strong></span></a>
         </div>
         <section>
             <div class="footer-grid-container">
@@ -81,7 +79,7 @@
                     <p>ragnarock@romu.dk</p>
                     <p>Man-fre: 09:00-15:00</p>
                     <p>
-                        <a class="linkAqua" href="https://museumragnarock.dk/om-ragnarock/">Find medarbejdere her</a>
+                        <a style="color: #c99e67" href="https://museumragnarock.dk/om-ragnarock/" target="blank">Find medarbejdere her</a>
                     </p>
                 </div>
                 <div>
@@ -115,27 +113,27 @@
                 <div>
                     <h6 class="bold">FØLG OS</h6>
                     <p>
-                        <a class="linkAqua" href="https://www.facebook.com/MuseumRagnarock" target="blank">Facebook</a>
-                        <a class="linkAqua"  href="https://www.instagram.com/museumragnarock/" target="blank">Instagram</a>
-                        <a class="linkAqua" href="https://www.linkedin.com/company/ragnarock-museet-for-pop-rock-og-ungdomskultur/?originalSubdomain=dk" target="blank">LinkedIn</a>
+                        <a style="color: #c99e67" href="https://www.facebook.com/MuseumRagnarock" target="blank">Facebook</a>
+                        <a style="color: #c99e67" href="https://www.instagram.com/museumragnarock/" target="blank">Instagram</a>
+                        <a style="color: #c99e67" href="https://www.linkedin.com/company/ragnarock-museet-for-pop-rock-og-ungdomskultur/?originalSubdomain=dk" target="blank">LinkedIn</a>
                     </p>
                 </div>
                 <div>
-                    <h6><a href="/Cookies" style="color: orange">Cookiepolitik</a></h6>
+                    <h6><a href="/Cookies" style="color: #c99e67">Cookiepolitik</a></h6>
                 </div>
                 <div>
-                    <h6>RAGNAROCK er en del af museumsorganisationen ROMU</h6>
-                    <p><a class="linkAqua" href="https://romu.dk/" target="blank">Læs mere om ROMU her</a></p>
+                    <h6 class="bold footer-grid-container-child-Romu">RAGNAROCK er en del af museumsorganisationen ROMU</h6>
+                    <p><a href="https://romu.dk/" style="color: #c99e67" target="blank">Læs mere om ROMU her</a></p>
                 </div>
                 <div>
-                    <a href="https://www.findsmiley.dk/740317" target="blank"><img src="https://museumragnarock.dk/wp-content/uploads/2016/09/Banner_gul_99x32.gif" alt="footer smiley" /></a>
+                    <a href="https://www.findsmiley.dk/740317" style="color: #c99e67" target="blank"><img src="https://museumragnarock.dk/wp-content/uploads/2016/09/Banner_gul_99x32.gif" alt="footer smiley" /></a>
                 </div>
             </div>
 
         </section>
     </footer>
 
-    
+    <!--Hvilken funktion har nedenstående?-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
