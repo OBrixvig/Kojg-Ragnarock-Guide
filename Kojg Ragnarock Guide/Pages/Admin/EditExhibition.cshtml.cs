@@ -13,11 +13,21 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         private readonly IWebHostEnvironment environment;
         private readonly ExhibitionDbContext context;
 
+        private Exhibition? exhibition;
+
+        private string newPhotoFileName;
+        private string photoFullPath;
+        private string oldPhotoFullPath;
+
+        private string newAudioFileName;
+        private string audioFullPath;
+        private string oldAudioFullPath;
+
         [BindProperty]
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
 
         public Exhibition Exhibition { get; set; } = new Exhibition();
-        
+
         public string _errorMessage = "";
         public string _successMessage = "";
 
@@ -29,99 +39,156 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         // the OnGet() searches for the Id and Exhibition and return with the think i want to update
         public void OnGet(int? id)
         {
-            if (id == null) 
+            ValidateID(id);
+
+            FindExhibitionInDatabase(id);
+
+            if (exhibition == null)
             {
-                Response.Redirect("/Admin/AdminEpisodePage");
+                _errorMessage = "Exhibition not found.";
                 return;
             }
 
-            Exhibition? exhibition = context.Exhibitions.Find(id);
-            if (exhibition == null)
-            {
-                Response.Redirect("/Admin/AdminEpisodePage");
-                return;
-            }
-            //return what i want to update
-            ExhibitionDto.Title = exhibition.Title;
-            ExhibitionDto.Description = exhibition.Description;
-            ExhibitionDto.Floor = exhibition.Floor;
-            ExhibitionDto.ExhibitionNumber = exhibition.ExhibitionNumber;
-            Exhibition = exhibition;
-            
+            CopyExhibition();
+
+            DisplayExhibiion();
+
         }
 
         public void OnPost(int? id)
         {
+            ValidateID(id);
+
+            FindExhibitionInDatabase(id);
+
+            if (exhibition == null)
+            {
+                _errorMessage = "Exhibition not found.";
+                Response.Redirect("/Admin/AdminEpisodePage");
+            }
+
+            ValidateModelState();
+
+            UpdateAudio();
+
+            UpdatePhoto();
+
+            UpdateExhibitionInDatabase();
+
+            DisplayExhibiion();
+
+            _successMessage = "Udstilling blev opdateret";
+
+            Response.Redirect("/Admin/AdminEpisodePage");
+
+        }
+
+        private void ValidateID(int? id)
+        {
             if (id == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
-                return;
             }
+        }
+
+        private void FindExhibitionInDatabase(int? id)
+        {
+            if (id.HasValue)
+            {
+                exhibition = context.Exhibitions.Find(id.Value);
+                if (exhibition == null)
+                {
+                    Response.Redirect("/Admin/AdminEpisodePage");
+                }
+            }
+            else
+            {
+                Response.Redirect("/Admin/AdminEpisodePage");
+            }
+        }
+
+        private void CopyExhibition()
+        {
+            // Return what I want to update
+            if (exhibition != null)
+            {
+                ExhibitionDto.Title = exhibition.Title;
+                ExhibitionDto.Description = exhibition.Description;
+                ExhibitionDto.Floor = exhibition.Floor;
+                ExhibitionDto.ExhibitionNumber = exhibition.ExhibitionNumber;
+            }
+        }
+
+        private void ValidateModelState()
+        {
             // If ModelState is not valid, return error massage
             if (!ModelState.IsValid)
             {
                 _errorMessage = "Udfyld alle felter";
                 return;
             }
-            // finds the the exhibition in the database 
-            Exhibition? exhibition = context.Exhibitions.Find(id);
-            if(exhibition == null)
-            {
-                Response.Redirect("/Admin/AdminEpisodePage");
-                return;
-            }
+        }
 
+        private void UpdateAudio()
+        {
             // Update Audio If we have a new one
-            string newAudioFileName = exhibition.AudioFileName;
+            newAudioFileName = exhibition.AudioFileName;
             if (ExhibitionDto.AudioFile != null)
             {
                 // Important to get Timestamp or else it wont save the picture properly
                 newAudioFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 newAudioFileName += Path.GetExtension(ExhibitionDto.AudioFile!.FileName);
                 // Saves the new audio chosen
-                string audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + newAudioFileName;
+                audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + newAudioFileName;
                 using (FileStream? stream = System.IO.File.Create(audioFullPath))
                 {
                     ExhibitionDto.AudioFile.CopyTo(stream);
                 }
+
                 // delete old audio
-                string oldAudioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibition.AudioFileName;
+                oldAudioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibition.AudioFileName;
                 System.IO.File.Delete(oldAudioFullPath);
             }
+            exhibition.AudioFileName = newAudioFileName;
+        }
 
+        private void UpdatePhoto()
+        {
             // Update Photo If we have a new one
-            string newPhotoFileName = exhibition.PhotoFileName;
+            newPhotoFileName = exhibition.PhotoFileName;
             if (ExhibitionDto.PhotoFile != null)
             {
                 // Important to get Timestamp or else it wont save the picture properly
                 newPhotoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 newPhotoFileName += Path.GetExtension(ExhibitionDto.PhotoFile!.FileName);
                 // Saves the new picture chosen
-                string photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newPhotoFileName;
+                photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newPhotoFileName;
                 using (FileStream? stream = System.IO.File.Create(photoFullPath))
                 {
                     ExhibitionDto.PhotoFile.CopyTo(stream);
                 }
                 // delete old photo
-                string oldPhotoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibition.PhotoFileName;
+                oldPhotoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibition.PhotoFileName;
                 System.IO.File.Delete(oldPhotoFullPath);
             }
+            exhibition.PhotoFileName = newPhotoFileName;
+        }
+
+        private void UpdateExhibitionInDatabase()
+        {
             // update exhibition in database
             exhibition.Title = ExhibitionDto.Title;
             exhibition.ExhibitionNumber = ExhibitionDto.ExhibitionNumber;
             exhibition.Description = ExhibitionDto.Description ?? "";
             exhibition.Floor = ExhibitionDto.Floor;
-            exhibition.PhotoFileName = newPhotoFileName;
-            exhibition.AudioFileName = newAudioFileName;
-
-            Exhibition = exhibition;
-
-            _successMessage = "Udstilling blev opdateret";
-
             context.SaveChanges();
-
-            Response.Redirect("/Admin/AdminEpisodePage");
-            
         }
+
+        private void DisplayExhibiion()
+        {
+            Exhibition = exhibition;
+        }
+
+
     }
 }

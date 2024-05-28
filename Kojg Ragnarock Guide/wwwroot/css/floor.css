@@ -86,12 +86,12 @@
 
 .playButton {
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     position: relative;
     top: 0.2rem;
     background-color: #c99e67;
-    border: #c99e67;
-    border-radius: 0.2rem;
+    border: solid black;
+    border-width: 0.1rem;
     font-size: 1rem;
     color: #FFFFFF;
     text-align: center;
@@ -104,6 +104,7 @@
 /*FloorPlan start*/
 .sticky-container-for-FloorPlan {
     position: relative;
+    left: 10rem;
 }
 
 .floorPlan {

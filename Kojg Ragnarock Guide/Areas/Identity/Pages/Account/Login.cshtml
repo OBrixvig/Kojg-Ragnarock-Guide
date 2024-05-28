@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Login";
 }
 
 <div class="loginAndRegisterContainer">
@@ -11,7 +11,7 @@
             <h1>@ViewData["Title"]</h1>
             <section>
                 <form id="account" method="post">
-                    <h2>Use a local account to log in.</h2>
+                    <h2>Use a local account to login.</h2>
                     <hr />
                     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                     <div class="form-floating mb-3">
@@ -31,14 +31,15 @@
                         </label>
                     </div>
                     <div>
-                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                        <button class="login-register-button" id="login-submit" type="submit">Login</button>
                     </div>
+                    <br/>
                     <div>
                         <p>
-                            <a id="forgot-password" asp-page="./ForgotPassword">Glæmt Kodeord?</a>
+                            <a style="color: #c99e67; text-decoration: none;" id="forgot-password" asp-page="./ForgotPassword">Glæmt Kodeord?</a>
                         </p>
                         <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register ny bruger</a>
+                            <a style="color: #c99e67; text-decoration: none;" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register ny bruger</a>
                         </p>
                     </div>
                 </form>

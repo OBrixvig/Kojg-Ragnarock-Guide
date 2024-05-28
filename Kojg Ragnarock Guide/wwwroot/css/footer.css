@@ -65,25 +65,28 @@ footer {
 .backToTopContainer {
     z-index: 101;
     position: fixed;
-    right: 0.41rem;
+    right: 0.8rem;
     bottom: 3.3rem;
 }
 
 .backToTopButton {
     background-color: #c99e67;
+    border: solid black;
+    border-width: 0.01rem;
     color: white;
     text-align: center;
     font-size: 0.7rem;
-    padding: 0.6rem 1.2rem;
+    padding: 0.55rem 1.2rem;
     transition: all 0.5s;
     cursor: pointer;
 }
 
-.backToTopButton span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
+    .backToTopButton span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        color: white;
 }
 
     .backToTopButton span::after {
@@ -99,9 +102,9 @@ footer {
         padding-right: 1.2rem;
     }
 
-.backToTopButton:hover span:after {
-    opacity: 1;
-    right: 0;
+        .backToTopButton:hover span:after {
+            opacity: 1;
+            right: 0;
 }
 /*Back To Top Button end*/
 
