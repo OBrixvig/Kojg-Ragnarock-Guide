@@ -1,0 +1,34 @@
+﻿
+.editButtonFortryd {
+    color: black;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem 5.5rem;
+    margin: auto;
+    cursor: pointer;
+    border-color: #e7e7e7;
+    color: black;
+}
+
+.editButtonFortryd:hover {
+    background: #e7e7e7;
+    color: black;
+}
+
+.editButtonOpdater {
+    color: black;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem 5.5rem;
+    margin: auto;
+    cursor: pointer;
+    border-color: #04AA6D;
+    color: green;
+}
+
+.editButtonOpdater:hover {
+    background-color: #04AA6D;
+    color: white;
+}

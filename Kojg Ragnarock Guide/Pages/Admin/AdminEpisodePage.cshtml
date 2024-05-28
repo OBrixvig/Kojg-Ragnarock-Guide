@@ -4,6 +4,8 @@
 @model AdminEpisodePage
 @{
 }
+<link rel="stylesheet" href="~/css/adminpage.css" asp-append-version="true" />
+
 <div class="adminCreateExhibition">
     <a class='btn btn-success' href="/Admin/CreateExhibition">Opret nyt</a>
 </div>
@@ -26,7 +28,7 @@
         @foreach (var exhibition in Model.Exhibitions)
         {
             <div id="EpisodeID-@exhibition.ExhibitionNumber">
-                <article class="adminEpisodeIdAndTitle">
+                <article class="episodeIdAndTitle">
                     @if (@exhibition.ExhibitionNumber <= 0)
                     {
                         <div class="alert alert-danger" role="alert">
@@ -49,24 +51,22 @@
                 </article>
                 <hr class="episodeTop-Line">
                 <img class="episodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
-                <div class="accordion accordion-flush adminAccordion" id="accordionFlush_@exhibition.Id">
+                <div class="accordion accordion-flush adminAccordion" id="accordion_@exhibition.Id">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-@exhibition.Id" aria-expanded="true" aria-controls="flush-collapse-@exhibition.Id">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@exhibition.Id" aria-expanded="true" aria-controls="collapse_@exhibition.Id">
                                 Beskrivelse af udstilling
                             </button>
                         </h2>
-                        <div id="flush-collapse-@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlush_@exhibition.Id">
-                            <div class="accordion-body" style="color: black">
-                                <p class="episodeDescription">@exhibition.Description</p>
-                            </div>
+                        <div id="collapse_@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordion_@exhibition.Id">
+                            <div class="accordion-body" style="color: black"><p class="episodeDescription">@exhibition.Description</p></div>
                         </div>
                     </div>
                 </div>                    <td style="white-space: nowrap">
-                    <a class="btn btn-warning btn-sm" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
+                    <a class="adminOpdaterButton" href="/Admin/EditExhibition?id=@exhibition.Id">Opdater</a>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#sletModal_@exhibition.Id">Slet</button>
+                    <button type="button" class="adminSletButton" data-bs-toggle="modal" data-bs-target="#sletModal_@exhibition.Id">Slet</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="sletModal_@exhibition.Id" tabindex="-1" aria-labelledby="sletModalLabel" aria-hidden="true">
@@ -74,17 +74,17 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="sletModalLabel" style="color:black;">Er du sikker på du vil slette denne Exhibition?</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="adminOpdaterButton" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Fortryd</button>
-                                    <a class="btn btn-danger btn-sm" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
+                                    <a class="adminSletButton" href="/Admin/DeleteExhibition?id=@exhibition.Id">Slet</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </td>
-                <button class="playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
+                <button type="button" class="btn btn-danger btn-sm playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
                 <audio id="@exhibition.Id" style="display: none;">
                     <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
                 </audio>
@@ -93,16 +93,14 @@
         }
     </div>
     <div class="sticky-container-for-plantegning">
-        <div class="floorPlan">
+        <div class="plantegning">
             <td>
                 <img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
                 <img src="/Plantegninger/Etage3.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" />
             </td>
             @foreach (var exhibition in Model.Exhibitions)
             {
-
-                <a class="adminButtonForFloorPlan-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
-
+                <a class="adminButtonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
             }
         </div>
     </div>

@@ -3,6 +3,8 @@
 @{
 }
 
+<link rel="stylesheet" href="~/css/Edit.css" asp-append-version="true" />
+
 @*Må ikke slette denne div*@
 <br />
 <div class="container">
@@ -92,10 +94,10 @@
 
                 <div class="row mb-3">
                     <div class="offset-sm-4 col-sm-4 d-grid">
-                        <button type="submit" class="btn btn-primary">Opdater udstilling</button>
+                        <button type="submit" class="editButtonOpdater">Opdater</button>
                     </div>
                     <div class="col-sm-4 d-grid">
-                        <a class="btn btn_outline-primary" href="/Admin/AdminEpisodePage" role="button">Fortryd</a>
+                        <a class="editButtonFortryd" href="/Admin/AdminEpisodePage" role="button">Fortryd</a>
                     </div>
                 </div>
             </form>

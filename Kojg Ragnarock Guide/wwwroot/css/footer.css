@@ -56,6 +56,10 @@ footer {
 .footer-grid-container-child-Romu {
     min-width: max-content;
 }
+
+.linkAqua {
+    color: aqua;
+}
 /*Footer end*/
 /*Back To Top Button start*/
 .backToTopContainer {

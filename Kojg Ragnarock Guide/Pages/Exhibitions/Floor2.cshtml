@@ -1,0 +1,75 @@
+﻿@page
+@model Kojg_Ragnarock_Guide.Pages.Exhibitions.Floor2
+@{
+}
+<div class="exhibition-grid">
+    <div class="floorNumber">
+        <h1>Etage 2</h1>
+    </div>
+    <div class="episode">
+            @foreach (var exhibition in Model.Exhibitions)
+            {
+                @if (exhibition.Floor == "2")
+                {
+                
+                    <div  id="EpisodeID-@exhibition.ExhibitionNumber">
+					   
+                           <article class="episodeIdAndTitle">
+                               <p>@exhibition.ExhibitionNumber-</p>
+                               <p class="episodeTitle">@exhibition.Title</p>
+                           </article>
+                          
+                           <hr class="episodeTop-Line">
+                           <img class="episodePicture" src="/exhibitionPhotos/@exhibition.PhotoFileName" width="50" alt="Du har ikke tilføjet et billede" />
+                           <div class="accordion accordion-flush" id="accordionFlush_@exhibition.Id">
+                               <div class="accordion-item">
+                                   <h2 class="accordion-header">
+                                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-@exhibition.Id" aria-expanded="true" aria-controls="flush-collapse-@exhibition.Id">
+                                           Beskrivelse af udstilling
+                                       </button>
+                                   </h2>
+                                   <div id="flush-collapse-@exhibition.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlush_@exhibition.Id">
+                                       <div class="accordion-body" style="color: black">
+                                           <p class="episodeDescription">@exhibition.Description</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <button class="playButton" onclick="playAudio(this, '@exhibition.Id')">Play</button>
+                            <audio id="@exhibition.Id" style="display: none;">
+                              <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
+                              <source id="source-@exhibition.Id" src="/exhibitionAudios/@exhibition.AudioFileName" type="audio/mpeg">
+                            </audio>
+
+                    
+                    </div>
+                    
+                
+
+                }
+            }
+    </div>
+    <div class="sticky-container-for-plantegning">
+        <div class="plantegning">
+            <td><img src="/Plantegninger/Etage2.jpg" height="672" width="474" alt="Plantegning for Rockmuseet" /></td>
+            @foreach (var exhibition in Model.Exhibitions)
+            {
+                @if (exhibition.Floor == "2")
+                {
+                    <a class="buttonForPlantegning-@exhibition.ExhibitionNumber" href="#EpisodeID-@exhibition.ExhibitionNumber"></a>
+                }
+            }
+        </div>
+    </div>
+    <div class="audioStuff hideAudioStuff">
+        <div class="bottom-player-pic">
+            <img id="bottom-player-image" width="57" height="73" src="" alt="">
+        </div>
+        <div class="bottom-player-title">
+            <p id="bottom-player-title"></p>
+        </div>
+        <audio controls class="bottom-audio">
+            <source id="bottom-audio-source" src="" type="audio/mpeg">
+        </audio>
+    </div>
+</div>
