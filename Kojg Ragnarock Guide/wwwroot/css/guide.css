@@ -1,6 +1,7 @@
 ﻿.userGuideContainer {
     margin-bottom: -0.9rem;
     background-color: #101624;
+    margin: 2.5rem 10rem 2.5rem 10rem;
 }
 .userGuideSection {
     text-align: left;
@@ -10,6 +11,7 @@
     padding: 0.8rem;
 }
     .userGuideSection h1 {
-        min-width: max-content;
-        text-align: center;
+        width: 50rem;
+        text-align: left;
+        padding-right: 15rem;
     }

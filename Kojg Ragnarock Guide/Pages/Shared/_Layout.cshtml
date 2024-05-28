@@ -24,30 +24,40 @@
 <body>
     <header>
         <nav class="navBar42" id="NavBar42ID">
-            <ul>
-                <li>
-                    <a class="active" asp-page="/Index"> <img class="ragnarockIcon" src="\FrontPageImages\Ragnarock.webp" alt="Ragnarock Icon" /></a>
-                </li>
-                <li><a class="active" asp-page="/Guide">Brugerguide</a></li>
-                <li class="dropDown">
-                    <a class="dropBtn">Udstillinger</a>
-                    <div class="dropdown-content">
-                        <a class="active" asp-page="/Exhibitions/Floor2">Etage 2</a>
-                        <a class="active" asp-page="/Exhibitions/Floor3">Etage 3</a>
+            <div class="navParentGrid">
+                <div class="navChildGrid">
+                    <div class="navChildContent">
+                        <a class="active" asp-page="/Index">
+                            <img class="ragnarockIcon" src="\FrontPageImages\Ragnarock.webp" alt="Ragnarock Icon" />
+                        </a>
                     </div>
-                </li>
-                <li class="dropDown">
-                    <partial name="_LoginPartial" />
-                </li>
-            </ul>
+                    <div class="navChildContent">
+                        <a class="active navbarText" asp-page="/Guide">Brugerguide</a>
+                    </div>
+                    <div class="navChildContent">
+                        <li class="dropDown navbarText">
+                            <a class="dropBtn">Udstillinger</a>
+                            <div class="dropdown-content">
+                                <a class="active" href="/Exhibitions/Floor?FilterCriteria=2">Etage 2</a>
+                                <a class="active" href="/Exhibitions/Floor?FilterCriteria=3">Etage 3</a>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="navChildContent">
+                        <li class="dropDown navbarText">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!--Hvilken funktion har nedenstående?-->
     <main role="main" class="pb-3">
-        <hr>
+        
         @RenderBody()
-        <hr>
+       
     </main>
 
     <footer>

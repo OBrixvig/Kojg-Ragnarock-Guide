@@ -3,6 +3,9 @@
 @{
 }
 @*Må ikke slette denne div*@
+
+<link rel="stylesheet" href="~/css/Edit.css" asp-append-version="true" />
+
 <br/>
 <div class="container">
     <div class="row">
@@ -43,7 +46,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class=" col-sm-4 col-form-label">Udstillings Nummer</label>
+                    <label class=" col-sm-4 col-form-label">Udstillingsnummer</label>
                     <div class="col-sm-8">
                         <input class="form-control" asp-for="ExhibitionDto.ExhibitionNumber">
                         <span asp-validation-for="ExhibitionDto.ExhibitionNumber" class="text-danger"></span>
@@ -63,7 +66,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class=" col-sm-4 col-form-label">Billed Fil</label>
+                    <label class=" col-sm-4 col-form-label">Billedfil</label>
                     <div class="col-sm-8">
                         <input class="form-control" asp-for="ExhibitionDto.PhotoFile">
                         <span asp-validation-for="ExhibitionDto.PhotoFile" class="text-danger"></span>
@@ -71,7 +74,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class=" col-sm-4 col-form-label">Lyd Fil</label>
+                    <label class=" col-sm-4 col-form-label">Lydfil</label>
                     <div class="col-sm-8">
                         <input class="form-control" asp-for="ExhibitionDto.AudioFile">
                         <span asp-validation-for="ExhibitionDto.AudioFile" class="text-danger"></span>
@@ -80,10 +83,10 @@
 
                 <div class="row mb-3">
                     <div class="offset-sm-4 col-sm-4 d-grid">
-                        <button type="submit" class="btn btn-success">Opret ny udstilling</button>
+                        <button type="submit" class="editButtonOpdater">Opret ny udstilling</button>
                     </div>
                     <div class="col-sm-4 d-grid">
-                        <a class="btn btn-warning" href="/Admin/AdminEpisodePage" role="button">Fortryd</a>
+                        <a class="editButtonFortryd" href="/Admin/AdminEpisodePage" role="button">Fortryd</a>
                     </div>
                 </div>
             </form>
