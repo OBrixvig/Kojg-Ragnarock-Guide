@@ -1,8 +1,10 @@
+using Kojg_Ragnarock_Guide.Interfaces;
 using Kojg_Ragnarock_Guide.Models;
 using Kojg_Ragnarock_Guide.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NuGet.Protocol.Core.Types;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
@@ -10,45 +12,25 @@ namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
     [Authorize(Roles = "admin,client")]
     public class Floor : PageModel
     {
-        private readonly ExhibitionDbContext context;
+        IExhibitionRepository repo;
+
+        public List<Exhibition> Exhibitions { get; private set; } = new List<Exhibition>();
 
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
 
-
-        public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
-
-        public Floor(ExhibitionDbContext context)
+        public Floor(IExhibitionRepository repository)
         {
-            this.context = context;
+            repo = repository;
         }
-        public List<Exhibition> ExhibitionFloor { get; set; } = new List<Exhibition>();
 
         public void OnGet()
         {
-           Exhibitions = context.Exhibitions.OrderByDescending(E => E.ExhibitionNumber).Reverse().ToList();
-            
+            Exhibitions = repo.GetAllExhibitions();
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
-                Exhibitions = FilterExhibitions(FilterCriteria);
+                Exhibitions = repo.FilterExhibitions(FilterCriteria);
             }
-
         }
-        public List<Exhibition> FilterExhibitions(string FloorNumber)
-        {
-            List<Exhibition> filteredList = new List<Exhibition>();
-
-            foreach (Exhibition ex in Exhibitions)
-            {
-                if (ex.Floor.Contains(FloorNumber))
-                {
-                    filteredList.Add(ex);
-                }
-            }
-            return filteredList;
-        }
-
-
-
     }
 }

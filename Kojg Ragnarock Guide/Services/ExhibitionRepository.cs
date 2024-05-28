@@ -12,7 +12,7 @@ using Exhibition = Kojg_Ragnarock_Guide.Models.Exhibition;
 namespace Kojg_Ragnarock_Guide.Services
 
 {
-    public class AdminActionsRepository(IWebHostEnvironment environment, ExhibitionDbContext context) : IAdminActionsRepository
+    public class ExhibitionRepository(IWebHostEnvironment environment, ExhibitionDbContext context) : IExhibitionRepository
     {
         public Exhibition? foundExhibition { get; set; }
 
@@ -44,7 +44,7 @@ namespace Kojg_Ragnarock_Guide.Services
             return filteredList;
         }
 
-        public void FindExhibitionInDatabase(int? id)
+        public void FindExhibition(int? id)
         {
             foundExhibition = context.Exhibitions.Find(id.Value);
         }
@@ -87,7 +87,7 @@ namespace Kojg_Ragnarock_Guide.Services
             }
         }
 
-        public void CreateExhibitionInDatabase(ExhibitionDto exhibitionDto)
+        public void CreateExhibition(ExhibitionDto exhibitionDto)
         {
             //save the new product in the database
             Exhibition exhibition = new Exhibition()
@@ -169,7 +169,7 @@ namespace Kojg_Ragnarock_Guide.Services
             foundExhibition.PhotoFileName = newPhotoFileName;
         }
 
-        public void UpdateExhibitionInDatabase(ExhibitionDto exhibitionDto)
+        public void UpdateExhibition(ExhibitionDto exhibitionDto)
         {
             // update foundExhibition in database
             foundExhibition.Title = exhibitionDto.Title;

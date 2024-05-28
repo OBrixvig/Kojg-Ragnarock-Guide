@@ -19,7 +19,7 @@ namespace Kojg_Ragnarock_Guide
             builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ExhibitionDbContext>();
-            builder.Services.AddTransient<IAdminActionsRepository, AdminActionsRepository>();
+            builder.Services.AddTransient<IExhibitionRepository, ExhibitionRepository>();
 
 
             // add blob service Dont think we need it, was ment for audio

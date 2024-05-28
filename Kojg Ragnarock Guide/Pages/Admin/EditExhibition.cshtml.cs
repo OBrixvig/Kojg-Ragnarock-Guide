@@ -12,7 +12,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     public class EditExhibitionModel : PageModel
     {
 
-        IAdminActionsRepository repo;
+        IExhibitionRepository repo;
 
         [BindProperty]
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
@@ -23,7 +23,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         public string _errorMessage = "";
         public string _successMessage = "";
 
-        public EditExhibitionModel(IAdminActionsRepository repository)
+        public EditExhibitionModel(IExhibitionRepository repository)
         {
             repo = repository;
         }
@@ -38,7 +38,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             }
 
             //Find Exhibition
-            repo.FindExhibitionInDatabase(id);
+            repo.FindExhibition(id);
             if (repo.foundExhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
@@ -67,7 +67,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             }
 
             //Find Exhibition
-            repo.FindExhibitionInDatabase(id.Value);
+            repo.FindExhibition(id.Value);
             if (repo.foundExhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
@@ -87,7 +87,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             repo.UpdatePhoto(ExhibitionDto);
 
             //Update Exhibition in database
-            repo.UpdateExhibitionInDatabase(ExhibitionDto);
+            repo.UpdateExhibition(ExhibitionDto);
 
             //Display Exhibition
             Exhibition = repo.foundExhibition;

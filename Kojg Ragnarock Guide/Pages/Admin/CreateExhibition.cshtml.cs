@@ -12,21 +12,16 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class CreateExhibitionModel : PageModel
     {
-        IAdminActionsRepository repo;
+        IExhibitionRepository repo;
 
         [BindProperty]
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
-
-        public Exhibition Exhibition { get; set; } = new Exhibition();
-
-        /*[BindProperty]
-        public ExhibitionDto exhibitionDto { get; set; } = new ExhibitionDto();*/
 
         // making some empty string massages i use in html razer pages lower i define them
         public string _errorMassage = "";
         public string _successMassage = "";
 
-        public CreateExhibitionModel(IAdminActionsRepository repository)
+        public CreateExhibitionModel(IExhibitionRepository repository)
         {
             repo = repository;
         }
@@ -62,7 +57,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             repo.SavePhotoAsFile(ExhibitionDto);
 
             //Save Exhibition
-            repo.CreateExhibitionInDatabase(ExhibitionDto);
+            repo.CreateExhibition(ExhibitionDto);
 
             //Clear Form
             repo.ClearTheForm(ExhibitionDto);

@@ -6,7 +6,7 @@ using System;
 
 namespace Kojg_Ragnarock_Guide.Interfaces
 {
-    public interface IAdminActionsRepository
+    public interface IExhibitionRepository
     {
         Exhibition? foundExhibition { get; set; }
 
@@ -14,7 +14,7 @@ namespace Kojg_Ragnarock_Guide.Interfaces
 
         List<Exhibition> FilterExhibitions(string floorNr);
 
-        void FindExhibitionInDatabase(int? id);
+        void FindExhibition(int? id);
 
         void CopyFoundExhibition(ExhibitionDto exhibitionDto);
 
@@ -22,7 +22,7 @@ namespace Kojg_Ragnarock_Guide.Interfaces
 
         void SavePhotoAsFile(ExhibitionDto exhibitionDto);
 
-        void CreateExhibitionInDatabase(ExhibitionDto exhibitionDto);
+        void CreateExhibition(ExhibitionDto exhibitionDto);
 
         void DeleteAudio();
 
@@ -34,7 +34,7 @@ namespace Kojg_Ragnarock_Guide.Interfaces
 
         void UpdatePhoto(ExhibitionDto exhibitionDto);
 
-        void UpdateExhibitionInDatabase(ExhibitionDto exhibitionDto);
+        void UpdateExhibition(ExhibitionDto exhibitionDto);
 
         void ClearTheForm(ExhibitionDto exhibitionDto);
     }
