@@ -4,6 +4,7 @@ using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Kojg_Ragnarock_Guide.Models;
+using Kojg_Ragnarock_Guide.Interfaces;
 namespace Kojg_Ragnarock_Guide
 {
     public class Program
@@ -15,10 +16,11 @@ namespace Kojg_Ragnarock_Guide
             builder.Services.AddDbContext<ExhibitionDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("SQL-Ragnarock-Database") ?? throw new InvalidOperationException("Connection string 'ExhibitionContext' not found.")));
 
-           builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
-               .AddRoles<IdentityRole>()
-               .AddEntityFrameworkStores<ExhibitionDbContext>();
-                
+            builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ExhibitionDbContext>();
+            builder.Services.AddTransient<IAdminActionsRepository, AdminActionsRepository>();
+
 
             // add blob service Dont think we need it, was ment for audio
 

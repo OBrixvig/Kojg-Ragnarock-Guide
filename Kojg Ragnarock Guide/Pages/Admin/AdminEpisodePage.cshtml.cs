@@ -1,3 +1,4 @@
+using Kojg_Ragnarock_Guide.Interfaces;
 using Kojg_Ragnarock_Guide.Models;
 using Kojg_Ragnarock_Guide.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -11,38 +12,24 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class AdminEpisodePage : PageModel
     {
-        private readonly ExhibitionDbContext context;
+        IAdminActionsRepository repo;
 
-        public List<Exhibition> Exhibitions { get; set; } = new List<Exhibition>();
+        public List<Exhibition> Exhibitions { get; private set; } = new List<Exhibition>();
 
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
 
-        public AdminEpisodePage(ExhibitionDbContext context)
+        public AdminEpisodePage(IAdminActionsRepository repository)
         {
-            this.context = context;
+            repo = repository;
         }
         public void OnGet()
         {
-            Exhibitions = context.Exhibitions.OrderByDescending(E => E.ExhibitionNumber).Reverse().ToList();
+            Exhibitions = repo.GetAllExhibitions();
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
-                Exhibitions = FilterExhibitions(FilterCriteria);
+                Exhibitions = repo.FilterExhibitions(FilterCriteria);
             }
-        }
-
-        public List<Exhibition> FilterExhibitions(string etageNr)
-        {
-            List<Exhibition> filteredList = new List<Exhibition>();
-
-            foreach (Exhibition ex in Exhibitions)
-            {
-                if (ex.Floor.Contains(etageNr))
-                {
-                    filteredList.Add(ex);
-                }
-            }
-            return filteredList;
         }
     }
 }

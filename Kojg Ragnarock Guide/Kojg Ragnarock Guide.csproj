@@ -11,19 +11,15 @@
   <ItemGroup>
     <Compile Remove="Data\**" />
     <Compile Remove="Helpers\**" />
-    <Compile Remove="Interfaces\**" />
     <Compile Remove="wwwroot\FrontPagePhotos\**" />
     <Content Remove="Data\**" />
     <Content Remove="Helpers\**" />
-    <Content Remove="Interfaces\**" />
     <Content Remove="wwwroot\FrontPagePhotos\**" />
     <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="Helpers\**" />
-    <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="wwwroot\FrontPagePhotos\**" />
     <None Remove="Data\**" />
     <None Remove="Helpers\**" />
-    <None Remove="Interfaces\**" />
     <None Remove="wwwroot\FrontPagePhotos\**" />
   </ItemGroup>
 
