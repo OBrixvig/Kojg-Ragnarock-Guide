@@ -54,7 +54,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 //Save Audio
                 repo.SaveAudioAsFile(ExhibitionDto);
 
-                //Save Image
+                //Save Photo
                 repo.SavePhotoAsFile(ExhibitionDto);
 
                 //Save Exhibition
