@@ -1,4 +1,5 @@
 using Azure.Storage.Blobs;
+using Kojg_Ragnarock_Guide.Interfaces;
 using Kojg_Ragnarock_Guide.Models;
 using Kojg_Ragnarock_Guide.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -11,26 +12,18 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class CreateExhibitionModel : PageModel
     {
+        IExhibitionRepository repo;
 
-        private readonly IWebHostEnvironment environment;
-        private readonly ExhibitionDbContext context;
+        [BindProperty]
+        public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
 
-        private string newAudioFileName;
-        private string newPhotoFileName;
+        //Making some empty string messages i use in html razer pages, lower i define them
+        public string ErrorMessage { get; private set; } = "";
+        public string SuccessMessage { get; private set; } = "";
 
-        private string audioFullPath;
-        private string photoFullPath;
-
-        [BindProperty] public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
-
-        // making some empty string massages i use in html razer pages lower i define them
-        public string _errorMassage = "";
-        public string _successMassage = "";
-
-        public CreateExhibitionModel(IWebHostEnvironment environment, ExhibitionDbContext context)
+        public CreateExhibitionModel(IExhibitionRepository repository)
         {
-            this.environment = environment;
-            this.context = context;
+            repo = repository;
         }
 
         public void OnGet()
@@ -40,94 +33,42 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
         public void OnPost()
         {
-            ValidateInput();
-
-            SaveAudioAsFile();
-
-            SaveImageAsFile();
-
-            SaveNewExhibitionInDatabase();
-
-            ClearTheForm();
-
-            _successMassage = "Udstilling er oprettet";
-
-            Response.Redirect("/Admin/AdminEpisodePage");
-        }
-
-
-        private void ValidateInput()
-        {
+            //Validate Input
             if (ExhibitionDto.PhotoFile == null)
             {
                 ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nødt til at uploade et billed");
             }
 
-            if (ExhibitionDto.AudioFile == null)
+            else if (ExhibitionDto.AudioFile == null)
             {
                 ModelState.AddModelError("ExhibitionDto.AudioFile", "Du er nødt til at uploade mp3 lydfil");
             }
 
-            if (!ModelState.IsValid)
+            else if (!ModelState.IsValid)
             {
-                _errorMassage = "Udfyld venligst alle ledige felter";
+                ErrorMessage = "Udfyld venligst alle ledige felter";
                 return;
             }
-        }
-
-        private void SaveAudioAsFile()
-        {
-            // save Audio as a file
-            newAudioFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-            newAudioFileName += Path.GetExtension(ExhibitionDto.AudioFile!.FileName);
-
-            audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + newAudioFileName;
-            using (FileStream? stream = System.IO.File.Create(audioFullPath))
+            else
             {
-                ExhibitionDto.AudioFile.CopyTo(stream);
+                //Save Audio
+                repo.SaveAudioAsFile(ExhibitionDto);
+
+                //Save Image
+                repo.SavePhotoAsFile(ExhibitionDto);
+
+                //Save Exhibition
+                repo.CreateExhibition(ExhibitionDto);
+
+                //Clear Form
+                repo.ClearTheForm(ExhibitionDto);
+
+                ModelState.Clear();
+
+                SuccessMessage = "Udstilling er nu oprettet";
+
+                Response.Redirect("/Admin/AdminEpisodePage");
             }
-        }
-
-        private void SaveImageAsFile()
-        {
-            // save Image as a file
-            newPhotoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-            newPhotoFileName += Path.GetExtension(ExhibitionDto.PhotoFile!.FileName);
-
-            photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + newPhotoFileName;
-            using (FileStream? stream = System.IO.File.Create(photoFullPath))
-            {
-                ExhibitionDto.PhotoFile.CopyTo(stream);
-            }
-        }
-
-        private void SaveNewExhibitionInDatabase()
-        {
-            //save the new product in the database
-            Exhibition exhibition = new Exhibition()
-            {
-                Title = ExhibitionDto.Title,
-                ExhibitionNumber = ExhibitionDto.ExhibitionNumber,
-                Description = ExhibitionDto.Description ?? "",
-                Floor = ExhibitionDto.Floor,
-                PhotoFileName = newPhotoFileName,
-                AudioFileName = newAudioFileName,
-            };
-            context.Exhibitions.Add(exhibition);
-            context.SaveChanges();
-        }
-
-        private void ClearTheForm()
-        {
-            //Clear the form
-            ExhibitionDto.Title = "";
-            ExhibitionDto.ExhibitionNumber = 0;
-            ExhibitionDto.Description = "";
-            ExhibitionDto.Floor = "";
-            ExhibitionDto.PhotoFile = null;
-            ExhibitionDto.AudioFile = null;
-
-            ModelState.Clear();
         }
     }
 }

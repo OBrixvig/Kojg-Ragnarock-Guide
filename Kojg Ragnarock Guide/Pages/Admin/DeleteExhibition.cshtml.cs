@@ -1,3 +1,4 @@
+using Kojg_Ragnarock_Guide.Interfaces;
 using Kojg_Ragnarock_Guide.Models;
 using Kojg_Ragnarock_Guide.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -9,75 +10,39 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class DeleteExhibitionModel : PageModel
     {
-        private readonly IWebHostEnvironment environment;
-        private readonly ExhibitionDbContext context;
+        IExhibitionRepository repo;
 
-        private string audioFullPath;
-        private string photoFullPath;
-
-        private Exhibition? exhibition;
-
-        public DeleteExhibitionModel(IWebHostEnvironment environment, ExhibitionDbContext context)
+        public DeleteExhibitionModel(IExhibitionRepository repository)
         {
-            this.environment = environment;
-            this.context = context;
+            repo = repository;
         }
         public void OnGet(int? id)
         {
-            ValidateID(id);
-
-            FindExhibition(id);
-
-            DeleteAudio();
-
-            DeletePhoto();
-
-            DeleteExhibition();
-
-            //redirect to Index page
-            Response.Redirect("/Admin/AdminEpisodePage");
-        }
-
-        private void ValidateID(int? id)
-        {
-            //This will get the chosen object in Exhibition index and call this code if nothing is found it will return til index page
+            //Validate ID
             if (id == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
                 return;
             }
-        }
 
-        private void FindExhibition(int? id)
-        {
-            // looks for exhibition and if nothing comes up return to page.
-            exhibition = context.Exhibitions.Find(id);
-            if (exhibition == null)
+            //Find 
+            repo.FindExhibition(id.Value);
+            if (repo.foundExhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
-                return;
             }
-        }
 
-        private void DeleteAudio()
-        {
-            // Deletes Audio
-            audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + exhibition.AudioFileName;
-            System.IO.File.Delete(audioFullPath);
-        }
+            //Delete Audio
+            repo.DeleteAudio();
 
-        private void DeletePhoto()
-        {
-            // Deletes Photo
-            photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + exhibition.PhotoFileName;
-            System.IO.File.Delete(photoFullPath);
-        }
+            //Delete Photo
+            repo.DeletePhoto();
 
-        private void DeleteExhibition()
-        {
-            //Deletes the the rest of the object
-            context.Exhibitions.Remove(exhibition);
-            context.SaveChanges();
+            //Delete Exhibition
+            repo.DeleteExhibition();
+
+            //redirect to Index page
+            Response.Redirect("/Admin/AdminEpisodePage");
         }
     }
 }
