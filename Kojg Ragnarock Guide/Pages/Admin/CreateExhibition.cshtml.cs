@@ -17,9 +17,9 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
         [BindProperty]
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
 
-        // making some empty string massages i use in html razer pages lower i define them
-        public string _errorMassage = "";
-        public string _successMassage = "";
+        //Making some empty string messages i use in html razer pages, lower i define them
+        public string ErrorMessage { get; private set; } = "";
+        public string SuccessMessage { get; private set; } = "";
 
         public CreateExhibitionModel(IExhibitionRepository repository)
         {
@@ -39,37 +39,36 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 ModelState.AddModelError("ExhibitionDto.PhotoFile", "Du er nødt til at uploade et billed");
             }
 
-            if (ExhibitionDto.AudioFile == null)
+            else if (ExhibitionDto.AudioFile == null)
             {
                 ModelState.AddModelError("ExhibitionDto.AudioFile", "Du er nødt til at uploade mp3 lydfil");
             }
 
-            if (!ModelState.IsValid)
+            else if (!ModelState.IsValid)
             {
-                _errorMassage = "Udfyld venligst alle ledige felter";
+                ErrorMessage = "Udfyld venligst alle ledige felter";
                 return;
             }
+            else
+            {
+                //Save Audio
+                repo.SaveAudioAsFile(ExhibitionDto);
 
-            //Save Audio
-            repo.SaveAudioAsFile(ExhibitionDto);
+                //Save Image
+                repo.SavePhotoAsFile(ExhibitionDto);
 
-            //Save Image
-            repo.SavePhotoAsFile(ExhibitionDto);
+                //Save Exhibition
+                repo.CreateExhibition(ExhibitionDto);
 
-            //Save Exhibition
-            repo.CreateExhibition(ExhibitionDto);
+                //Clear Form
+                repo.ClearTheForm(ExhibitionDto);
 
-            //Clear Form
-            repo.ClearTheForm(ExhibitionDto);
+                ModelState.Clear();
 
-            ModelState.Clear();
+                SuccessMessage = "Udstilling er oprettet";
 
-            _successMassage = "Udstilling er oprettet";
-
-            Response.Redirect("/Admin/AdminEpisodePage");
+                Response.Redirect("/Admin/AdminEpisodePage");
+            }
         }
-
-
-       
     }
 }

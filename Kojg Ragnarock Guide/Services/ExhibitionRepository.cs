@@ -76,7 +76,7 @@ namespace Kojg_Ragnarock_Guide.Services
 
         public void SavePhotoAsFile(ExhibitionDto exhibitionDto)
         {
-            // save Image as a file
+            // save Photo as a file
             newPhotoFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             newPhotoFileName += Path.GetExtension(exhibitionDto.PhotoFile!.FileName);
 

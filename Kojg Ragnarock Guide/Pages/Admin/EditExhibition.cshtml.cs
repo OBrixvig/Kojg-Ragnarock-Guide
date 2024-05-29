@@ -19,15 +19,14 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
         public Exhibition Exhibition { get; set; } = new Exhibition();
 
-
-        public string _errorMessage = "";
-        public string _successMessage = "";
+        public string ErrorMessage { get; private set; } = "";
+        public string SuccessMessage { get; private set; } = "";
 
         public EditExhibitionModel(IExhibitionRepository repository)
         {
             repo = repository;
         }
-        // the OnGet() searches for the Id and Exhibition and return with the think i want to update
+        //Making some empty string messages i use in html razer pages, lower i define them
         public void OnGet(int? id)
         {
             //Validate ID
@@ -46,7 +45,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             if (repo.foundExhibition == null)
             {
-                _errorMessage = "Exhibition not found.";
+                ErrorMessage = "Exhibition not found.";
                 return;
             }
 
@@ -76,7 +75,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             //Validate Model State
             if (!ModelState.IsValid)
             {
-                _errorMessage = "Udfyld alle felter";
+                ErrorMessage = "Udfyld alle felter";
                 return;
             }
 
@@ -93,7 +92,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             Exhibition = repo.foundExhibition;
 
 
-            _successMessage = "Udstilling blev opdateret";
+            SuccessMessage = "Udstilling blev opdateret";
 
             Response.Redirect("/Admin/AdminEpisodePage");
 
