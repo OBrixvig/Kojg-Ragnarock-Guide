@@ -12,7 +12,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Exhibitions
     [Authorize(Roles = "admin,client")]
     public class Floor : PageModel
     {
-        IExhibitionRepository repo;
+        private IExhibitionRepository repo;
 
         public List<Exhibition> Exhibitions { get; private set; } = new List<Exhibition>();
 

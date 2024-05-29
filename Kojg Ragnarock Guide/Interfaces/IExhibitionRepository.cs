@@ -8,7 +8,7 @@ namespace Kojg_Ragnarock_Guide.Interfaces
 {
     public interface IExhibitionRepository
     {
-        Exhibition? foundExhibition { get; set; }
+        Exhibition? FoundExhibition { get; set; }
 
         List<Exhibition> GetAllExhibitions();
 

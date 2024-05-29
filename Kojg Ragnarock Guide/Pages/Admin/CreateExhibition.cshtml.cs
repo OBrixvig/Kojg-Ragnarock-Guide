@@ -12,7 +12,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class CreateExhibitionModel : PageModel
     {
-        IExhibitionRepository repo;
+        private IExhibitionRepository repo;
 
         [BindProperty]
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();

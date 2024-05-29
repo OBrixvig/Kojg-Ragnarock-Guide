@@ -14,7 +14,7 @@ namespace Kojg_Ragnarock_Guide.Services
 {
     public class ExhibitionRepository(IWebHostEnvironment environment, ExhibitionDbContext context) : IExhibitionRepository
     {
-        public Exhibition? foundExhibition { get; set; }
+        public Exhibition? FoundExhibition { get; set; }
 
         private string newAudioFileName;
         private string audioFullPath;
@@ -46,18 +46,18 @@ namespace Kojg_Ragnarock_Guide.Services
 
         public void FindExhibition(int? id)
         {
-            foundExhibition = context.Exhibitions.Find(id.Value);
+            FoundExhibition = context.Exhibitions.Find(id.Value);
         }
 
         public void CopyFoundExhibition(ExhibitionDto exhibitionDto)
         {
             // Return what I want to update
-            if (foundExhibition != null)
+            if (FoundExhibition != null)
             {
-                exhibitionDto.Title = foundExhibition.Title;
-                exhibitionDto.Description = foundExhibition.Description;
-                exhibitionDto.Floor = foundExhibition.Floor;
-                exhibitionDto.ExhibitionNumber = foundExhibition.ExhibitionNumber;
+                exhibitionDto.Title = FoundExhibition.Title;
+                exhibitionDto.Description = FoundExhibition.Description;
+                exhibitionDto.Floor = FoundExhibition.Floor;
+                exhibitionDto.ExhibitionNumber = FoundExhibition.ExhibitionNumber;
             }
         }
 
@@ -106,28 +106,28 @@ namespace Kojg_Ragnarock_Guide.Services
         public void DeleteAudio()
         {
             // Deletes Audio
-            audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + foundExhibition.AudioFileName;
+            audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + FoundExhibition.AudioFileName;
             System.IO.File.Delete(audioFullPath);
         }
 
         public void DeletePhoto()
         {
             // Deletes Photo
-            photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + foundExhibition.PhotoFileName;
+            photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + FoundExhibition.PhotoFileName;
             System.IO.File.Delete(photoFullPath);
         }
 
         public void DeleteExhibition()
         {
             //Deletes the the rest of the object
-            context.Exhibitions.Remove(foundExhibition);
+            context.Exhibitions.Remove(FoundExhibition);
             context.SaveChanges();
         }
 
         public void UpdateAudio(ExhibitionDto exhibitionDto)
         {
             // Update Audio If we have a new one
-            newAudioFileName = foundExhibition.AudioFileName;
+            newAudioFileName = FoundExhibition.AudioFileName;
             if (exhibitionDto.AudioFile != null)
             {
                 // Important to get Timestamp or else it wont save the picture properly
@@ -141,16 +141,16 @@ namespace Kojg_Ragnarock_Guide.Services
                 }
 
                 // delete old audio
-                oldAudioFullPath = environment.WebRootPath + "/exhibitionAudios/" + foundExhibition.AudioFileName;
+                oldAudioFullPath = environment.WebRootPath + "/exhibitionAudios/" + FoundExhibition.AudioFileName;
                 System.IO.File.Delete(oldAudioFullPath);
             }
-            foundExhibition.AudioFileName = newAudioFileName;
+            FoundExhibition.AudioFileName = newAudioFileName;
         }
 
         public void UpdatePhoto(ExhibitionDto exhibitionDto)
         {
             // Update Photo If we have a new one
-            newPhotoFileName = foundExhibition.PhotoFileName;
+            newPhotoFileName = FoundExhibition.PhotoFileName;
             if (exhibitionDto.PhotoFile != null)
             {
                 // Important to get Timestamp or else it wont save the picture properly
@@ -163,19 +163,19 @@ namespace Kojg_Ragnarock_Guide.Services
                     exhibitionDto.PhotoFile.CopyTo(stream);
                 }
                 // delete old photo
-                oldPhotoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + foundExhibition.PhotoFileName;
+                oldPhotoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + FoundExhibition.PhotoFileName;
                 System.IO.File.Delete(oldPhotoFullPath);
             }
-            foundExhibition.PhotoFileName = newPhotoFileName;
+            FoundExhibition.PhotoFileName = newPhotoFileName;
         }
 
         public void UpdateExhibition(ExhibitionDto exhibitionDto)
         {
-            // update foundExhibition in database
-            foundExhibition.Title = exhibitionDto.Title;
-            foundExhibition.ExhibitionNumber = exhibitionDto.ExhibitionNumber;
-            foundExhibition.Description = exhibitionDto.Description ?? "";
-            foundExhibition.Floor = exhibitionDto.Floor;
+            // update FoundExhibition in database
+            FoundExhibition.Title = exhibitionDto.Title;
+            FoundExhibition.ExhibitionNumber = exhibitionDto.ExhibitionNumber;
+            FoundExhibition.Description = exhibitionDto.Description ?? "";
+            FoundExhibition.Floor = exhibitionDto.Floor;
             context.SaveChanges();
         }
 

@@ -10,7 +10,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class DeleteExhibitionModel : PageModel
     {
-        IExhibitionRepository repo;
+        private IExhibitionRepository repo;
 
         public DeleteExhibitionModel(IExhibitionRepository repository)
         {
@@ -27,7 +27,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             //Find 
             repo.FindExhibition(id.Value);
-            if (repo.foundExhibition == null)
+            if (repo.FoundExhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
             }

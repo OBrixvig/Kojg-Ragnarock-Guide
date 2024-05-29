@@ -12,7 +12,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     public class EditExhibitionModel : PageModel
     {
 
-        IExhibitionRepository repo;
+        private IExhibitionRepository repo;
 
         [BindProperty]
         public ExhibitionDto ExhibitionDto { get; set; } = new ExhibitionDto();
@@ -38,12 +38,12 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             //Find Exhibition
             repo.FindExhibition(id);
-            if (repo.foundExhibition == null)
+            if (repo.FoundExhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
             }
 
-            if (repo.foundExhibition == null)
+            if (repo.FoundExhibition == null)
             {
                 ErrorMessage = "Exhibition not found.";
                 return;
@@ -53,7 +53,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             repo.CopyFoundExhibition(ExhibitionDto);
 
             //Display Exhibition
-            Exhibition = repo.foundExhibition;
+            Exhibition = repo.FoundExhibition;
         }
 
         public void OnPost(int? id)
@@ -67,7 +67,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
             //Find Exhibition
             repo.FindExhibition(id.Value);
-            if (repo.foundExhibition == null)
+            if (repo.FoundExhibition == null)
             {
                 Response.Redirect("/Admin/AdminEpisodePage");
             }
@@ -89,7 +89,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             repo.UpdateExhibition(ExhibitionDto);
 
             //Display Exhibition
-            Exhibition = repo.foundExhibition;
+            Exhibition = repo.FoundExhibition;
 
 
             SuccessMessage = "Udstilling blev opdateret";
