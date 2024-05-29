@@ -65,7 +65,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
 
                 ModelState.Clear();
 
-                SuccessMessage = "Udstilling er oprettet";
+                SuccessMessage = "Udstilling er nu oprettet";
 
                 Response.Redirect("/Admin/AdminEpisodePage");
             }
