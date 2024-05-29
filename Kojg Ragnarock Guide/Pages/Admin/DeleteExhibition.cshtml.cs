@@ -25,21 +25,14 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 return;
             }
 
-            //Find 
-            repo.FindExhibition(id.Value);
-            if (repo.foundExhibition == null)
-            {
-                Response.Redirect("/Admin/AdminEpisodePage");
-            }
-
             //Delete Audio
-            repo.DeleteAudio();
+            repo.DeleteAudio(id);
 
             //Delete Photo
-            repo.DeletePhoto();
+            repo.DeletePhoto(id);
 
             //Delete Exhibition
-            repo.DeleteExhibition();
+            repo.DeleteExhibition(id);
 
             //redirect to Index page
             Response.Redirect("/Admin/AdminEpisodePage");

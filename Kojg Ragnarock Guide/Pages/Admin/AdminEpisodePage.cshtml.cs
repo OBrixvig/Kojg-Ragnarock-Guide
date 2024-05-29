@@ -12,7 +12,7 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
     [Authorize(Roles = "admin")]
     public class AdminEpisodePage : PageModel
     {
-        IExhibitionRepository repo;
+        private IExhibitionRepository repo;
 
         public List<Exhibition> Exhibitions { get; private set; } = new List<Exhibition>();
 

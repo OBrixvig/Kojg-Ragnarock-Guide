@@ -8,15 +8,13 @@ namespace Kojg_Ragnarock_Guide.Interfaces
 {
     public interface IExhibitionRepository
     {
-        Exhibition? foundExhibition { get; set; }
-
         List<Exhibition> GetAllExhibitions();
+
+        List<Exhibition> FindExhibition(int? id);
 
         List<Exhibition> FilterExhibitions(string floorNr);
 
-        void FindExhibition(int? id);
-
-        void CopyFoundExhibition(ExhibitionDto exhibitionDto);
+        void CopyFoundExhibition(ExhibitionDto exhibitionDto, int? id);
 
         void SaveAudioAsFile(ExhibitionDto exhibitionDto);
 
@@ -24,17 +22,17 @@ namespace Kojg_Ragnarock_Guide.Interfaces
 
         void CreateExhibition(ExhibitionDto exhibitionDto);
 
-        void DeleteAudio();
+        void DeleteAudio(int? id);
 
-        void DeletePhoto();
+        void DeletePhoto(int? id);
 
-        void DeleteExhibition();
+        void DeleteExhibition(int? id);
 
-        void UpdateAudio(ExhibitionDto exhibitionDto);
+        void UpdateAudio(ExhibitionDto exhibitionDto, int? id);
 
-        void UpdatePhoto(ExhibitionDto exhibitionDto);
+        void UpdatePhoto(ExhibitionDto exhibitionDto, int? id);
 
-        void UpdateExhibition(ExhibitionDto exhibitionDto);
+        void UpdateExhibition(ExhibitionDto exhibitionDto, int? id);
 
         void ClearTheForm(ExhibitionDto exhibitionDto);
     }

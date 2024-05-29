@@ -36,21 +36,8 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
                 return;
             }
 
-            //Find Exhibition
-            repo.FindExhibition(id);
-            if (repo.foundExhibition == null)
-            {
-                Response.Redirect("/Admin/AdminEpisodePage");
-            }
-
-            if (repo.foundExhibition == null)
-            {
-                ErrorMessage = "Exhibition not found.";
-                return;
-            }
-
             //Copy Exhibition
-            repo.CopyFoundExhibition(ExhibitionDto);
+            repo.CopyFoundExhibition(ExhibitionDto, id);
 
             //Display Exhibition
             Exhibition = repo.foundExhibition;
@@ -80,13 +67,13 @@ namespace Kojg_Ragnarock_Guide.Pages.Admin
             }
 
             //Update Audio
-            repo.UpdateAudio(ExhibitionDto);
+            repo.UpdateAudio(ExhibitionDto, id);
 
             //Update Photo
-            repo.UpdatePhoto(ExhibitionDto);
+            repo.UpdatePhoto(ExhibitionDto, id);
 
             //Update Exhibition in database
-            repo.UpdateExhibition(ExhibitionDto);
+            repo.UpdateExhibition(ExhibitionDto, id);
 
             //Display Exhibition
             Exhibition = repo.foundExhibition;

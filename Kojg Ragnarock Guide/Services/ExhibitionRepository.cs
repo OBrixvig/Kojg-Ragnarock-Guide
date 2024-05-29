@@ -14,8 +14,6 @@ namespace Kojg_Ragnarock_Guide.Services
 {
     public class ExhibitionRepository(IWebHostEnvironment environment, ExhibitionDbContext context) : IExhibitionRepository
     {
-        public Exhibition? foundExhibition { get; set; }
-
         private string newAudioFileName;
         private string audioFullPath;
         private string oldAudioFullPath;
@@ -27,6 +25,11 @@ namespace Kojg_Ragnarock_Guide.Services
         public List<Exhibition> GetAllExhibitions()
         {
             return context.Exhibitions.OrderByDescending(E => E.ExhibitionNumber).Reverse().ToList();
+        }
+
+        public List<Exhibition> FindExhibition(int? id)
+        {
+            return Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
         }
 
         public List<Exhibition> FilterExhibitions(string floorNr)
@@ -44,13 +47,9 @@ namespace Kojg_Ragnarock_Guide.Services
             return filteredList;
         }
 
-        public void FindExhibition(int? id)
+        public void CopyFoundExhibition(ExhibitionDto exhibitionDto, int? id)
         {
-            foundExhibition = context.Exhibitions.Find(id.Value);
-        }
-
-        public void CopyFoundExhibition(ExhibitionDto exhibitionDto)
-        {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
             // Return what I want to update
             if (foundExhibition != null)
             {
@@ -103,29 +102,35 @@ namespace Kojg_Ragnarock_Guide.Services
             context.SaveChanges();
         }
 
-        public void DeleteAudio()
+        public void DeleteAudio(int? id)
         {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
+
             // Deletes Audio
             audioFullPath = environment.WebRootPath + "/exhibitionAudios/" + foundExhibition.AudioFileName;
             System.IO.File.Delete(audioFullPath);
         }
 
-        public void DeletePhoto()
+        public void DeletePhoto(int? id)
         {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
             // Deletes Photo
             photoFullPath = environment.WebRootPath + "/exhibitionPhotos/" + foundExhibition.PhotoFileName;
             System.IO.File.Delete(photoFullPath);
         }
 
-        public void DeleteExhibition()
+        public void DeleteExhibition(int? id)
         {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
             //Deletes the the rest of the object
             context.Exhibitions.Remove(foundExhibition);
             context.SaveChanges();
         }
 
-        public void UpdateAudio(ExhibitionDto exhibitionDto)
+        public void UpdateAudio(ExhibitionDto exhibitionDto, int? id)
         {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
+
             // Update Audio If we have a new one
             newAudioFileName = foundExhibition.AudioFileName;
             if (exhibitionDto.AudioFile != null)
@@ -147,8 +152,10 @@ namespace Kojg_Ragnarock_Guide.Services
             foundExhibition.AudioFileName = newAudioFileName;
         }
 
-        public void UpdatePhoto(ExhibitionDto exhibitionDto)
+        public void UpdatePhoto(ExhibitionDto exhibitionDto, int? id)
         {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
+
             // Update Photo If we have a new one
             newPhotoFileName = foundExhibition.PhotoFileName;
             if (exhibitionDto.PhotoFile != null)
@@ -169,8 +176,9 @@ namespace Kojg_Ragnarock_Guide.Services
             foundExhibition.PhotoFileName = newPhotoFileName;
         }
 
-        public void UpdateExhibition(ExhibitionDto exhibitionDto)
+        public void UpdateExhibition(ExhibitionDto exhibitionDto, int? id)
         {
+            Exhibition foundExhibition = context.Exhibitions.Find(id.Value);
             // update foundExhibition in database
             foundExhibition.Title = exhibitionDto.Title;
             foundExhibition.ExhibitionNumber = exhibitionDto.ExhibitionNumber;
