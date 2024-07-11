@@ -167,13 +167,13 @@ namespace Kojg_Ragnarock_Guide.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "34f6922c-6370-4252-a809-ad6f72e795c6",
+                            Id = "d8275667-e23b-4768-9e0e-cfdfce9b8b9e",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "e184e162-1535-40ae-8d52-2c278ab92037",
+                            Id = "6d4a9b9b-9392-4129-a732-bf81fc6bcda9",
                             Name = "client",
                             NormalizedName = "client"
                         });
